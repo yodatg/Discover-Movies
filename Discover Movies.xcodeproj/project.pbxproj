@@ -1,0 +1,266 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		72992959148690E100DC38FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72992958148690E100DC38FC /* UIKit.framework */; };
+		7299295B148690E100DC38FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7299295A148690E100DC38FC /* Foundation.framework */; };
+		7299295D148690E100DC38FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7299295C148690E100DC38FC /* CoreGraphics.framework */; };
+		72992963148690E100DC38FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72992961148690E100DC38FC /* InfoPlist.strings */; };
+		72992965148690E100DC38FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72992964148690E100DC38FC /* main.m */; };
+		72992969148690E100DC38FC /* DMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72992968148690E100DC38FC /* DMAppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		72992954148690E100DC38FC /* Discover Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Discover Movies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		72992958148690E100DC38FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7299295A148690E100DC38FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7299295C148690E100DC38FC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		72992960148690E100DC38FC /* Discover Movies-Info.plist */ = {isa = PBXFileReference; path = "Discover Movies-Info.plist"; sourceTree = "<group>"; };
+		72992962148690E100DC38FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		72992964148690E100DC38FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		72992966148690E100DC38FC /* Discover Movies-Prefix.pch */ = {isa = PBXFileReference; path = "Discover Movies-Prefix.pch"; sourceTree = "<group>"; };
+		72992967148690E100DC38FC /* DMAppDelegate.h */ = {isa = PBXFileReference; path = DMAppDelegate.h; sourceTree = "<group>"; };
+		72992968148690E100DC38FC /* DMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DMAppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		72992951148690E100DC38FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72992959148690E100DC38FC /* UIKit.framework in Frameworks */,
+				7299295B148690E100DC38FC /* Foundation.framework in Frameworks */,
+				7299295D148690E100DC38FC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		72992949148690E100DC38FC = {
+			isa = PBXGroup;
+			children = (
+				7299295E148690E100DC38FC /* Discover Movies */,
+				72992957148690E100DC38FC /* Frameworks */,
+				72992955148690E100DC38FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		72992955148690E100DC38FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72992954148690E100DC38FC /* Discover Movies.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		72992957148690E100DC38FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72992958148690E100DC38FC /* UIKit.framework */,
+				7299295A148690E100DC38FC /* Foundation.framework */,
+				7299295C148690E100DC38FC /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7299295E148690E100DC38FC /* Discover Movies */ = {
+			isa = PBXGroup;
+			children = (
+				72992967148690E100DC38FC /* DMAppDelegate.h */,
+				72992968148690E100DC38FC /* DMAppDelegate.m */,
+				7299295F148690E100DC38FC /* Supporting Files */,
+			);
+			path = "Discover Movies";
+			sourceTree = "<group>";
+		};
+		7299295F148690E100DC38FC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				72992960148690E100DC38FC /* Discover Movies-Info.plist */,
+				72992961148690E100DC38FC /* InfoPlist.strings */,
+				72992964148690E100DC38FC /* main.m */,
+				72992966148690E100DC38FC /* Discover Movies-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		72992953148690E100DC38FC /* Discover Movies */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7299296C148690E100DC38FC /* Build configuration list for PBXNativeTarget "Discover Movies" */;
+			buildPhases = (
+				72992950148690E100DC38FC /* Sources */,
+				72992951148690E100DC38FC /* Frameworks */,
+				72992952148690E100DC38FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Discover Movies";
+			productName = "Discover Movies";
+			productReference = 72992954148690E100DC38FC /* Discover Movies.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7299294B148690E100DC38FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Reading University";
+			};
+			buildConfigurationList = 7299294E148690E100DC38FC /* Build configuration list for PBXProject "Discover Movies" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 72992949148690E100DC38FC;
+			productRefGroup = 72992955148690E100DC38FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				72992953148690E100DC38FC /* Discover Movies */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		72992952148690E100DC38FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72992963148690E100DC38FC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		72992950148690E100DC38FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72992965148690E100DC38FC /* main.m in Sources */,
+				72992969148690E100DC38FC /* DMAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		72992961148690E100DC38FC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72992962148690E100DC38FC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7299296A148690E100DC38FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		7299296B148690E100DC38FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7299296D148690E100DC38FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Discover Movies/Discover Movies-Prefix.pch";
+				INFOPLIST_FILE = "Discover Movies/Discover Movies-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7299296E148690E100DC38FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Discover Movies/Discover Movies-Prefix.pch";
+				INFOPLIST_FILE = "Discover Movies/Discover Movies-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7299294E148690E100DC38FC /* Build configuration list for PBXProject "Discover Movies" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7299296A148690E100DC38FC /* Debug */,
+				7299296B148690E100DC38FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7299296C148690E100DC38FC /* Build configuration list for PBXNativeTarget "Discover Movies" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7299296D148690E100DC38FC /* Debug */,
+				7299296E148690E100DC38FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7299294B148690E100DC38FC /* Project object */;
+}

@@ -1,0 +1,1 @@
+Discover Movies is a great new application that allows you to find great new movies!

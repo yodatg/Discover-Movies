@@ -13,6 +13,7 @@
 		72992963148690E100DC38FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72992961148690E100DC38FC /* InfoPlist.strings */; };
 		72992965148690E100DC38FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72992964148690E100DC38FC /* main.m */; };
 		72992969148690E100DC38FC /* DMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72992968148690E100DC38FC /* DMAppDelegate.m */; };
+		729929701486927E00DC38FC /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7299296F1486927E00DC38FC /* README.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +21,13 @@
 		72992958148690E100DC38FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7299295A148690E100DC38FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7299295C148690E100DC38FC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		72992960148690E100DC38FC /* Discover Movies-Info.plist */ = {isa = PBXFileReference; path = "Discover Movies-Info.plist"; sourceTree = "<group>"; };
+		72992960148690E100DC38FC /* Discover Movies-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Discover Movies-Info.plist"; sourceTree = "<group>"; };
 		72992962148690E100DC38FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		72992964148690E100DC38FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		72992966148690E100DC38FC /* Discover Movies-Prefix.pch */ = {isa = PBXFileReference; path = "Discover Movies-Prefix.pch"; sourceTree = "<group>"; };
-		72992967148690E100DC38FC /* DMAppDelegate.h */ = {isa = PBXFileReference; path = DMAppDelegate.h; sourceTree = "<group>"; };
+		72992966148690E100DC38FC /* Discover Movies-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Discover Movies-Prefix.pch"; sourceTree = "<group>"; };
+		72992967148690E100DC38FC /* DMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMAppDelegate.h; sourceTree = "<group>"; };
 		72992968148690E100DC38FC /* DMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DMAppDelegate.m; sourceTree = "<group>"; };
+		7299296F1486927E00DC38FC /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 		72992949148690E100DC38FC = {
 			isa = PBXGroup;
 			children = (
+				7299296F1486927E00DC38FC /* README.txt */,
 				7299295E148690E100DC38FC /* Discover Movies */,
 				72992957148690E100DC38FC /* Frameworks */,
 				72992955148690E100DC38FC /* Products */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72992963148690E100DC38FC /* InfoPlist.strings in Resources */,
+				729929701486927E00DC38FC /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7206C4C214913B9A00445D23 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 7206C4C114913B9A00445D23 /* Movie.m */; };
+		727DE381148CD395004C9093 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 727DE380148CD395004C9093 /* background.png */; };
+		727DE384148CE2F3004C9093 /* DMMoviePosterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 727DE383148CE2F3004C9093 /* DMMoviePosterView.m */; };
+		727DE386148CE972004C9093 /* happyfeet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE385148CE972004C9093 /* happyfeet.jpg */; };
+		727DE38E148CF353004C9093 /* immortals.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE387148CF352004C9093 /* immortals.jpg */; };
+		727DE38F148CF353004C9093 /* muppets.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE388148CF352004C9093 /* muppets.jpg */; };
+		727DE390148CF353004C9093 /* bd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE389148CF353004C9093 /* bd.jpg */; };
+		727DE391148CF353004C9093 /* jack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE38A148CF353004C9093 /* jack.jpg */; };
+		727DE392148CF353004C9093 /* pib.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE38B148CF353004C9093 /* pib.jpg */; };
+		727DE393148CF353004C9093 /* arther.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE38C148CF353004C9093 /* arther.jpg */; };
+		727DE394148CF353004C9093 /* hugo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE38D148CF353004C9093 /* hugo.jpg */; };
 		72992959148690E100DC38FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72992958148690E100DC38FC /* UIKit.framework */; };
 		7299295B148690E100DC38FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7299295A148690E100DC38FC /* Foundation.framework */; };
 		7299295D148690E100DC38FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7299295C148690E100DC38FC /* CoreGraphics.framework */; };
@@ -14,9 +25,37 @@
 		72992965148690E100DC38FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72992964148690E100DC38FC /* main.m */; };
 		72992969148690E100DC38FC /* DMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72992968148690E100DC38FC /* DMAppDelegate.m */; };
 		729929701486927E00DC38FC /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7299296F1486927E00DC38FC /* README.txt */; };
+		7299298B1486984200DC38FC /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 729929731486984200DC38FC /* NSObject+SBJson.m */; };
+		7299298C1486984200DC38FC /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 729929761486984200DC38FC /* SBJsonParser.m */; };
+		7299298D1486984200DC38FC /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 729929781486984200DC38FC /* SBJsonStreamParser.m */; };
+		7299298E1486984200DC38FC /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299297A1486984200DC38FC /* SBJsonStreamParserAccumulator.m */; };
+		7299298F1486984200DC38FC /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299297C1486984200DC38FC /* SBJsonStreamParserAdapter.m */; };
+		729929901486984200DC38FC /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299297E1486984200DC38FC /* SBJsonStreamParserState.m */; };
+		729929911486984200DC38FC /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 729929801486984200DC38FC /* SBJsonStreamWriter.m */; };
+		729929921486984200DC38FC /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 729929821486984200DC38FC /* SBJsonStreamWriterAccumulator.m */; };
+		729929931486984200DC38FC /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 729929841486984200DC38FC /* SBJsonStreamWriterState.m */; };
+		729929941486984200DC38FC /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 729929861486984200DC38FC /* SBJsonTokeniser.m */; };
+		729929951486984200DC38FC /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 729929881486984200DC38FC /* SBJsonUTF8Stream.m */; };
+		729929961486984200DC38FC /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299298A1486984200DC38FC /* SBJsonWriter.m */; };
+		729929A61486A23A00DC38FC /* DMTopMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 729929A41486A23A00DC38FC /* DMTopMoviesViewController.m */; };
+		729929A71486A23A00DC38FC /* DMTopMoviesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729929A51486A23A00DC38FC /* DMTopMoviesViewController.xib */; };
+		72F7BA3A1497DBE4007C3C9B /* NSURLConnectionWithTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F7BA391497DBE4007C3C9B /* NSURLConnectionWithTag.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7206C4C014913B9A00445D23 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		7206C4C114913B9A00445D23 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		727DE380148CD395004C9093 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		727DE382148CE2F3004C9093 /* DMMoviePosterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMoviePosterView.h; sourceTree = "<group>"; };
+		727DE383148CE2F3004C9093 /* DMMoviePosterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMoviePosterView.m; sourceTree = "<group>"; };
+		727DE385148CE972004C9093 /* happyfeet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = happyfeet.jpg; sourceTree = "<group>"; };
+		727DE387148CF352004C9093 /* immortals.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = immortals.jpg; sourceTree = "<group>"; };
+		727DE388148CF352004C9093 /* muppets.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = muppets.jpg; sourceTree = "<group>"; };
+		727DE389148CF353004C9093 /* bd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bd.jpg; sourceTree = "<group>"; };
+		727DE38A148CF353004C9093 /* jack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jack.jpg; sourceTree = "<group>"; };
+		727DE38B148CF353004C9093 /* pib.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pib.jpg; sourceTree = "<group>"; };
+		727DE38C148CF353004C9093 /* arther.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = arther.jpg; sourceTree = "<group>"; };
+		727DE38D148CF353004C9093 /* hugo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hugo.jpg; sourceTree = "<group>"; };
 		72992954148690E100DC38FC /* Discover Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Discover Movies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72992958148690E100DC38FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7299295A148690E100DC38FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -28,6 +67,36 @@
 		72992967148690E100DC38FC /* DMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMAppDelegate.h; sourceTree = "<group>"; };
 		72992968148690E100DC38FC /* DMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DMAppDelegate.m; sourceTree = "<group>"; };
 		7299296F1486927E00DC38FC /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		729929721486984200DC38FC /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
+		729929731486984200DC38FC /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
+		729929741486984200DC38FC /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		729929751486984200DC38FC /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		729929761486984200DC38FC /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		729929771486984200DC38FC /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		729929781486984200DC38FC /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		729929791486984200DC38FC /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		7299297A1486984200DC38FC /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		7299297B1486984200DC38FC /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		7299297C1486984200DC38FC /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		7299297D1486984200DC38FC /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		7299297E1486984200DC38FC /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		7299297F1486984200DC38FC /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		729929801486984200DC38FC /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		729929811486984200DC38FC /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		729929821486984200DC38FC /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		729929831486984200DC38FC /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		729929841486984200DC38FC /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		729929851486984200DC38FC /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
+		729929861486984200DC38FC /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
+		729929871486984200DC38FC /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		729929881486984200DC38FC /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		729929891486984200DC38FC /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		7299298A1486984200DC38FC /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		729929A31486A23900DC38FC /* DMTopMoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTopMoviesViewController.h; sourceTree = "<group>"; };
+		729929A41486A23A00DC38FC /* DMTopMoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTopMoviesViewController.m; sourceTree = "<group>"; };
+		729929A51486A23A00DC38FC /* DMTopMoviesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMTopMoviesViewController.xib; sourceTree = "<group>"; };
+		72F7BA381497DBE4007C3C9B /* NSURLConnectionWithTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLConnectionWithTag.h; sourceTree = "<group>"; };
+		72F7BA391497DBE4007C3C9B /* NSURLConnectionWithTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLConnectionWithTag.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +113,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		727DE37D148CC8DC004C9093 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				727DE387148CF352004C9093 /* immortals.jpg */,
+				727DE388148CF352004C9093 /* muppets.jpg */,
+				727DE389148CF353004C9093 /* bd.jpg */,
+				727DE38A148CF353004C9093 /* jack.jpg */,
+				727DE38B148CF353004C9093 /* pib.jpg */,
+				727DE38C148CF353004C9093 /* arther.jpg */,
+				727DE38D148CF353004C9093 /* hugo.jpg */,
+				727DE380148CD395004C9093 /* background.png */,
+				727DE385148CE972004C9093 /* happyfeet.jpg */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		72992949148690E100DC38FC = {
 			isa = PBXGroup;
 			children = (
@@ -75,8 +160,10 @@
 		7299295E148690E100DC38FC /* Discover Movies */ = {
 			isa = PBXGroup;
 			children = (
-				72992967148690E100DC38FC /* DMAppDelegate.h */,
-				72992968148690E100DC38FC /* DMAppDelegate.m */,
+				7299299A148698DE00DC38FC /* Delegates */,
+				72992999148698CB00DC38FC /* Controller */,
+				72992998148698C100DC38FC /* View */,
+				72992997148698B100DC38FC /* Model */,
 				7299295F148690E100DC38FC /* Supporting Files */,
 			);
 			path = "Discover Movies";
@@ -85,12 +172,85 @@
 		7299295F148690E100DC38FC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				727DE37D148CC8DC004C9093 /* images */,
 				72992960148690E100DC38FC /* Discover Movies-Info.plist */,
 				72992961148690E100DC38FC /* InfoPlist.strings */,
 				72992964148690E100DC38FC /* main.m */,
 				72992966148690E100DC38FC /* Discover Movies-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		729929711486979F00DC38FC /* JSON Parser */ = {
+			isa = PBXGroup;
+			children = (
+				729929721486984200DC38FC /* NSObject+SBJson.h */,
+				729929731486984200DC38FC /* NSObject+SBJson.m */,
+				729929741486984200DC38FC /* SBJson.h */,
+				729929751486984200DC38FC /* SBJsonParser.h */,
+				729929761486984200DC38FC /* SBJsonParser.m */,
+				729929771486984200DC38FC /* SBJsonStreamParser.h */,
+				729929781486984200DC38FC /* SBJsonStreamParser.m */,
+				729929791486984200DC38FC /* SBJsonStreamParserAccumulator.h */,
+				7299297A1486984200DC38FC /* SBJsonStreamParserAccumulator.m */,
+				7299297B1486984200DC38FC /* SBJsonStreamParserAdapter.h */,
+				7299297C1486984200DC38FC /* SBJsonStreamParserAdapter.m */,
+				7299297D1486984200DC38FC /* SBJsonStreamParserState.h */,
+				7299297E1486984200DC38FC /* SBJsonStreamParserState.m */,
+				7299297F1486984200DC38FC /* SBJsonStreamWriter.h */,
+				729929801486984200DC38FC /* SBJsonStreamWriter.m */,
+				729929811486984200DC38FC /* SBJsonStreamWriterAccumulator.h */,
+				729929821486984200DC38FC /* SBJsonStreamWriterAccumulator.m */,
+				729929831486984200DC38FC /* SBJsonStreamWriterState.h */,
+				729929841486984200DC38FC /* SBJsonStreamWriterState.m */,
+				729929851486984200DC38FC /* SBJsonTokeniser.h */,
+				729929861486984200DC38FC /* SBJsonTokeniser.m */,
+				729929871486984200DC38FC /* SBJsonUTF8Stream.h */,
+				729929881486984200DC38FC /* SBJsonUTF8Stream.m */,
+				729929891486984200DC38FC /* SBJsonWriter.h */,
+				7299298A1486984200DC38FC /* SBJsonWriter.m */,
+			);
+			name = "JSON Parser";
+			sourceTree = "<group>";
+		};
+		72992997148698B100DC38FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				729929711486979F00DC38FC /* JSON Parser */,
+				7206C4C014913B9A00445D23 /* Movie.h */,
+				7206C4C114913B9A00445D23 /* Movie.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		72992998148698C100DC38FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				729929A51486A23A00DC38FC /* DMTopMoviesViewController.xib */,
+				727DE382148CE2F3004C9093 /* DMMoviePosterView.h */,
+				727DE383148CE2F3004C9093 /* DMMoviePosterView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		72992999148698CB00DC38FC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				729929A31486A23900DC38FC /* DMTopMoviesViewController.h */,
+				729929A41486A23A00DC38FC /* DMTopMoviesViewController.m */,
+				72F7BA381497DBE4007C3C9B /* NSURLConnectionWithTag.h */,
+				72F7BA391497DBE4007C3C9B /* NSURLConnectionWithTag.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		7299299A148698DE00DC38FC /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				72992967148690E100DC38FC /* DMAppDelegate.h */,
+				72992968148690E100DC38FC /* DMAppDelegate.m */,
+			);
+			name = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +306,16 @@
 			files = (
 				72992963148690E100DC38FC /* InfoPlist.strings in Resources */,
 				729929701486927E00DC38FC /* README.txt in Resources */,
+				729929A71486A23A00DC38FC /* DMTopMoviesViewController.xib in Resources */,
+				727DE381148CD395004C9093 /* background.png in Resources */,
+				727DE386148CE972004C9093 /* happyfeet.jpg in Resources */,
+				727DE38E148CF353004C9093 /* immortals.jpg in Resources */,
+				727DE38F148CF353004C9093 /* muppets.jpg in Resources */,
+				727DE390148CF353004C9093 /* bd.jpg in Resources */,
+				727DE391148CF353004C9093 /* jack.jpg in Resources */,
+				727DE392148CF353004C9093 /* pib.jpg in Resources */,
+				727DE393148CF353004C9093 /* arther.jpg in Resources */,
+				727DE394148CF353004C9093 /* hugo.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +328,22 @@
 			files = (
 				72992965148690E100DC38FC /* main.m in Sources */,
 				72992969148690E100DC38FC /* DMAppDelegate.m in Sources */,
+				7299298B1486984200DC38FC /* NSObject+SBJson.m in Sources */,
+				7299298C1486984200DC38FC /* SBJsonParser.m in Sources */,
+				7299298D1486984200DC38FC /* SBJsonStreamParser.m in Sources */,
+				7299298E1486984200DC38FC /* SBJsonStreamParserAccumulator.m in Sources */,
+				7299298F1486984200DC38FC /* SBJsonStreamParserAdapter.m in Sources */,
+				729929901486984200DC38FC /* SBJsonStreamParserState.m in Sources */,
+				729929911486984200DC38FC /* SBJsonStreamWriter.m in Sources */,
+				729929921486984200DC38FC /* SBJsonStreamWriterAccumulator.m in Sources */,
+				729929931486984200DC38FC /* SBJsonStreamWriterState.m in Sources */,
+				729929941486984200DC38FC /* SBJsonTokeniser.m in Sources */,
+				729929951486984200DC38FC /* SBJsonUTF8Stream.m in Sources */,
+				729929961486984200DC38FC /* SBJsonWriter.m in Sources */,
+				729929A61486A23A00DC38FC /* DMTopMoviesViewController.m in Sources */,
+				727DE384148CE2F3004C9093 /* DMMoviePosterView.m in Sources */,
+				7206C4C214913B9A00445D23 /* Movie.m in Sources */,
+				72F7BA3A1497DBE4007C3C9B /* NSURLConnectionWithTag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +411,7 @@
 		7299296D148690E100DC38FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Discover Movies/Discover Movies-Prefix.pch";
 				INFOPLIST_FILE = "Discover Movies/Discover Movies-Info.plist";
@@ -236,6 +423,7 @@
 		7299296E148690E100DC38FC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Discover Movies/Discover Movies-Prefix.pch";
 				INFOPLIST_FILE = "Discover Movies/Discover Movies-Info.plist";
@@ -263,6 +451,7 @@
 				7299296E148690E100DC38FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,15 +8,36 @@
 
 #import "DMAppDelegate.h"
 
+
+
 @implementation DMAppDelegate
 
 @synthesize window = _window;
+@synthesize topMoviesViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    
+    // Create an instance of our DMTopMoviesViewController - this will be the root
+    // in the UINavigation controller
+    topMoviesViewController = [[DMTopMoviesViewController alloc] init];
+    
+    // Create an instance of UINavigationController
+    // It's stack only contains DMTopMoviesViewController
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:topMoviesViewController];
+    
+    // Configure the navController to be black and transluscent
+    [[navController navigationBar] setBarStyle:UIBarStyleBlackTranslucent];
+
+    // Create our window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    
+    // Place nav controllers view in the window hierarchy
+    [[self window] setRootViewController:navController];
+    
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }

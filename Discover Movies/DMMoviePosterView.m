@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation DMMoviePosterView
-@synthesize moviePosterImage, moviePosterImageView;
+
 
 
 
@@ -32,12 +32,13 @@
         [self setFrame:imageRect];
         
         // assign the image
-        [self setMoviePosterImage:image];
+        moviePosterImage = [[UIImage alloc] init];
+        moviePosterImage = image;
         
-        moviePosterImageView = [[UIImageView alloc] initWithImage:moviePosterImage];
+        //moviePosterImageView = [[UIImageView alloc] initWithImage: moviePosterImage];
         
         // configure image view
-        [[self moviePosterImageView] setContentMode:UIViewContentModeScaleAspectFit];
+        [moviePosterImageView setContentMode:UIViewContentModeScaleAspectFit];
         
         // add the imageView to the view
         [self addSubview:moviePosterImageView];

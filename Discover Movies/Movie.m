@@ -11,7 +11,14 @@
 @implementation Movie 
 @synthesize title, year, synopsis, abridgedCast, suggestedMovieIDs, trailerLink, ratings, poster;
 
-- (id) initWithTitle: (NSString *)_title year: (NSString *)_year synopsis:(NSString *)_synopsis abridgedCast: (NSArray *)_abridgedCast suggestedMovieIDs: (NSArray *)_suggestedMovieIDs trailerLink:(NSString *)_trailerLink ratings:(NSDictionary *)_ratings poster: (NSDictionary *)_poster
+- (id) initWithTitle: (NSString *)_title 
+                year: (NSString *)_year 
+            synopsis:(NSString *)_synopsis 
+        abridgedCast: (NSArray *)_abridgedCast 
+   suggestedMovieIDs: (NSArray *)_suggestedMovieIDs
+         trailerLink:(NSString *)_trailerLink 
+             ratings:(NSDictionary *)_ratings 
+              poster: (UIImage *)_poster
 {
     
     self = [super init];

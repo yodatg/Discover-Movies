@@ -39,7 +39,7 @@
 		729929961486984200DC38FC /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299298A1486984200DC38FC /* SBJsonWriter.m */; };
 		729929A61486A23A00DC38FC /* DMTopMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 729929A41486A23A00DC38FC /* DMTopMoviesViewController.m */; };
 		729929A71486A23A00DC38FC /* DMTopMoviesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729929A51486A23A00DC38FC /* DMTopMoviesViewController.xib */; };
-		72F7BA3A1497DBE4007C3C9B /* NSURLConnectionWithTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F7BA391497DBE4007C3C9B /* NSURLConnectionWithTag.m */; };
+		72C7E60E1498FBF000F3DCC6 /* MovieStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C7E60D1498FBF000F3DCC6 /* MovieStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,8 +95,8 @@
 		729929A31486A23900DC38FC /* DMTopMoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTopMoviesViewController.h; sourceTree = "<group>"; };
 		729929A41486A23A00DC38FC /* DMTopMoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTopMoviesViewController.m; sourceTree = "<group>"; };
 		729929A51486A23A00DC38FC /* DMTopMoviesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMTopMoviesViewController.xib; sourceTree = "<group>"; };
-		72F7BA381497DBE4007C3C9B /* NSURLConnectionWithTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLConnectionWithTag.h; sourceTree = "<group>"; };
-		72F7BA391497DBE4007C3C9B /* NSURLConnectionWithTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLConnectionWithTag.m; sourceTree = "<group>"; };
+		72C7E60C1498FBF000F3DCC6 /* MovieStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieStore.h; sourceTree = "<group>"; };
+		72C7E60D1498FBF000F3DCC6 /* MovieStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,9 +216,11 @@
 		72992997148698B100DC38FC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				729929711486979F00DC38FC /* JSON Parser */,
+				72C7E60C1498FBF000F3DCC6 /* MovieStore.h */,
+				72C7E60D1498FBF000F3DCC6 /* MovieStore.m */,
 				7206C4C014913B9A00445D23 /* Movie.h */,
 				7206C4C114913B9A00445D23 /* Movie.m */,
+				729929711486979F00DC38FC /* JSON Parser */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -238,8 +240,6 @@
 			children = (
 				729929A31486A23900DC38FC /* DMTopMoviesViewController.h */,
 				729929A41486A23A00DC38FC /* DMTopMoviesViewController.m */,
-				72F7BA381497DBE4007C3C9B /* NSURLConnectionWithTag.h */,
-				72F7BA391497DBE4007C3C9B /* NSURLConnectionWithTag.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -343,7 +343,7 @@
 				729929A61486A23A00DC38FC /* DMTopMoviesViewController.m in Sources */,
 				727DE384148CE2F3004C9093 /* DMMoviePosterView.m in Sources */,
 				7206C4C214913B9A00445D23 /* Movie.m in Sources */,
-				72F7BA3A1497DBE4007C3C9B /* NSURLConnectionWithTag.m in Sources */,
+				72C7E60E1498FBF000F3DCC6 /* MovieStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

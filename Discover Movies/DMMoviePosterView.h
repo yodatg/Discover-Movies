@@ -15,9 +15,6 @@
     UIImageView *moviePosterImageView;
 }
 
-@property (nonatomic, strong) UIImage *moviePosterImage;
-@property (nonatomic, strong) UIImageView *moviePosterImageView;
-
 - (id) initWithImage: (UIImage *)image andFrame: (CGRect)frame;
 
 @end

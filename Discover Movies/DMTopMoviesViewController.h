@@ -7,16 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MovieStore.h"
+
+@class DMMoviePosterView;
 
 @interface DMTopMoviesViewController : UIViewController <UIScrollViewDelegate>
 {
-    
+    // View elements
     UIScrollView *movieScrollView;
+    
+    
+    // Data elements
     NSMutableArray *moviePosterArray;
     
     // Data object to hold JSON Data
-    NSMutableData *topMoviesData;
-    NSMutableData *posterData;
+    NSMutableData *topMoviesData; 
+    
+    
+    // Singleton Movie Store to store movies
+    MovieStore *movieStore;
     
     
 }
@@ -25,5 +34,6 @@
 
 - (void)downloadTopMovieJSONFeed;
 - (void)parseMovieFeed;
+- (void)setUpUserInterface;
 
 @end

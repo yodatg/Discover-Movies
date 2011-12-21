@@ -17,7 +17,7 @@
     NSArray *suggestedMovieIDs;
     NSString *trailerLink;
     NSDictionary *ratings;
-    NSDictionary *poster;
+    UIImage *poster;
     
 }
 
@@ -28,8 +28,8 @@
 @property (nonatomic, strong) NSArray *suggestedMovieIDs;
 @property (nonatomic, strong) NSString *trailerLink;
 @property (nonatomic, strong) NSDictionary *ratings;
-@property (nonatomic, strong) NSDictionary *poster;
+@property (nonatomic, strong) UIImage *poster;
 
-- (id) initWithTitle: (NSString *)_title year: (NSString *)_year synopsis:(NSString *)_synopsis abridgedCast: (NSArray *)_abridgedCast suggestedMovieIDs: (NSArray *)_suggestedMovieIDs trailerLink:(NSString *)_trailerLink ratings:(NSDictionary *)_ratings poster: (NSDictionary *)_poster;
+- (id) initWithTitle: (NSString *)_title year: (NSString *)_year synopsis:(NSString *)_synopsis abridgedCast: (NSArray *)_abridgedCast suggestedMovieIDs: (NSArray *)_suggestedMovieIDs trailerLink:(NSString *)_trailerLink ratings:(NSDictionary *)_ratings poster: (UIImage *)_poster;
 
 @end

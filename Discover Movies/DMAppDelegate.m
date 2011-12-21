@@ -22,6 +22,7 @@
     // Create an instance of our DMTopMoviesViewController - this will be the root
     // in the UINavigation controller
     topMoviesViewController = [[DMTopMoviesViewController alloc] init];
+    [topMoviesViewController downloadTopMovieJSONFeed];
     
     // Create an instance of UINavigationController
     // It's stack only contains DMTopMoviesViewController

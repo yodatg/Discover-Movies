@@ -8,32 +8,29 @@
 
 #import <UIKit/UIKit.h>
 #import "MovieStore.h"
+#import "DMMoviePosterView.h"
 
 @class DMMoviePosterView;
 
 @interface DMTopMoviesViewController : UIViewController <UIScrollViewDelegate>
 {
-    // View elements
-    UIScrollView *movieScrollView;
+
+    UIScrollView *movieScrollView; // ScrollView to add posters to
+    UIView *moviePosterView; // View to place the posters
+    
+    NSMutableArray *moviePosterViews;
+    NSMutableArray *moviePosterImageData; // Array to store movie posters
+    NSMutableData *topMoviesData; // Data object to hold JSON Data
     
     
-    // Data elements
-    NSMutableArray *moviePosterArray;
+    MovieStore *movieStore; // Singleton Movie Store to store movies
     
-    // Data object to hold JSON Data
-    NSMutableData *topMoviesData; 
-    
-    
-    // Singleton Movie Store to store movies
-    MovieStore *movieStore;
-    
+
+    BOOL scrollingLocked; // Used to lock movieScrollView so that funny paging doesn't
+                          // occur when rotating the device
     
 }
 @property (nonatomic, strong) IBOutlet UIImageView *background;
-@property (nonatomic, strong) NSMutableArray *moviePosterArray;
-
-- (void)downloadTopMovieJSONFeed;
-- (void)parseMovieFeed;
-- (void)setUpUserInterface;
+@property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
 
 @end

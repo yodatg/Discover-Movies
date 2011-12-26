@@ -15,6 +15,6 @@
     UIImageView *moviePosterImageView;
 }
 
-- (id) initWithImage: (UIImage *)image andFrame: (CGRect)frame;
+- (id) initWithImage: (UIImage *)image;
 
 @end

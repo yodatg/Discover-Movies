@@ -21,32 +21,28 @@
     return self;
 }
 
-- (id) initWithImage:(UIImage *)image
+- (id) initWithImage:(UIImage *)image andFrame: (CGRect)_frame
 {
-    self = [super init];
+    self = [super initWithFrame:_frame];
     
     
     if (self) {
         
+        self.contentMode = UIViewContentModeScaleToFill;
         
-        // assign the image
-        moviePosterImage = [[UIImage alloc] init];
-        moviePosterImage = image;
         
        
-        moviePosterImageView = [[UIImageView alloc]init];
-        // configure image view
-        [moviePosterImageView setContentMode:UIViewContentModeScaleAspectFill];
+        moviePosterImageView = [[UIImageView alloc] initWithFrame: _frame];
         [moviePosterImageView setImage:image];
-        
         
         
         // add the imageView to the view
         [self addSubview:moviePosterImageView];
         
         
-        moviePosterImageView.layer.borderColor = [UIColor whiteColor].CGColor;
-        moviePosterImageView.layer.borderWidth = 6.0f;
+        self.layer.borderColor = [UIColor whiteColor].CGColor;
+        self.layer.borderWidth = 4.0f;
+       
     }
     
     

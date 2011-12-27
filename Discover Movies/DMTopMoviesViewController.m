@@ -44,6 +44,7 @@ typedef enum {
 - (void)parseMovieFeed;
 - (void)downloadPosterForMovie: (NSDictionary *)_posters;
 - (void)configureUserInterface;
+- (void)fadeInImage:(UIImageView *)imageView;
 
 @end
 
@@ -138,7 +139,7 @@ int static kScrollViewPage;
         
         // crate an image from the poster and set it to the movie
         UIImage *poster = [[UIImage alloc] initWithData:[moviePosterImageData objectAtIndex:i]];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:poster];
+        DMMoviePosterView *imageView = [[DMMoviePosterView alloc] initWithImage:poster andFrame:CGRectMake(0, 0, 180, 267)];
         [moviePosterViews addObject:imageView];
         
         NSLog(@"i = %d", i);
@@ -171,6 +172,14 @@ int static kScrollViewPage;
     
 }
 
+- (void)fadeInImage:(UIImageView *)imageView
+{
+    [UIView beginAnimations:@"fade in" context:nil];
+    [UIView setAnimationDuration:1.0];
+    imageView.alpha = 1.0;
+    [UIView commitAnimations];
+    
+}
 /*-------------------------------------------------------------
  *
  *------------------------------------------------------------*/
@@ -228,7 +237,7 @@ int static kScrollViewPage;
                 y = kYPositionLandscapeTopRow;
             }
             
-            UIImageView *imageView = [moviePosterViews objectAtIndex:i];
+            DMMoviePosterView *imageView = [moviePosterViews objectAtIndex:i];
             
             CGRect imageViewFrame = CGRectMake(x, y, 180, 267);
             imageView.frame = imageViewFrame;            
@@ -306,7 +315,7 @@ int static kScrollViewPage;
             }
             
             
-            UIImageView *imageView = [moviePosterViews objectAtIndex:i];
+            DMMoviePosterView *imageView = [moviePosterViews objectAtIndex:i];
             CGRect imageViewFrame = CGRectMake(x, y, 180, 267);
             imageView.frame = imageViewFrame;
            
@@ -483,7 +492,7 @@ int static kScrollViewPage;
                 y = kYPositionLandscapeTopRow;
             }
             
-            UIImageView *imageView = [moviePosterViews objectAtIndex:i];
+            DMMoviePosterView *imageView = [moviePosterViews objectAtIndex:i];
             
             CGRect imageViewFrame = CGRectMake(x, y, 180, 267);
             imageView.frame = imageViewFrame;
@@ -553,7 +562,7 @@ int static kScrollViewPage;
             }
             
             
-            UIImageView *imageView = [moviePosterViews objectAtIndex:i];
+            DMMoviePosterView *imageView = [moviePosterViews objectAtIndex:i];
             CGRect imageViewFrame = CGRectMake(x, y, 180, 267);
             imageView.frame = imageViewFrame;
             x += 230;

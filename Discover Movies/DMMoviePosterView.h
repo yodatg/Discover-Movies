@@ -13,8 +13,13 @@
     
     UIImage *moviePosterImage;
     UIImageView *moviePosterImageView;
+    UIActivityIndicatorView *indicator;
 }
 
-- (id) initWithImage:(UIImage *)image andFrame:(CGRect)_frame;
+@property (nonatomic, strong) UIImage *moviePosterImage;
+@property (nonatomic, strong) UIImageView *moviePosterImageView;
+
+- (id)initWithImage: (UIImage *) _image andFrame: (CGRect)_frame;
+
 
 @end

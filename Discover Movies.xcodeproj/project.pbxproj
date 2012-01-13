@@ -7,17 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7206C4C214913B9A00445D23 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 7206C4C114913B9A00445D23 /* Movie.m */; };
+		2B37DAAE14ABDFBA00467C9E /* DMTopMoviesViewControllerPortrait.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewControllerPortrait.m */; };
+		2BAC8F4714C0880C00E22800 /* DMTopMoviePosterViewLandscape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC8F4614C0880C00E22800 /* DMTopMoviePosterViewLandscape.m */; };
+		2BAC8F4914C09A9B00E22800 /* DMTopMoviesViewControllerPortrait.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BAC8F4814C09A9B00E22800 /* DMTopMoviesViewControllerPortrait.xib */; };
+		2BC717BC14AD7476006CE632 /* DMMyDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC717BB14AD7476006CE632 /* DMMyDownloader.m */; };
+		2BC717BF14AD795D006CE632 /* DMMyImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC717BE14AD795D006CE632 /* DMMyImageDownloader.m */; };
+		2BCFABD414AFD71700252F0A /* DMTopMoviePosterViewPortrait.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCFABD314AFD71700252F0A /* DMTopMoviePosterViewPortrait.m */; };
+		7206C4C214913B9A00445D23 /* DMMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 7206C4C114913B9A00445D23 /* DMMovie.m */; };
 		727DE381148CD395004C9093 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 727DE380148CD395004C9093 /* background.png */; };
 		727DE384148CE2F3004C9093 /* DMMoviePosterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 727DE383148CE2F3004C9093 /* DMMoviePosterView.m */; };
-		727DE386148CE972004C9093 /* happyfeet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE385148CE972004C9093 /* happyfeet.jpg */; };
-		727DE38E148CF353004C9093 /* immortals.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE387148CF352004C9093 /* immortals.jpg */; };
-		727DE38F148CF353004C9093 /* muppets.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE388148CF352004C9093 /* muppets.jpg */; };
-		727DE390148CF353004C9093 /* bd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE389148CF353004C9093 /* bd.jpg */; };
-		727DE391148CF353004C9093 /* jack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE38A148CF353004C9093 /* jack.jpg */; };
-		727DE392148CF353004C9093 /* pib.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE38B148CF353004C9093 /* pib.jpg */; };
-		727DE393148CF353004C9093 /* arther.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE38C148CF353004C9093 /* arther.jpg */; };
-		727DE394148CF353004C9093 /* hugo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 727DE38D148CF353004C9093 /* hugo.jpg */; };
 		72992959148690E100DC38FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72992958148690E100DC38FC /* UIKit.framework */; };
 		7299295B148690E100DC38FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7299295A148690E100DC38FC /* Foundation.framework */; };
 		7299295D148690E100DC38FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7299295C148690E100DC38FC /* CoreGraphics.framework */; };
@@ -37,25 +35,26 @@
 		729929941486984200DC38FC /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 729929861486984200DC38FC /* SBJsonTokeniser.m */; };
 		729929951486984200DC38FC /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 729929881486984200DC38FC /* SBJsonUTF8Stream.m */; };
 		729929961486984200DC38FC /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299298A1486984200DC38FC /* SBJsonWriter.m */; };
-		729929A61486A23A00DC38FC /* DMTopMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 729929A41486A23A00DC38FC /* DMTopMoviesViewController.m */; };
-		729929A71486A23A00DC38FC /* DMTopMoviesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729929A51486A23A00DC38FC /* DMTopMoviesViewController.xib */; };
-		72C7E60E1498FBF000F3DCC6 /* MovieStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C7E60D1498FBF000F3DCC6 /* MovieStore.m */; };
+		72C7E60E1498FBF000F3DCC6 /* DMMovieStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C7E60D1498FBF000F3DCC6 /* DMMovieStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7206C4C014913B9A00445D23 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
-		7206C4C114913B9A00445D23 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		2B37DAAB14ABDFBA00467C9E /* DMTopMoviesViewControllerPortrait.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTopMoviesViewControllerPortrait.h; sourceTree = "<group>"; };
+		2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewControllerPortrait.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTopMoviesViewControllerPortrait.m; sourceTree = "<group>"; };
+		2BAC8F4514C0880C00E22800 /* DMTopMoviePosterViewLandscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTopMoviePosterViewLandscape.h; sourceTree = "<group>"; };
+		2BAC8F4614C0880C00E22800 /* DMTopMoviePosterViewLandscape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTopMoviePosterViewLandscape.m; sourceTree = "<group>"; };
+		2BAC8F4814C09A9B00E22800 /* DMTopMoviesViewControllerPortrait.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMTopMoviesViewControllerPortrait.xib; sourceTree = "<group>"; };
+		2BC717BA14AD7476006CE632 /* DMMyDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMyDownloader.h; sourceTree = "<group>"; };
+		2BC717BB14AD7476006CE632 /* DMMyDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMyDownloader.m; sourceTree = "<group>"; };
+		2BC717BD14AD795D006CE632 /* DMMyImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMyImageDownloader.h; sourceTree = "<group>"; };
+		2BC717BE14AD795D006CE632 /* DMMyImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMyImageDownloader.m; sourceTree = "<group>"; };
+		2BCFABD214AFD71700252F0A /* DMTopMoviePosterViewPortrait.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTopMoviePosterViewPortrait.h; sourceTree = "<group>"; };
+		2BCFABD314AFD71700252F0A /* DMTopMoviePosterViewPortrait.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTopMoviePosterViewPortrait.m; sourceTree = "<group>"; };
+		7206C4C014913B9A00445D23 /* DMMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMovie.h; sourceTree = "<group>"; };
+		7206C4C114913B9A00445D23 /* DMMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMovie.m; sourceTree = "<group>"; };
 		727DE380148CD395004C9093 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		727DE382148CE2F3004C9093 /* DMMoviePosterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMoviePosterView.h; sourceTree = "<group>"; };
 		727DE383148CE2F3004C9093 /* DMMoviePosterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMoviePosterView.m; sourceTree = "<group>"; };
-		727DE385148CE972004C9093 /* happyfeet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = happyfeet.jpg; sourceTree = "<group>"; };
-		727DE387148CF352004C9093 /* immortals.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = immortals.jpg; sourceTree = "<group>"; };
-		727DE388148CF352004C9093 /* muppets.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = muppets.jpg; sourceTree = "<group>"; };
-		727DE389148CF353004C9093 /* bd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bd.jpg; sourceTree = "<group>"; };
-		727DE38A148CF353004C9093 /* jack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jack.jpg; sourceTree = "<group>"; };
-		727DE38B148CF353004C9093 /* pib.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pib.jpg; sourceTree = "<group>"; };
-		727DE38C148CF353004C9093 /* arther.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = arther.jpg; sourceTree = "<group>"; };
-		727DE38D148CF353004C9093 /* hugo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hugo.jpg; sourceTree = "<group>"; };
 		72992954148690E100DC38FC /* Discover Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Discover Movies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72992958148690E100DC38FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7299295A148690E100DC38FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -92,11 +91,8 @@
 		729929881486984200DC38FC /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		729929891486984200DC38FC /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		7299298A1486984200DC38FC /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		729929A31486A23900DC38FC /* DMTopMoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTopMoviesViewController.h; sourceTree = "<group>"; };
-		729929A41486A23A00DC38FC /* DMTopMoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTopMoviesViewController.m; sourceTree = "<group>"; };
-		729929A51486A23A00DC38FC /* DMTopMoviesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMTopMoviesViewController.xib; sourceTree = "<group>"; };
-		72C7E60C1498FBF000F3DCC6 /* MovieStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieStore.h; sourceTree = "<group>"; };
-		72C7E60D1498FBF000F3DCC6 /* MovieStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieStore.m; sourceTree = "<group>"; };
+		72C7E60C1498FBF000F3DCC6 /* DMMovieStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMovieStore.h; sourceTree = "<group>"; };
+		72C7E60D1498FBF000F3DCC6 /* DMMovieStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMovieStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,18 +109,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BC717B714AD73F6006CE632 /* OLD */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = OLD;
+			sourceTree = "<group>";
+		};
+		2BC717B914AD740F006CE632 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2BC717BA14AD7476006CE632 /* DMMyDownloader.h */,
+				2BC717BB14AD7476006CE632 /* DMMyDownloader.m */,
+				2BC717BD14AD795D006CE632 /* DMMyImageDownloader.h */,
+				2BC717BE14AD795D006CE632 /* DMMyImageDownloader.m */,
+			);
+			name = Networking;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		727DE37D148CC8DC004C9093 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				727DE387148CF352004C9093 /* immortals.jpg */,
-				727DE388148CF352004C9093 /* muppets.jpg */,
-				727DE389148CF353004C9093 /* bd.jpg */,
-				727DE38A148CF353004C9093 /* jack.jpg */,
-				727DE38B148CF353004C9093 /* pib.jpg */,
-				727DE38C148CF353004C9093 /* arther.jpg */,
-				727DE38D148CF353004C9093 /* hugo.jpg */,
 				727DE380148CD395004C9093 /* background.png */,
-				727DE385148CE972004C9093 /* happyfeet.jpg */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -132,6 +139,7 @@
 		72992949148690E100DC38FC = {
 			isa = PBXGroup;
 			children = (
+				2BC717B714AD73F6006CE632 /* OLD */,
 				7299296F1486927E00DC38FC /* README.txt */,
 				7299295E148690E100DC38FC /* Discover Movies */,
 				72992957148690E100DC38FC /* Frameworks */,
@@ -216,10 +224,11 @@
 		72992997148698B100DC38FC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				72C7E60C1498FBF000F3DCC6 /* MovieStore.h */,
-				72C7E60D1498FBF000F3DCC6 /* MovieStore.m */,
-				7206C4C014913B9A00445D23 /* Movie.h */,
-				7206C4C114913B9A00445D23 /* Movie.m */,
+				2BC717B914AD740F006CE632 /* Networking */,
+				72C7E60C1498FBF000F3DCC6 /* DMMovieStore.h */,
+				72C7E60D1498FBF000F3DCC6 /* DMMovieStore.m */,
+				7206C4C014913B9A00445D23 /* DMMovie.h */,
+				7206C4C114913B9A00445D23 /* DMMovie.m */,
 				729929711486979F00DC38FC /* JSON Parser */,
 			);
 			name = Model;
@@ -228,9 +237,13 @@
 		72992998148698C100DC38FC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				729929A51486A23A00DC38FC /* DMTopMoviesViewController.xib */,
+				2BAC8F4814C09A9B00E22800 /* DMTopMoviesViewControllerPortrait.xib */,
 				727DE382148CE2F3004C9093 /* DMMoviePosterView.h */,
 				727DE383148CE2F3004C9093 /* DMMoviePosterView.m */,
+				2BCFABD214AFD71700252F0A /* DMTopMoviePosterViewPortrait.h */,
+				2BCFABD314AFD71700252F0A /* DMTopMoviePosterViewPortrait.m */,
+				2BAC8F4514C0880C00E22800 /* DMTopMoviePosterViewLandscape.h */,
+				2BAC8F4614C0880C00E22800 /* DMTopMoviePosterViewLandscape.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -238,8 +251,8 @@
 		72992999148698CB00DC38FC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				729929A31486A23900DC38FC /* DMTopMoviesViewController.h */,
-				729929A41486A23A00DC38FC /* DMTopMoviesViewController.m */,
+				2B37DAAB14ABDFBA00467C9E /* DMTopMoviesViewControllerPortrait.h */,
+				2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewControllerPortrait.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -306,16 +319,8 @@
 			files = (
 				72992963148690E100DC38FC /* InfoPlist.strings in Resources */,
 				729929701486927E00DC38FC /* README.txt in Resources */,
-				729929A71486A23A00DC38FC /* DMTopMoviesViewController.xib in Resources */,
 				727DE381148CD395004C9093 /* background.png in Resources */,
-				727DE386148CE972004C9093 /* happyfeet.jpg in Resources */,
-				727DE38E148CF353004C9093 /* immortals.jpg in Resources */,
-				727DE38F148CF353004C9093 /* muppets.jpg in Resources */,
-				727DE390148CF353004C9093 /* bd.jpg in Resources */,
-				727DE391148CF353004C9093 /* jack.jpg in Resources */,
-				727DE392148CF353004C9093 /* pib.jpg in Resources */,
-				727DE393148CF353004C9093 /* arther.jpg in Resources */,
-				727DE394148CF353004C9093 /* hugo.jpg in Resources */,
+				2BAC8F4914C09A9B00E22800 /* DMTopMoviesViewControllerPortrait.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,10 +345,14 @@
 				729929941486984200DC38FC /* SBJsonTokeniser.m in Sources */,
 				729929951486984200DC38FC /* SBJsonUTF8Stream.m in Sources */,
 				729929961486984200DC38FC /* SBJsonWriter.m in Sources */,
-				729929A61486A23A00DC38FC /* DMTopMoviesViewController.m in Sources */,
 				727DE384148CE2F3004C9093 /* DMMoviePosterView.m in Sources */,
-				7206C4C214913B9A00445D23 /* Movie.m in Sources */,
-				72C7E60E1498FBF000F3DCC6 /* MovieStore.m in Sources */,
+				7206C4C214913B9A00445D23 /* DMMovie.m in Sources */,
+				72C7E60E1498FBF000F3DCC6 /* DMMovieStore.m in Sources */,
+				2B37DAAE14ABDFBA00467C9E /* DMTopMoviesViewControllerPortrait.m in Sources */,
+				2BC717BC14AD7476006CE632 /* DMMyDownloader.m in Sources */,
+				2BC717BF14AD795D006CE632 /* DMMyImageDownloader.m in Sources */,
+				2BCFABD414AFD71700252F0A /* DMTopMoviePosterViewPortrait.m in Sources */,
+				2BAC8F4714C0880C00E22800 /* DMTopMoviePosterViewLandscape.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

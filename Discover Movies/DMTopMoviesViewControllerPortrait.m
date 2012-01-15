@@ -67,12 +67,9 @@ int static kScrollViewPage;
     
     if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
     {
-        [portraitView setAlpha:0.0];
+        
         [portraitView removeFromSuperview];
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.7];
-        [portraitView setAlpha:1.0];
-        [UIView commitAnimations];
+    
         // set the content size of our scroll view. 
         // The frame etc is set up in IB
         
@@ -86,21 +83,14 @@ int static kScrollViewPage;
         
         scrollView.contentSize = CGSizeMake((1024 * 3), 768);
         [scrollView setContentOffset:CGPointMake(xOffset,0)];
-        [landscapeView setAlpha:0.0];
+        
         [scrollView addSubview:landscapeView];
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.7];
-        [landscapeView setAlpha:1.0];
-        [UIView commitAnimations];
     }
     else if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
         
-        [landscapeView setAlpha:0.0];
+        
         [landscapeView removeFromSuperview];
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.7];
-        [landscapeView setAlpha:1.0];
-        [UIView commitAnimations];
+        
         
         // set the content size of our scroll view. 
         // The frame etc is set up in IB
@@ -115,12 +105,8 @@ int static kScrollViewPage;
         scrollView.contentSize = CGSizeMake((768 * 3), 1024);  
         
         
-        [portraitView setAlpha:0.0];
+        
         [scrollView addSubview:portraitView];
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.7];
-        [portraitView setAlpha:1.0];
-        [UIView commitAnimations];
     }
     
 }

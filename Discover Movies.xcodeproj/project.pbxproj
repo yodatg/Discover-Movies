@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B37DAAE14ABDFBA00467C9E /* DMTopMoviesViewControllerPortrait.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewControllerPortrait.m */; };
+		2B37DAAE14ABDFBA00467C9E /* DMTopMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewController.m */; };
 		2BAC8F4714C0880C00E22800 /* DMTopMoviePosterViewLandscape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC8F4614C0880C00E22800 /* DMTopMoviePosterViewLandscape.m */; };
-		2BAC8F4914C09A9B00E22800 /* DMTopMoviesViewControllerPortrait.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BAC8F4814C09A9B00E22800 /* DMTopMoviesViewControllerPortrait.xib */; };
+		2BAC8F4914C09A9B00E22800 /* DMTopMoviesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BAC8F4814C09A9B00E22800 /* DMTopMoviesViewController.xib */; };
 		2BC717BC14AD7476006CE632 /* DMMyDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC717BB14AD7476006CE632 /* DMMyDownloader.m */; };
 		2BC717BF14AD795D006CE632 /* DMMyImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC717BE14AD795D006CE632 /* DMMyImageDownloader.m */; };
 		2BCFABD414AFD71700252F0A /* DMTopMoviePosterViewPortrait.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCFABD314AFD71700252F0A /* DMTopMoviePosterViewPortrait.m */; };
@@ -39,11 +39,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B37DAAB14ABDFBA00467C9E /* DMTopMoviesViewControllerPortrait.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTopMoviesViewControllerPortrait.h; sourceTree = "<group>"; };
-		2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewControllerPortrait.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTopMoviesViewControllerPortrait.m; sourceTree = "<group>"; };
+		2B37DAAB14ABDFBA00467C9E /* DMTopMoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DMTopMoviesViewController.h; sourceTree = "<group>"; };
+		2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTopMoviesViewController.m; sourceTree = "<group>"; };
 		2BAC8F4514C0880C00E22800 /* DMTopMoviePosterViewLandscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTopMoviePosterViewLandscape.h; sourceTree = "<group>"; };
 		2BAC8F4614C0880C00E22800 /* DMTopMoviePosterViewLandscape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTopMoviePosterViewLandscape.m; sourceTree = "<group>"; };
-		2BAC8F4814C09A9B00E22800 /* DMTopMoviesViewControllerPortrait.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMTopMoviesViewControllerPortrait.xib; sourceTree = "<group>"; };
+		2BAC8F4814C09A9B00E22800 /* DMTopMoviesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMTopMoviesViewController.xib; sourceTree = "<group>"; };
 		2BC717BA14AD7476006CE632 /* DMMyDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMyDownloader.h; sourceTree = "<group>"; };
 		2BC717BB14AD7476006CE632 /* DMMyDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMyDownloader.m; sourceTree = "<group>"; };
 		2BC717BD14AD795D006CE632 /* DMMyImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMyImageDownloader.h; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 		72992998148698C100DC38FC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2BAC8F4814C09A9B00E22800 /* DMTopMoviesViewControllerPortrait.xib */,
+				2BAC8F4814C09A9B00E22800 /* DMTopMoviesViewController.xib */,
 				727DE382148CE2F3004C9093 /* DMMoviePosterView.h */,
 				727DE383148CE2F3004C9093 /* DMMoviePosterView.m */,
 				2BCFABD214AFD71700252F0A /* DMTopMoviePosterViewPortrait.h */,
@@ -251,8 +251,8 @@
 		72992999148698CB00DC38FC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2B37DAAB14ABDFBA00467C9E /* DMTopMoviesViewControllerPortrait.h */,
-				2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewControllerPortrait.m */,
+				2B37DAAB14ABDFBA00467C9E /* DMTopMoviesViewController.h */,
+				2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -320,7 +320,7 @@
 				72992963148690E100DC38FC /* InfoPlist.strings in Resources */,
 				729929701486927E00DC38FC /* README.txt in Resources */,
 				727DE381148CD395004C9093 /* background.png in Resources */,
-				2BAC8F4914C09A9B00E22800 /* DMTopMoviesViewControllerPortrait.xib in Resources */,
+				2BAC8F4914C09A9B00E22800 /* DMTopMoviesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +348,7 @@
 				727DE384148CE2F3004C9093 /* DMMoviePosterView.m in Sources */,
 				7206C4C214913B9A00445D23 /* DMMovie.m in Sources */,
 				72C7E60E1498FBF000F3DCC6 /* DMMovieStore.m in Sources */,
-				2B37DAAE14ABDFBA00467C9E /* DMTopMoviesViewControllerPortrait.m in Sources */,
+				2B37DAAE14ABDFBA00467C9E /* DMTopMoviesViewController.m in Sources */,
 				2BC717BC14AD7476006CE632 /* DMMyDownloader.m in Sources */,
 				2BC717BF14AD795D006CE632 /* DMMyImageDownloader.m in Sources */,
 				2BCFABD414AFD71700252F0A /* DMTopMoviePosterViewPortrait.m in Sources */,

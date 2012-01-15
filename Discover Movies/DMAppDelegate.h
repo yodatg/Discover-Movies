@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "DMMovieStore.h"
-#import "DMTopMoviesViewControllerPortrait.h"
+#import "DMTopMoviesViewController.h"
 
 @interface DMAppDelegate : UIResponder <UIApplicationDelegate> {
     
-    DMTopMoviesViewControllerPortrait *vc;
+    DMTopMoviesViewController *vc;
 }
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) DMTopMoviesViewControllerPortrait *vc;
+@property (strong, nonatomic) DMTopMoviesViewController *vc;
 
 
 @end

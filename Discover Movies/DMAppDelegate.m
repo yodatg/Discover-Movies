@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    vc = [[DMTopMoviesViewControllerPortrait alloc] init];
+    vc = [[DMTopMoviesViewController alloc] init];
     // Create an instance of our DMTopMoviesViewController - this will be the root
     // in the UINavigation controller
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];

@@ -11,6 +11,10 @@
 @implementation DMMovie 
 @synthesize title, year, synopsis, abridgedCast, suggestedMovieIDs, trailerLink, ratings, poster, movieID;
 
+/*-------------------------------------------------------------
+ * 
+ *------------------------------------------------------------*/
+
 - (id) initWithID: (NSString *)_movieID 
                 title: (NSString *)_title 
                 year: (NSString *)_year 
@@ -41,11 +45,36 @@
     
 }
 
+/*-------------------------------------------------------------
+ * 
+ *------------------------------------------------------------*/
 
 - (NSString *)description {
     
-    
     return [NSString stringWithFormat:@"Title = %@ , Year = %@ , Synopsis = %@, Cast = %@, Rating = %@", title, year, synopsis, abridgedCast, ratings];
+}
+
+- (NSString *)topActors {
+    
+    NSMutableString *actorString = [[NSMutableString alloc] init];
+    
+    for (int i = 0; i < 5; i++) {
+        
+        // take away the comma
+        if (i == 4) {
+            NSDictionary *castMember = [[self abridgedCast] objectAtIndex:i];
+            NSString *memberName = [castMember objectForKey:@"name"];
+            NSLog(@"Name = %@", memberName);
+            [actorString appendString:[NSString stringWithFormat:@"%@ ", memberName]];
+        }
+        else {
+            NSDictionary *castMember = [[self abridgedCast] objectAtIndex:i];
+            NSString *memberName = [castMember objectForKey:@"name"];
+            NSLog(@"Name = %@", memberName);
+            [actorString appendString:[NSString stringWithFormat:@"%@, ", memberName]];
+        }
+    }
+    return actorString;
 }
 
 @end

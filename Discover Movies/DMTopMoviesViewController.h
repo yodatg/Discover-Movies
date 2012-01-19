@@ -9,27 +9,27 @@
 #import <UIKit/UIKit.h>
 #import "DMMovieStore.h"
 #import "DMMoviePosterView.h"
-#import "DMTopMoviePosterViewPortrait.h"
+#import "DMTopMoviePosterView.h"
 #import "DMTopMoviePosterViewLandscape.h"
 
-@interface DMTopMoviesViewController : UIViewController <UIScrollViewDelegate> {
+@interface DMTopMoviesViewController : UIViewController <UIScrollViewDelegate, DMTopMoviePosterViewDelegate> {
     
-    
+    // Access to the Model
     DMMovieStore *movieStore;
+    // Local store of moviePosterViews, copied from the movieStore
     NSMutableArray *moviePosterViews;
     
     UIScrollView *scrollView;
     UIPageControl *pageControl;
     
-    BOOL isShowingLandscapeView;
     
-    // Landscape View
-    DMTopMoviePosterViewPortrait *portraitView;
-    DMTopMoviePosterViewLandscape *landscapeView;
+    // Alternate Views - Landscape & Portrait
+    DMTopMoviePosterView *topMoviesView;
     
+    // Locks scrollView during rotation
     BOOL scrollingLocked;
     
-    }
+}
 
 
 @property (nonatomic, strong) UIScrollView *scrollView;

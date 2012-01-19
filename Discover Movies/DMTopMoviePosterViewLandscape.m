@@ -30,6 +30,10 @@ typedef enum {
 @implementation DMTopMoviePosterViewLandscape
 @synthesize images;
 
+/*-------------------------------------------------------------
+ * Called when created - standard init
+ *------------------------------------------------------------*/
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -39,13 +43,16 @@ typedef enum {
     return self;
 }
 
+/*-------------------------------------------------------------
+ * Custom init - lays out images
+ *------------------------------------------------------------*/
+
 - (id) initViewWithImages:(NSArray *) _images {
     
-    if ([self initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].applicationFrame.size.width * 3, [UIScreen mainScreen].applicationFrame.size.height)]) {
+    if (self = [self initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].applicationFrame.size.width * 3, [UIScreen mainScreen].applicationFrame.size.height)]) {
         
         
-            NSLog(@"Main View Size W = %f H = %f", self.frame.size.width, self.frame.size.height);
-        
+
         self.images = _images;
         
         /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -182,14 +189,5 @@ typedef enum {
 
     
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

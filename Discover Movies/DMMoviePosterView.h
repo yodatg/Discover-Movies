@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface DMMoviePosterView : UIView
 {
     
@@ -15,11 +16,11 @@
     UIImageView *moviePosterImageView;
     UIActivityIndicatorView *indicator;
 }
-
 @property (nonatomic, strong) UIImage *moviePosterImage;
 @property (nonatomic, strong) UIImageView *moviePosterImageView;
 
 - (id)initWithImage: (UIImage *) _image andFrame: (CGRect)_frame;
+- (id)initWithImage: (UIImage *) _image borderWidth: (CGFloat) _width andFrame: (CGRect)_frame;
 
 
 @end

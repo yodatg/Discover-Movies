@@ -41,5 +41,5 @@ suggestedMovieIDs: (NSArray *)_suggestedMovieIDs
           ratings:(NSDictionary *)_ratings 
            poster: (UIImage *)_poster;
 
-
+- (NSString *)topActors;
 @end

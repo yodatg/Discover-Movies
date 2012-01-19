@@ -12,40 +12,43 @@
 @implementation DMMoviePosterView
 @synthesize moviePosterImage, moviePosterImageView;
 
+/*-------------------------------------------------------------
+ * Standard initialiser
+ *------------------------------------------------------------*/
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     
     if (self) {
-        //self.contentMode = UIViewContentModeScaleAspectFit;
+        
         self.layer.borderColor = [UIColor whiteColor].CGColor;
         self.layer.borderWidth = 4.0f;
-        
-        
-        //indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        //indicator.frame = CGRectMake(self.frame.origin.x / 2, self.frame.origin.x / 2, 40, 40);
-        //[self addSubview:indicator];
-        //[indicator startAnimating];
+
     }
     
     
     return self;
 }
+
+/*-------------------------------------------------------------
+ * Custom init - sets image
+ *------------------------------------------------------------*/
 
 - (id)initWithImage: (UIImage *) _image andFrame: (CGRect)_frame 
 {
 
-    if ([self initWithFrame:_frame]) {
+    if (self = [self initWithFrame:_frame]) {
         
         self.moviePosterImage = _image;
         
         moviePosterImageView = [[UIImageView alloc] initWithImage:moviePosterImage];
+        moviePosterImageView.contentMode = UIViewContentModeScaleToFill;
         moviePosterImageView.frame = self.bounds;
         
         [self addSubview:moviePosterImageView];
         
-        moviePosterImageView.contentMode = UIViewContentModeScaleToFill;
+        
         
         
     }
@@ -54,15 +57,24 @@
     
 }
 
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (id)initWithImage: (UIImage *) _image borderWidth: (CGFloat) _width andFrame: (CGRect)_frame 
 {
-    // Drawing code
+    self = [self initWithImage:_image andFrame:_frame];
     
+    if (self) {
+        
+        self.layer.borderWidth = _width;
+    }
+    
+    return self;
 }
-*/
+
+
+
+
+    
+   
+    
+
 
 @end

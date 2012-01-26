@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "DMMoviePosterView.h"
 
-@interface DetailViewControllerPortrait : UIViewController {
+@interface DetailViewControllerPortrait : UIViewController <UINavigationControllerDelegate, UINavigationBarDelegate> {
     
+    DMMoviePosterView *posterView;
     
     
 }

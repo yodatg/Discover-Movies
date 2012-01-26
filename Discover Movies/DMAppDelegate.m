@@ -23,7 +23,7 @@
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
     // Configure the navController to be black and transluscent
     [[navController navigationBar] setBarStyle:UIBarStyleBlackTranslucent];
-
+    
 
     
 

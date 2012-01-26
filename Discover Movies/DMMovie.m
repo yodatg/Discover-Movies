@@ -64,13 +64,11 @@
         if (i == 4) {
             NSDictionary *castMember = [[self abridgedCast] objectAtIndex:i];
             NSString *memberName = [castMember objectForKey:@"name"];
-            NSLog(@"Name = %@", memberName);
             [actorString appendString:[NSString stringWithFormat:@"%@ ", memberName]];
         }
         else {
             NSDictionary *castMember = [[self abridgedCast] objectAtIndex:i];
             NSString *memberName = [castMember objectForKey:@"name"];
-            NSLog(@"Name = %@", memberName);
             [actorString appendString:[NSString stringWithFormat:@"%@, ", memberName]];
         }
     }

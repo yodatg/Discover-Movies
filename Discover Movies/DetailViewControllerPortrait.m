@@ -18,6 +18,14 @@
 @synthesize synopsisTextView;
 @synthesize audienceScore, audienceImage, criticsImage, criticsScore, movieTitle, actors, synopsis, poster;
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * Private interface definitions
+ *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+@interface DetailViewControllerPortrait(Private)
+- (void) handleBack:(id)sender;
+
+@end
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -25,7 +33,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
+            
         
         
             }
@@ -47,8 +55,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    // change the back button to cancel and add an event handler
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Top Movies" style:UIBarButtonItemStyleBordered target:self action:@selector(handleBack:)];
     
-    //[audienceScoreLabel setText:audienceScore];
+    self.navigationItem.leftBarButtonItem = backButton;
     
     if (self.criticsScore.integerValue >= 50) {
         [criticsScoreLabel setText:criticsScore];
@@ -74,7 +84,16 @@
         [audienceImageView setImage:[UIImage imageNamed:@"popcorn_over.png"]];
     }
 
-    DMMoviePosterView *posterView = [[DMMoviePosterView alloc] initWithImage:poster borderWidth:7.0 andFrame:CGRectMake(35, 90, 260, 388)];
+    if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)
+    {
+    
+    posterView = [[DMMoviePosterView alloc] initWithImage:poster borderWidth:7.0 andFrame:CGRectMake(35, 95, 260, 388)];
+    }
+    else if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeLeft || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight){
+        
+        posterView = [[DMMoviePosterView alloc] initWithImage:poster borderWidth:7.0 andFrame:CGRectMake(35, 70, 260, 388)];
+        
+    }
     [self.view addSubview:posterView];
         
     [titleLabel setText:movieTitle];
@@ -100,6 +119,33 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+
+- (void) handleBack:(id)sender {
+    
+    [UIView  beginAnimations:nil context:NULL];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.75];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
+    [UIView commitAnimations];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDelay:0.375];
+    [self.navigationController popViewControllerAnimated:NO];
+    [UIView commitAnimations];
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    
+    if(toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+        
+        posterView.frame = CGRectMake(35, 95, 260, 388);
+        
+    }
+    else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+    posterView.frame = CGRectMake(35, 70, 260, 388);
+    }
+    
 }
 
 @end

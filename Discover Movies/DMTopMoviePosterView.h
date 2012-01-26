@@ -11,7 +11,7 @@
 - (void)posterViewTouched:(NSInteger)tag;
 @end
 
-@interface DMTopMoviePosterView : UIView {
+@interface DMTopMoviePosterView : UIView <UIGestureRecognizerDelegate> {
     
     NSArray *images;
     

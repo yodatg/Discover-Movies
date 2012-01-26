@@ -54,7 +54,9 @@ typedef enum {
         // add gesture recogniser
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected:)];
         singleTap.numberOfTapsRequired = 1;
+        singleTap.delegate = self;
         [self addGestureRecognizer:singleTap];
+        
         
         // tag needed for gestures
         self.tag = 100;
@@ -522,21 +524,18 @@ typedef enum {
 
 #pragma mark - Touch Handling
 
-- (void)tapDetected:(UIGestureRecognizer *)sender {
-    
+- (void)tapDetected:(UITapGestureRecognizer *)sender {
    
     CGPoint p = [sender locationOfTouch:0 inView:self];
     UIView* v = [self hitTest:p withEvent:nil];
     
     if ([v tag] == 100) {
-        return;
+       return;
     }
     else {
         [[self delegate] posterViewTouched:[v tag]];
     }
     
 }
-
-
 
 @end

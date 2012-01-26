@@ -92,8 +92,14 @@ int static kScrollViewPage;
     [detailVC setSynopsis:mSynopsis];
     [detailVC setPoster:mPoster];
     
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.75];
     
-
+    [self.navigationController pushViewController:detailVC animated:NO];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:NO];
+    [UIView commitAnimations];
+    
 
 }
 
@@ -239,6 +245,66 @@ int static kScrollViewPage;
     
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    
+    
+    CGRect searchRect = CGRectMake(0, 0, self.navigationController.toolbar.frame.size.width/3, self.navigationController.toolbar.frame.size.height);
+
+    
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:searchRect];
+    UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithCustomView:searchBar];
+    [self.navigationItem setRightBarButtonItem:bbi]; 
+    
+    
+    // if PORTRAIT
+    if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)
+    {
+        
+        // set the content size of our scroll view. 
+        // The frame etc is set up in IB
+        CGRect rect = CGRectMake(0, 0, 768, 1024);
+        scrollView.frame = rect;
+        
+        // stops scrollview offset being weird when rotating
+        kScrollViewPage = [pageControl currentPage];
+        CGFloat xOffset = (kScrollViewPage * scrollView.frame.size.width);
+        [scrollView setContentOffset:CGPointMake(xOffset,0)];
+        
+        scrollView.contentSize = CGSizeMake((768 * 3), 1024);
+        [scrollView setContentOffset:CGPointMake(xOffset,0)];
+        
+        
+        [topMoviesView rotateToPortrait];
+        
+        
+    }
+    
+    // if LANDSCAPE
+    else if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeLeft ||[UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight) {
+        
+        
+        
+        // set the content size of our scroll view. 
+        // The frame etc is set up in IB
+        CGRect rect = CGRectMake(0, 0, 1024, 768);
+        scrollView.frame = rect;
+        
+        // stops scrollview offset being weird when rotating
+        kScrollViewPage = [pageControl currentPage];
+        CGFloat xOffset = (kScrollViewPage * scrollView.frame.size.width);
+        [scrollView setContentOffset:CGPointMake(xOffset,0)];
+        
+        scrollView.contentSize = CGSizeMake((1024 * 3), 768);  
+        
+        
+        [topMoviesView rotateToLandscape];
+    }
+
+    
+    
+
+}
+
 /*-------------------------------------------------------------
  *
  *------------------------------------------------------------*/
@@ -273,6 +339,7 @@ int static kScrollViewPage;
 }
 
 - (void)posterViewTouched:(NSInteger)tag {
+    
     
     [self addDetailViewControllerWithMovie:tag];
 }

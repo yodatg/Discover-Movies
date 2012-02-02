@@ -523,7 +523,9 @@ typedef enum {
 }
 
 #pragma mark - Touch Handling
-
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 - (void)tapDetected:(UITapGestureRecognizer *)sender {
    
     CGPoint p = [sender locationOfTouch:0 inView:self];

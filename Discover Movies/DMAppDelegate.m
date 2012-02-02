@@ -33,6 +33,7 @@
     
     // Place nav controllers view in the window hierarchy
     [[self window] setRootViewController:navController];
+    [[self window] setBackgroundColor:[UIColor blackColor]];
     
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];

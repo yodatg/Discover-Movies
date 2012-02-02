@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewControllerPortrait.h"
+#import "DMModalTrailerView.h"
 
 @implementation DetailViewControllerPortrait
 @synthesize audienceScoreLabel;
@@ -27,20 +28,26 @@
 
 @end
 
-
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-            
+                    
+        movieStore = [DMMovieStore defaultStore];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showTrailer) name:@"youtubeURLCreated" object:movieStore];
         
-        
-            }
+        }
     return self;
 }
 
 
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -50,7 +57,9 @@
 }
 
 #pragma mark - View lifecycle
-
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -100,7 +109,9 @@
     [actorsLabel setText:actors];
     [synopsisTextView setText:synopsis];
 }
-
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 - (void)viewDidUnload
 {
     [self setCriticsImageView:nil];
@@ -114,38 +125,181 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
 	return YES;
 }
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+- (void) handleBack:(id)sender {   
+   
+    
+    [UIView beginAnimations:@"transition" context:nil];
+    [UIView setAnimationDuration:1.0];
+    
+    [UIView 
+     setAnimationTransition:UIViewAnimationTransitionFlipFromLeft 
+     forView:self.navigationController.view 
+     cache:NO];
+    
+    [self.navigationController 
+     popViewControllerAnimated:NO];
+    
+    [UIView commitAnimations];
 
-- (void) handleBack:(id)sender {
     
-    [UIView  beginAnimations:nil context:NULL];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationDuration:0.75];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
-    [UIView commitAnimations];
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDelay:0.375];
-    [self.navigationController popViewControllerAnimated:NO];
-    [UIView commitAnimations];
 }
-
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     
     if(toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
         
+        if(overlayPresent == YES) {
+            self.view.hidden = YES;
+        }
+        
         posterView.frame = CGRectMake(35, 95, 260, 388);
+                
+                
         
     }
     else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-    posterView.frame = CGRectMake(35, 70, 260, 388);
+        
+        if(overlayPresent == YES) {
+            self.view.hidden = YES;
+        }
+        
+        posterView.frame = CGRectMake(35, 70, 260, 388);
+        
     }
+        
     
 }
 
+-(void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    
+    self.view.hidden = NO;
+    
+}
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+- (IBAction)playMovieTrailer:(id)sender {
+    
+    NSLog(@"Playing Trailer for movie: %@", movieTitle);
+    [movieStore searchYouTubeForTrailer:movieTitle];
+    
+}
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+- (void)showTrailer {
+    
+    
+    // if PORTRAIT
+    if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+        
+
+        overlay = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1024, 1024)];
+        overlay.backgroundColor = [UIColor blackColor];
+        [self.view addSubview:overlay];
+        overlayPresent = YES;
+        
+        overlay.alpha = 0.0f;
+        [self.navigationController.navigationBar addSubview:overlay];
+        [UIView setAnimationDuration:5.0f];
+        [UIView beginAnimations:nil context:nil];
+        overlay.alpha = 0.5f;
+        [UIView commitAnimations];
+        
+        
+        modalView = [[DMModalTrailerView alloc] initWithYoutubeVideo:[movieStore youtubeURL]];
+        modalView.frame = CGRectMake(self.view.center.x - 270, self.view.center.y - 315, 540, 630);
+        modalView.delegate = self;
+        
+        [modalView setAlpha:0.0];
+        [self.navigationController.view addSubview:modalView];
+        [UIView setAnimationDuration:0.30f];
+        [UIView beginAnimations:nil context:nil];
+        [modalView setAlpha:1.0];
+        [UIView commitAnimations];
+
+        
+    }
+    // if LANDSCAPE
+    else if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeLeft ||[UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight) {
+        
+        overlay = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1024, 1024)];
+        overlay.backgroundColor = [UIColor blackColor];
+        overlayPresent = YES;
+        
+        overlay.alpha = 0.0f;
+        [self.navigationController.navigationBar addSubview:overlay];
+        [UIView setAnimationDuration:5.0f];
+        [UIView beginAnimations:nil context:nil];
+        overlay.alpha = 0.5f;
+        [UIView commitAnimations];
+        
+        
+        modalView = [[DMModalTrailerView alloc] initWithYoutubeVideo:[movieStore youtubeURL]];
+        modalView.frame = CGRectMake(self.view.center.x - 270, self.view.center.y - 315, 540, 630);
+        modalView.delegate = self;
+        
+        [modalView setAlpha:0.0];
+        [self.navigationController.view addSubview:modalView];
+        [UIView setAnimationDuration:0.30f];
+        [UIView beginAnimations:nil context:nil];
+        [modalView setAlpha:1.0];
+        [UIView commitAnimations];
+        
+    }
+        
+    
+    
+}
+
+#pragma mark - DMTrailerViewController Delegate Methods
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+- (void)didDismissModalView {
+    
+    //Dismiss modal view controller
+    [self dismissModalViewControllerAnimated:YES];
+}
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+- (void)doneButtonTouched {
+    
+     //self.navigationItem.leftBarButtonItem.enabled = YES;
+    
+    overlay.alpha = 0.5f;
+    
+    [UIView setAnimationDuration:0.5f];
+    [UIView beginAnimations:nil context:nil];
+    overlay.alpha = 0;
+    [UIView commitAnimations];
+    [overlay performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:0.5];
+    overlayPresent = NO;
+    
+    
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.30f];
+    modalView.alpha = 0;
+    [UIView commitAnimations];
+    [modalView performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:0.5];
+    overlayPresent = NO;
+    
+
+    
+}
 @end

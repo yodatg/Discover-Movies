@@ -8,10 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "DMMoviePosterView.h"
+#import "DMMovieStore.h"
+#import "DMModalTrailerView.h"
 
-@interface DetailViewControllerPortrait : UIViewController <UINavigationControllerDelegate, UINavigationBarDelegate> {
+@interface DetailViewControllerPortrait : UIViewController <UINavigationControllerDelegate, UINavigationBarDelegate, DMModelTrailerViewDelegate> {
     
+    // Poster view to be added to detailVC
     DMMoviePosterView *posterView;
+    DMMovieStore *movieStore;
+    
+    // View that is presented when user plays trailer
+    DMModalTrailerView *modalView;
+    
+    // Dims background when modal view presented - this is a work around (see .m for more details)
+    UIView *overlay;
+    BOOL overlayPresent;
+    
     
     
 }
@@ -33,6 +45,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *actorsLabel;
 @property (strong, nonatomic) IBOutlet UITextView *synopsisTextView;
+
+
+- (IBAction)playMovieTrailer:(id)sender;
 
 
 

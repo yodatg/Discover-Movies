@@ -61,6 +61,10 @@ int static kScrollViewPage;
     
 }
 
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+
 - (void)addDetailViewControllerWithMovie:(NSInteger)tag {
     
     
@@ -68,6 +72,10 @@ int static kScrollViewPage;
     [self createAndConfigureDetailViewControllerForMovie:movie];
     
 }
+
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 
 - (void)createAndConfigureDetailViewControllerForMovie:(DMMovie *)m {
     // gather out movie info
@@ -245,6 +253,9 @@ int static kScrollViewPage;
     
 }
 
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 -(void)viewWillAppear:(BOOL)animated {
     
     
@@ -338,6 +349,9 @@ int static kScrollViewPage;
    
 }
 
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 - (void)posterViewTouched:(NSInteger)tag {
     
     

@@ -12,6 +12,8 @@
 #import "SBJson.h"
 
 
+
+
 static DMMovieStore *defaultStore = nil;
 
 // API key for Rotten Tomatoes
@@ -20,7 +22,7 @@ NSString *const kAPIKey = @"spre238u2unvqxhdpj2a7xg9";
 
 @implementation DMMovieStore
 
-@synthesize topMovies, favoriteMovies, allMovies, connections, moviePosters;
+@synthesize topMovies, favoriteMovies, allMovies, connections, moviePosters, youtubeURL;
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Private interface definitions
@@ -32,6 +34,11 @@ NSString *const kAPIKey = @"spre238u2unvqxhdpj2a7xg9";
 - (void)downloadTopMovies;
 - (void)downloadFinished: (NSNotification *) _notification;
 - (void)parseMovieFeedWithData: (NSData *) _data;
+- (void)entryListFetchTicket:(GDataServiceTicket *)ticket finishedWithFeed:(GDataFeedBase *)feed error:(NSError *)error;
+- (GDataServiceGoogleYouTube *)youTubeService;
+- (void)playVideoWithURL:(NSString *)url andFrame:(CGRect)frame;
+- (UIButton *)findButtonInView:(UIView *)view;
+
 
 @end
 
@@ -54,14 +61,18 @@ NSString *const kAPIKey = @"spre238u2unvqxhdpj2a7xg9";
     // add movie to Top Movie Array
     [[self topMovies] addObject:_movie];
 }
-
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 - (void)addFavoriteMovie: (DMMovie *) _movie {
     
     // add movie to Favorite Movie Array
     [[self favoriteMovies] addObject:_movie];
     
 }
-
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 - (void)downloadTopMovies {
     
     // set the networking activity to visible
@@ -85,7 +96,9 @@ NSString *const kAPIKey = @"spre238u2unvqxhdpj2a7xg9";
         NSLog(@"starting download");
         [downloader.connection start];
 }
-
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 - (void) downloadFinished: (NSNotification *) _notification {
     
     NSData *data = nil;
@@ -203,6 +216,57 @@ NSString *const kAPIKey = @"spre238u2unvqxhdpj2a7xg9";
         
     }
 }
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+- (GDataServiceGoogleYouTube *)youTubeService{
+    
+    static GDataServiceGoogleYouTube *service = nil;
+    
+    if (!service) {
+        service = [[GDataServiceGoogleYouTube alloc] init];
+        [service setUserAgent:@"Discover"];
+        [service setShouldCacheResponseData:YES];
+        
+        [service setUserCredentialsWithUsername:nil password:nil];
+    }
+    
+    return service;
+}
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+- (void)entryListFetchTicket:(GDataServiceTicket *)ticket finishedWithFeed:(GDataFeedBase *)feed error:(NSError *)error {
+    NSLog(@"In entryList");
+    GDataFeedYouTubeVideo *vfeed = (GDataFeedYouTubeVideo *)feed;
+    
+    if ([[vfeed entries] count] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Video Available" message:@"Sorry, there is no video available for this movie - check your network settings and try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+    for (int i = 0; i < [[vfeed entries] count]; i++) {
+        GDataEntryBase *entry = [[vfeed entries] objectAtIndex:i];
+        GDataLink *videoLink = [entry HTMLLink];
+        
+        // grab the returned URL
+        NSURL *urlToPlay = [videoLink URL];
+        
+        // create a string of the URL so we can extract the video UID
+        NSString *stringToManip = [urlToPlay absoluteString];
+        // extract the UID
+        NSArray *arr = [stringToManip componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"=&"]];
+        // create our new URL
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.youtube.com/v/%@&f=gdata_videos&c=ytapi-my-clientID&d=DiscoverMovies", [arr objectAtIndex:1]]];
+        
+        youtubeURL = url;
+        NSLog(@"url = %@", urlToPlay);
+        [[NSNotificationCenter defaultCenter] 
+         postNotificationName:@"youtubeURLCreated" object:self];
+        
+    }
+    
+}
 
 #pragma mark -
 #pragma mark Public Methods
@@ -220,13 +284,17 @@ NSString *const kAPIKey = @"spre238u2unvqxhdpj2a7xg9";
     }
     return defaultStore;
 }
-
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 // Prevent creation of additional instances
 + (id)allocWithZone:(NSZone *)zone
 {
     return [self defaultStore];
 }
-
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 - (id)init
 {
     
@@ -254,6 +322,40 @@ NSString *const kAPIKey = @"spre238u2unvqxhdpj2a7xg9";
     }
     return self;
 }
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+- (void)searchYouTubeForTrailer:(NSString *)title {
+    
+    NSLog(@"Grabbing");
+    GDataServiceGoogleYouTube *service = [self youTubeService];
+    GDataServiceTicket *ticket;
+    
+    NSString *feedName = [NSString stringWithFormat:@"http://gdata.youtube.com/feeds/api/videos/-/"];
+    NSString *searchTerm = title;
+    NSString *fixedSearchTerm = [searchTerm lowercaseString];
+    fixedSearchTerm = [fixedSearchTerm stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+    fixedSearchTerm = [fixedSearchTerm stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    fixedSearchTerm = [fixedSearchTerm stringByReplacingOccurrencesOfString:@")" withString:@""];
+    fixedSearchTerm = [fixedSearchTerm stringByAppendingFormat:@"-trailer?max-results=1"];
+    
+    feedName = [feedName stringByAppendingFormat:fixedSearchTerm];
+    
+    
+    NSLog(@"Feed name: %@", feedName);
+    GDataQueryYouTube *query = [GDataQueryYouTube youTubeQueryWithFeedURL:[NSURL URLWithString:feedName]];
+    
+    ticket = [service fetchFeedWithQuery:query delegate:self didFinishSelector:@selector(entryListFetchTicket:finishedWithFeed:error:)];
 
+    
+}
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 
+- (void)getRecommendedMoviesForMovie:(NSString *)m {\
+    
+    
+    
+}
 @end

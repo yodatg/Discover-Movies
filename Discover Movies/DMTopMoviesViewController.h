@@ -11,7 +11,7 @@
 #import "DMMoviePosterView.h"
 #import "DMTopMoviePosterView.h"
 #import "DMTopMoviePosterViewLandscape.h"
-#import "UIView+Animation.h"
+
 
 @interface DMTopMoviesViewController : UIViewController <UIScrollViewDelegate, DMTopMoviePosterViewDelegate> {
     

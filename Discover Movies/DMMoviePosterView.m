@@ -56,7 +56,9 @@
     return self;
     
 }
-
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 - (id)initWithImage: (UIImage *) _image borderWidth: (CGFloat) _width andFrame: (CGRect)_frame 
 {
     self = [self initWithImage:_image andFrame:_frame];
@@ -68,7 +70,9 @@
     
     return self;
 }
-   
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/ 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     NSLog(@"bummer");

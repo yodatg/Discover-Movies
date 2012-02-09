@@ -10,8 +10,9 @@
 
 @interface DMMyImageDownloader : DMMyDownloader {
     
+    int imageType;
+    
 }
 @property (nonatomic, strong) UIImage *image;
-
 
 @end

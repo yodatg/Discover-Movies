@@ -43,6 +43,7 @@
     if (im) {
         self.image = im;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"imageDownloaded" object:self];
+        
     }
 }
 

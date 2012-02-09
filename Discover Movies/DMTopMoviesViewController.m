@@ -7,7 +7,6 @@
 //
 
 #import "DMTopMoviesViewController.h"
-#import "DetailViewControllerPortrait.h"
 #import "DMMovie.h"
 
 int static kScrollViewPage;
@@ -27,7 +26,6 @@ int static kScrollViewPage;
 @end
 
 #pragma mark - Private Methods
-
 /*-------------------------------------------------------------
  * Called when "postersDownloaded" notification is received
  * 
@@ -36,9 +34,14 @@ int static kScrollViewPage;
  *------------------------------------------------------------*/
 
 - (void)addPosterView {
-    
     // copy the arrray of posters from the Movie Store to our local poster array
-    NSArray *moviePosters = [[NSArray alloc] initWithArray:[movieStore moviePosters]];
+    //NSArray *moviePosters = [[NSArray alloc] initWithArray:[movieStore moviePosters]];
+    NSMutableArray *moviePosters = [[NSMutableArray alloc] init];
+    for(DMMovie *movie in movieStore.topMovies) {
+    
+        [moviePosters addObject:[movie poster]];
+       
+    }
     
     // if PORTRAIT
     if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown) {
@@ -55,6 +58,7 @@ int static kScrollViewPage;
         topMoviesView = [[DMTopMoviePosterView alloc] initViewWithImagesInLandscape:moviePosters];
         [topMoviesView setDelegate:self];
         [scrollView addSubview:topMoviesView];
+        
         
     }
     
@@ -89,9 +93,11 @@ int static kScrollViewPage;
     
     NSString *mActors = [m topActors];
     
+    [movieStore downloadRecommendedMoviesForMovie:m];
     
     
-    DetailViewControllerPortrait *detailVC = [[DetailViewControllerPortrait alloc] init];
+    
+    detailVC = [[DMDetailViewController alloc] init];
     [detailVC setTitle:mTitle];
     [detailVC setMovieTitle:mTitleWithYear];
     [detailVC setCriticsScore:[[NSString alloc] initWithFormat:@"%@%%", mCriticsRating]];
@@ -102,7 +108,7 @@ int static kScrollViewPage;
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationDuration:0.75];
+    [UIView setAnimationDuration:0.7];
     
     [self.navigationController pushViewController:detailVC animated:NO];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:NO];
@@ -144,9 +150,8 @@ int static kScrollViewPage;
         
         // Register to notification center
         // addPosterView will be called when the posters finish downloading
-        // and the "postersDownloaded" notification is posted to the center
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addPosterView) name:@"postersDownloaded" object:movieStore];
-
+        // and the "topMoviesDownloaded" notification is posted to the center
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addPosterView) name:@"topMoviesDownloaded" object:movieStore];
         
         [self.view addSubview:scrollView];
         

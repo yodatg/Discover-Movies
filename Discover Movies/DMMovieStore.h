@@ -9,27 +9,37 @@
 #import <Foundation/Foundation.h>
 #import "DMMovie.h"
 #import "GData.h"
+#import "DMTopMoviesDownloader.h"
+#import "DMRecommendedMoviesDownloader.h"
 
-@interface DMMovieStore : NSObject
+extern NSString *const kAPIKey;
+
+@interface DMMovieStore : NSObject  <DMTopMoviesDownloaderDelegate, DMRecommendedMoviesDownloaderDelegate>
 {
+    @public
     NSMutableDictionary *allMovies;
     NSMutableArray *topMovies;
     NSMutableArray *favoriteMovies;
-    NSMutableArray *downloaders;
-    NSMutableArray *moviePosters;
+    NSMutableArray *recommendedMovies;
     NSURL *youtubeURL;
+    
+    @private
+    DMTopMoviesDownloader *topMoviesDownloader;
+    DMRecommendedMoviesDownloader *recommendedMoviesDownloader;
 }
 
 @property (nonatomic, strong) NSMutableDictionary *allMovies;
 @property (nonatomic, strong) NSMutableArray *topMovies;
 @property (nonatomic, strong) NSMutableArray *favoriteMovies;
-@property (nonatomic, strong) NSMutableArray *connections;
-@property (nonatomic, strong) NSMutableArray *moviePosters;
+@property (nonatomic, strong) NSMutableArray *recommendedMovies;
 @property (nonatomic, strong) NSURL *youtubeURL;
+@property (nonatomic, strong) DMTopMoviesDownloader *topMoviesDownloader;
+@property (nonatomic, strong) DMRecommendedMoviesDownloader *recommendedMoviesDownloader;
+
 
 + (DMMovieStore *)defaultStore;
 - (void)searchYouTubeForTrailer:(NSString *)title;
-- (void)getRecommendedMoviesForMovie:(NSString *)m;
+- (void)downloadRecommendedMoviesForMovie:(DMMovie *)movie;
 
 
 

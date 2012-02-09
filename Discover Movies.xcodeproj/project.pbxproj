@@ -12,8 +12,8 @@
 		2B5E8E0A14C8715B0049E9F0 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E8E0714C8715B0049E9F0 /* star.png */; };
 		2B5E8E0B14C8715B0049E9F0 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E8E0814C8715B0049E9F0 /* play.png */; };
 		2B5E8E0C14C8715B0049E9F0 /* buy.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E8E0914C8715B0049E9F0 /* buy.png */; };
-		2B73B6B314C473E700ED6494 /* DetailViewControllerPortrait.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B73B6B114C473E600ED6494 /* DetailViewControllerPortrait.m */; };
-		2B73B6B414C473E700ED6494 /* DetailViewControllerPortrait.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B73B6B214C473E700ED6494 /* DetailViewControllerPortrait.xib */; };
+		2B73B6B314C473E700ED6494 /* DMDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B73B6B114C473E600ED6494 /* DMDetailViewController.m */; };
+		2B73B6B414C473E700ED6494 /* DMDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B73B6B214C473E700ED6494 /* DMDetailViewController.xib */; };
 		2B73B6BC14C478C500ED6494 /* fresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B73B6B614C478C500ED6494 /* fresh.png */; };
 		2B73B6BD14C478C500ED6494 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B73B6B714C478C500ED6494 /* plus.png */; };
 		2B73B6BE14C478C500ED6494 /* popcorn_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B73B6B814C478C500ED6494 /* popcorn_over.png */; };
@@ -22,12 +22,15 @@
 		2B73B6C114C478C500ED6494 /* tomato.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B73B6BB14C478C500ED6494 /* tomato.png */; };
 		2BAC8F4714C0880C00E22800 /* DMTopMoviePosterViewLandscape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC8F4614C0880C00E22800 /* DMTopMoviePosterViewLandscape.m */; };
 		2BAC8F4914C09A9B00E22800 /* DMTopMoviesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BAC8F4814C09A9B00E22800 /* DMTopMoviesViewController.xib */; };
+		2BBA58AD14DABBA4005DEAD5 /* libGDataTouchStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BBA58A014DABB1A005DEAD5 /* libGDataTouchStaticLib.a */; };
 		2BC717BC14AD7476006CE632 /* DMMyDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC717BB14AD7476006CE632 /* DMMyDownloader.m */; };
 		2BC717BF14AD795D006CE632 /* DMMyImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC717BE14AD795D006CE632 /* DMMyImageDownloader.m */; };
 		2BCAC30F14D1AF4200D9D012 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCAC30E14D1AF4200D9D012 /* Security.framework */; };
 		2BCAC31114D1AF4900D9D012 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCAC31014D1AF4900D9D012 /* SystemConfiguration.framework */; };
-		2BCAC76D14D1BD0200D9D012 /* libGDataTouchStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCAC76314D1BCE300D9D012 /* libGDataTouchStaticLib.a */; };
 		2BCFABD414AFD71700252F0A /* DMTopMoviePosterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCFABD314AFD71700252F0A /* DMTopMoviePosterView.m */; };
+		2BF282BF14E2C38500407DA1 /* DMMovieParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF282BE14E2C38500407DA1 /* DMMovieParser.m */; };
+		2BF282C214E2C3F300407DA1 /* DMTopMoviesDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF282C114E2C3F300407DA1 /* DMTopMoviesDownloader.m */; };
+		2BF282C514E2C40800407DA1 /* DMRecommendedMoviesDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF282C414E2C40800407DA1 /* DMRecommendedMoviesDownloader.m */; };
 		2BFEEA7614D95558009611C3 /* DMModalTrailerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFEEA7514D95558009611C3 /* DMModalTrailerView.m */; };
 		7206C4C214913B9A00445D23 /* DMMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 7206C4C114913B9A00445D23 /* DMMovie.m */; };
 		727DE384148CE2F3004C9093 /* DMMoviePosterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 727DE383148CE2F3004C9093 /* DMMoviePosterView.m */; };
@@ -54,44 +57,44 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2BCAC76014D1BCE300D9D012 /* PBXContainerItemProxy */ = {
+		2BBA589D14DABB1A005DEAD5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2BCAC75414D1BCE300D9D012 /* GData.xcodeproj */;
+			containerPortal = 2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4F38F6A60B66E91D00B24B81;
 			remoteInfo = GDataFramework;
 		};
-		2BCAC76214D1BCE300D9D012 /* PBXContainerItemProxy */ = {
+		2BBA589F14DABB1A005DEAD5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2BCAC75414D1BCE300D9D012 /* GData.xcodeproj */;
+			containerPortal = 2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4F1C6E0F1027B3CE00B46459;
 			remoteInfo = GDataTouchStaticLib;
 		};
-		2BCAC76414D1BCE300D9D012 /* PBXContainerItemProxy */ = {
+		2BBA58A114DABB1A005DEAD5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2BCAC75414D1BCE300D9D012 /* GData.xcodeproj */;
+			containerPortal = 2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4F14A9DD0B1276B70072EBB8;
 			remoteInfo = GDataUnitTests;
 		};
-		2BCAC76614D1BCE300D9D012 /* PBXContainerItemProxy */ = {
+		2BBA58A314DABB1A005DEAD5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2BCAC75414D1BCE300D9D012 /* GData.xcodeproj */;
+			containerPortal = 2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4F85E018103B83B700B4C418;
 			remoteInfo = GDataIPhoneUnitTests;
 		};
-		2BCAC76814D1BCE300D9D012 /* PBXContainerItemProxy */ = {
+		2BBA58A514DABB1A005DEAD5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2BCAC75414D1BCE300D9D012 /* GData.xcodeproj */;
+			containerPortal = 2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4F1AD9020B71603F00DC0485;
 			remoteInfo = DevelopmentTestTool;
 		};
-		2BCAC76B14D1BCF600D9D012 /* PBXContainerItemProxy */ = {
+		2BBA58AB14DABB67005DEAD5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2BCAC75414D1BCE300D9D012 /* GData.xcodeproj */;
+			containerPortal = 2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 4F1C6E0E1027B3CE00B46459;
 			remoteInfo = GDataTouchStaticLib;
@@ -105,9 +108,9 @@
 		2B5E8E0714C8715B0049E9F0 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		2B5E8E0814C8715B0049E9F0 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		2B5E8E0914C8715B0049E9F0 /* buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy.png; sourceTree = "<group>"; };
-		2B73B6B014C473E600ED6494 /* DetailViewControllerPortrait.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewControllerPortrait.h; sourceTree = "<group>"; };
-		2B73B6B114C473E600ED6494 /* DetailViewControllerPortrait.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewControllerPortrait.m; sourceTree = "<group>"; };
-		2B73B6B214C473E700ED6494 /* DetailViewControllerPortrait.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewControllerPortrait.xib; sourceTree = "<group>"; };
+		2B73B6B014C473E600ED6494 /* DMDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMDetailViewController.h; sourceTree = "<group>"; };
+		2B73B6B114C473E600ED6494 /* DMDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMDetailViewController.m; sourceTree = "<group>"; };
+		2B73B6B214C473E700ED6494 /* DMDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMDetailViewController.xib; sourceTree = "<group>"; };
 		2B73B6B614C478C500ED6494 /* fresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fresh.png; sourceTree = "<group>"; };
 		2B73B6B714C478C500ED6494 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		2B73B6B814C478C500ED6494 /* popcorn_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popcorn_over.png; sourceTree = "<group>"; };
@@ -117,13 +120,13 @@
 		2BAC8F4514C0880C00E22800 /* DMTopMoviePosterViewLandscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMTopMoviePosterViewLandscape.h; path = "Discover Movies/DMTopMoviePosterViewLandscape.h"; sourceTree = "<group>"; };
 		2BAC8F4614C0880C00E22800 /* DMTopMoviePosterViewLandscape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMTopMoviePosterViewLandscape.m; path = "Discover Movies/DMTopMoviePosterViewLandscape.m"; sourceTree = "<group>"; };
 		2BAC8F4814C09A9B00E22800 /* DMTopMoviesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMTopMoviesViewController.xib; sourceTree = "<group>"; };
+		2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GData.xcodeproj; path = "../../../gdata-objectivec-client-read-only/Source/GData.xcodeproj"; sourceTree = "<group>"; };
 		2BC717BA14AD7476006CE632 /* DMMyDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMyDownloader.h; sourceTree = "<group>"; };
 		2BC717BB14AD7476006CE632 /* DMMyDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMyDownloader.m; sourceTree = "<group>"; };
 		2BC717BD14AD795D006CE632 /* DMMyImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMyImageDownloader.h; sourceTree = "<group>"; };
 		2BC717BE14AD795D006CE632 /* DMMyImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMyImageDownloader.m; sourceTree = "<group>"; };
 		2BCAC30E14D1AF4200D9D012 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2BCAC31014D1AF4900D9D012 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		2BCAC75414D1BCE300D9D012 /* GData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GData.xcodeproj; path = "../../gdata-objectivec-client-read-only/Source/GData.xcodeproj"; sourceTree = "<group>"; };
 		2BCAC76F14D1BE6C00D9D012 /* GData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GData.h; sourceTree = "<group>"; };
 		2BCAC77014D1BE6C00D9D012 /* GDataACL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataACL.h; sourceTree = "<group>"; };
 		2BCAC77114D1BE6C00D9D012 /* GDataACLKeyedRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataACLKeyedRole.h; sourceTree = "<group>"; };
@@ -439,6 +442,13 @@
 		2BCAC8A714D1BE6C00D9D012 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
 		2BCFABD214AFD71700252F0A /* DMTopMoviePosterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTopMoviePosterView.h; sourceTree = "<group>"; };
 		2BCFABD314AFD71700252F0A /* DMTopMoviePosterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTopMoviePosterView.m; sourceTree = "<group>"; };
+		2BF282BD14E2C38500407DA1 /* DMMovieParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMMovieParser.h; path = "Discover Movies/DMMovieParser.h"; sourceTree = "<group>"; };
+		2BF282BE14E2C38500407DA1 /* DMMovieParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMMovieParser.m; path = "Discover Movies/DMMovieParser.m"; sourceTree = "<group>"; };
+		2BF282C014E2C3F300407DA1 /* DMTopMoviesDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMTopMoviesDownloader.h; path = "Discover Movies/DMTopMoviesDownloader.h"; sourceTree = "<group>"; };
+		2BF282C114E2C3F300407DA1 /* DMTopMoviesDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMTopMoviesDownloader.m; path = "Discover Movies/DMTopMoviesDownloader.m"; sourceTree = "<group>"; };
+		2BF282C314E2C40800407DA1 /* DMRecommendedMoviesDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMRecommendedMoviesDownloader.h; sourceTree = "<group>"; };
+		2BF282C414E2C40800407DA1 /* DMRecommendedMoviesDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMRecommendedMoviesDownloader.m; sourceTree = "<group>"; };
+		2BF282C714E40AD800407DA1 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		2BFEEA7414D95558009611C3 /* DMModalTrailerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMModalTrailerView.h; sourceTree = "<group>"; };
 		2BFEEA7514D95558009611C3 /* DMModalTrailerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMModalTrailerView.m; sourceTree = "<group>"; };
 		7206C4C014913B9A00445D23 /* DMMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMovie.h; sourceTree = "<group>"; };
@@ -490,7 +500,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BCAC76D14D1BD0200D9D012 /* libGDataTouchStaticLib.a in Frameworks */,
+				2BBA58AD14DABBA4005DEAD5 /* libGDataTouchStaticLib.a in Frameworks */,
 				2BCAC31114D1AF4900D9D012 /* SystemConfiguration.framework in Frameworks */,
 				2BCAC30F14D1AF4200D9D012 /* Security.framework in Frameworks */,
 				72992959148690E100DC38FC /* UIKit.framework in Frameworks */,
@@ -502,6 +512,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BBA589214DABB1A005DEAD5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2BBA589E14DABB1A005DEAD5 /* GData.framework */,
+				2BBA58A014DABB1A005DEAD5 /* libGDataTouchStaticLib.a */,
+				2BBA58A214DABB1A005DEAD5 /* GDataUnitTests.octest */,
+				2BBA58A414DABB1A005DEAD5 /* GDataIPhoneUnitTests.octest */,
+				2BBA58A614DABB1A005DEAD5 /* DevelopmentTestTool */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2BC717B714AD73F6006CE632 /* OLD */ = {
 			isa = PBXGroup;
 			children = (
@@ -518,21 +540,15 @@
 				2BC717BB14AD7476006CE632 /* DMMyDownloader.m */,
 				2BC717BD14AD795D006CE632 /* DMMyImageDownloader.h */,
 				2BC717BE14AD795D006CE632 /* DMMyImageDownloader.m */,
+				2BF282C314E2C40800407DA1 /* DMRecommendedMoviesDownloader.h */,
+				2BF282C414E2C40800407DA1 /* DMRecommendedMoviesDownloader.m */,
+				2BF282C014E2C3F300407DA1 /* DMTopMoviesDownloader.h */,
+				2BF282C114E2C3F300407DA1 /* DMTopMoviesDownloader.m */,
+				2BF282BD14E2C38500407DA1 /* DMMovieParser.h */,
+				2BF282BE14E2C38500407DA1 /* DMMovieParser.m */,
 			);
 			name = Networking;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		2BCAC75514D1BCE300D9D012 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2BCAC76114D1BCE300D9D012 /* GData.framework */,
-				2BCAC76314D1BCE300D9D012 /* libGDataTouchStaticLib.a */,
-				2BCAC76514D1BCE300D9D012 /* GDataUnitTests.octest */,
-				2BCAC76714D1BCE300D9D012 /* GDataIPhoneUnitTests.octest */,
-				2BCAC76914D1BCE300D9D012 /* DevelopmentTestTool */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		2BCAC76E14D1BE6C00D9D012 /* Headers */ = {
@@ -875,7 +891,7 @@
 		72992949148690E100DC38FC = {
 			isa = PBXGroup;
 			children = (
-				2BCAC75414D1BCE300D9D012 /* GData.xcodeproj */,
+				2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */,
 				2BC717B714AD73F6006CE632 /* OLD */,
 				7299296F1486927E00DC38FC /* README.txt */,
 				7299295E148690E100DC38FC /* Discover Movies */,
@@ -964,6 +980,7 @@
 		72992997148698B100DC38FC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2BF282C714E40AD800407DA1 /* Constants.h */,
 				2BC717B914AD740F006CE632 /* Networking */,
 				72C7E60C1498FBF000F3DCC6 /* DMMovieStore.h */,
 				72C7E60D1498FBF000F3DCC6 /* DMMovieStore.m */,
@@ -978,7 +995,7 @@
 			isa = PBXGroup;
 			children = (
 				2BAC8F4814C09A9B00E22800 /* DMTopMoviesViewController.xib */,
-				2B73B6B214C473E700ED6494 /* DetailViewControllerPortrait.xib */,
+				2B73B6B214C473E700ED6494 /* DMDetailViewController.xib */,
 				2BFEEA7414D95558009611C3 /* DMModalTrailerView.h */,
 				2BFEEA7514D95558009611C3 /* DMModalTrailerView.m */,
 				727DE382148CE2F3004C9093 /* DMMoviePosterView.h */,
@@ -994,8 +1011,8 @@
 			children = (
 				2B37DAAB14ABDFBA00467C9E /* DMTopMoviesViewController.h */,
 				2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewController.m */,
-				2B73B6B014C473E600ED6494 /* DetailViewControllerPortrait.h */,
-				2B73B6B114C473E600ED6494 /* DetailViewControllerPortrait.m */,
+				2B73B6B014C473E600ED6494 /* DMDetailViewController.h */,
+				2B73B6B114C473E600ED6494 /* DMDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1023,7 +1040,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				2BCAC76C14D1BCF600D9D012 /* PBXTargetDependency */,
+				2BBA58AC14DABB67005DEAD5 /* PBXTargetDependency */,
 			);
 			name = "Discover Movies";
 			productName = "Discover Movies";
@@ -1051,8 +1068,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 2BCAC75514D1BCE300D9D012 /* Products */;
-					ProjectRef = 2BCAC75414D1BCE300D9D012 /* GData.xcodeproj */;
+					ProductGroup = 2BBA589214DABB1A005DEAD5 /* Products */;
+					ProjectRef = 2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1063,39 +1080,39 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2BCAC76114D1BCE300D9D012 /* GData.framework */ = {
+		2BBA589E14DABB1A005DEAD5 /* GData.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = GData.framework;
-			remoteRef = 2BCAC76014D1BCE300D9D012 /* PBXContainerItemProxy */;
+			remoteRef = 2BBA589D14DABB1A005DEAD5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2BCAC76314D1BCE300D9D012 /* libGDataTouchStaticLib.a */ = {
+		2BBA58A014DABB1A005DEAD5 /* libGDataTouchStaticLib.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libGDataTouchStaticLib.a;
-			remoteRef = 2BCAC76214D1BCE300D9D012 /* PBXContainerItemProxy */;
+			remoteRef = 2BBA589F14DABB1A005DEAD5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2BCAC76514D1BCE300D9D012 /* GDataUnitTests.octest */ = {
+		2BBA58A214DABB1A005DEAD5 /* GDataUnitTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = GDataUnitTests.octest;
-			remoteRef = 2BCAC76414D1BCE300D9D012 /* PBXContainerItemProxy */;
+			remoteRef = 2BBA58A114DABB1A005DEAD5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2BCAC76714D1BCE300D9D012 /* GDataIPhoneUnitTests.octest */ = {
+		2BBA58A414DABB1A005DEAD5 /* GDataIPhoneUnitTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = GDataIPhoneUnitTests.octest;
-			remoteRef = 2BCAC76614D1BCE300D9D012 /* PBXContainerItemProxy */;
+			remoteRef = 2BBA58A314DABB1A005DEAD5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2BCAC76914D1BCE300D9D012 /* DevelopmentTestTool */ = {
+		2BBA58A614DABB1A005DEAD5 /* DevelopmentTestTool */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
 			path = DevelopmentTestTool;
-			remoteRef = 2BCAC76814D1BCE300D9D012 /* PBXContainerItemProxy */;
+			remoteRef = 2BBA58A514DABB1A005DEAD5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1108,7 +1125,7 @@
 				72992963148690E100DC38FC /* InfoPlist.strings in Resources */,
 				729929701486927E00DC38FC /* README.txt in Resources */,
 				2BAC8F4914C09A9B00E22800 /* DMTopMoviesViewController.xib in Resources */,
-				2B73B6B414C473E700ED6494 /* DetailViewControllerPortrait.xib in Resources */,
+				2B73B6B414C473E700ED6494 /* DMDetailViewController.xib in Resources */,
 				2B73B6BC14C478C500ED6494 /* fresh.png in Resources */,
 				2B73B6BD14C478C500ED6494 /* plus.png in Resources */,
 				2B73B6BE14C478C500ED6494 /* popcorn_over.png in Resources */,
@@ -1151,18 +1168,21 @@
 				2BC717BF14AD795D006CE632 /* DMMyImageDownloader.m in Sources */,
 				2BCFABD414AFD71700252F0A /* DMTopMoviePosterView.m in Sources */,
 				2BAC8F4714C0880C00E22800 /* DMTopMoviePosterViewLandscape.m in Sources */,
-				2B73B6B314C473E700ED6494 /* DetailViewControllerPortrait.m in Sources */,
+				2B73B6B314C473E700ED6494 /* DMDetailViewController.m in Sources */,
 				2BFEEA7614D95558009611C3 /* DMModalTrailerView.m in Sources */,
+				2BF282BF14E2C38500407DA1 /* DMMovieParser.m in Sources */,
+				2BF282C214E2C3F300407DA1 /* DMTopMoviesDownloader.m in Sources */,
+				2BF282C514E2C40800407DA1 /* DMRecommendedMoviesDownloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2BCAC76C14D1BCF600D9D012 /* PBXTargetDependency */ = {
+		2BBA58AC14DABB67005DEAD5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GDataTouchStaticLib;
-			targetProxy = 2BCAC76B14D1BCF600D9D012 /* PBXContainerItemProxy */;
+			targetProxy = 2BBA58AB14DABB67005DEAD5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

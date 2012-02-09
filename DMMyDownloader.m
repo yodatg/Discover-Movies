@@ -70,6 +70,7 @@
  *------------------------------------------------------------*/
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"downloadFinished" object:self];
 }
 

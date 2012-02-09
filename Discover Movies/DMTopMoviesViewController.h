@@ -11,7 +11,7 @@
 #import "DMMoviePosterView.h"
 #import "DMTopMoviePosterView.h"
 #import "DMTopMoviePosterViewLandscape.h"
-
+#import "DMDetailViewController.h"
 
 @interface DMTopMoviesViewController : UIViewController <UIScrollViewDelegate, DMTopMoviePosterViewDelegate> {
     
@@ -23,7 +23,8 @@
     UIScrollView *scrollView;
     UIPageControl *pageControl;
     
-    
+    // detail VC
+    DMDetailViewController *detailVC;
     // Alternate Views - Landscape & Portrait
     DMTopMoviePosterView *topMoviesView;
     

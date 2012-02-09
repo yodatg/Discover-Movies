@@ -9,7 +9,7 @@
 #import "DMMovie.h"
 
 @implementation DMMovie 
-@synthesize title, year, synopsis, abridgedCast, suggestedMovieIDs, trailerLink, ratings, poster, movieID;
+@synthesize title, year, synopsis, abridgedCast, suggestedMovieIDs, ratings, poster, movieID;
 
 /*-------------------------------------------------------------
  * 
@@ -21,7 +21,6 @@
             synopsis:(NSString *)_synopsis 
         abridgedCast: (NSArray *)_abridgedCast 
    suggestedMovieIDs: (NSArray *)_suggestedMovieIDs
-         trailerLink:(NSString *)_trailerLink 
              ratings:(NSDictionary *)_ratings 
               poster: (UIImage *)_poster
 {
@@ -35,7 +34,6 @@
         [self setSynopsis: _synopsis];
         [self setAbridgedCast: _abridgedCast];
         [self setSuggestedMovieIDs: _suggestedMovieIDs];
-        [self setTrailerLink: _trailerLink];
         [self setRatings: _ratings];
         [self setPoster: _poster];
     }
@@ -57,8 +55,16 @@
 - (NSString *)topActors {
     
     NSMutableString *actorString = [[NSMutableString alloc] init];
+    int numActors;
     
-    for (int i = 0; i < 5; i++) {
+    if ([[self abridgedCast] count] < 5) {
+        numActors = [[self abridgedCast] count];
+    }
+    else {
+        numActors = 5;
+    }
+    
+    for (int i = 0; i < numActors ; i++) {
         
         // take away the comma
         if (i == 4) {

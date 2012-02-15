@@ -9,7 +9,7 @@
 #import "DMMovie.h"
 
 @implementation DMMovie 
-@synthesize title, year, synopsis, abridgedCast, suggestedMovieIDs, ratings, poster, movieID;
+@synthesize title, year, synopsis, abridgedCast, suggestedMovies, ratings, poster, movieID, youTubeURL;
 
 /*-------------------------------------------------------------
  * 
@@ -20,7 +20,7 @@
                 year: (NSString *)_year 
             synopsis:(NSString *)_synopsis 
         abridgedCast: (NSArray *)_abridgedCast 
-   suggestedMovieIDs: (NSArray *)_suggestedMovieIDs
+   suggestedMovieIDs: (NSMutableArray *)_suggestedMovies
              ratings:(NSDictionary *)_ratings 
               poster: (UIImage *)_poster
 {
@@ -33,7 +33,7 @@
         [self setYear: _year];
         [self setSynopsis: _synopsis];
         [self setAbridgedCast: _abridgedCast];
-        [self setSuggestedMovieIDs: _suggestedMovieIDs];
+        self.suggestedMovies = [[NSMutableArray alloc] initWithArray:_suggestedMovies];
         [self setRatings: _ratings];
         [self setPoster: _poster];
     }

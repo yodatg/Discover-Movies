@@ -19,7 +19,7 @@
     NSMutableArray *connections;
     NSMutableArray *moviesToParse;
     int numberOfMovies;
-    
+    BOOL isDownloadingPosters;
 }
 
 @property (nonatomic, strong) NSData *data;
@@ -28,5 +28,6 @@
 @property (nonatomic, weak) id <DMMovieParserDelegate> delegate;
 - (void)parse;
 - (id)initWithData:(NSData *)d;
+- (void)cancelDownload;
 
 @end

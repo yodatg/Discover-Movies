@@ -36,7 +36,7 @@
 @property (strong, nonatomic) NSString *actors;
 @property (strong, nonatomic) NSString *synopsis;
 @property (strong, nonatomic) UIImage *poster;
-@property (strong, nonatomic) NSArray *recommendedMovies;
+@property (strong, nonatomic) NSMutableArray *recommendedMovies;
 
 
 @property (strong, nonatomic) IBOutlet UILabel *audienceScoreLabel;
@@ -47,6 +47,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *actorsLabel;
 @property (strong, nonatomic) IBOutlet UITextView *synopsisTextView;
 @property (strong, nonatomic) IBOutlet UIScrollView *recommendedMoviesScrollView;
+@property (strong, nonatomic) IBOutlet UILabel *noRecommendedMoviesLabel;
 
 
 - (IBAction)playMovieTrailer:(id)sender;

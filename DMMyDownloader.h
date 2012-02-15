@@ -24,4 +24,5 @@
 
 -(id) initWithRequest:(NSURLRequest *)_request;
 -(id)initWithRequest: (NSURLRequest *)_request andTag:(NSNumber *)_tag;
+-(void)cancel;
 @end

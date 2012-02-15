@@ -12,7 +12,7 @@
 int static kScrollViewPage;
 
 @implementation DMTopMoviesViewController
-@synthesize scrollView, pageControl;
+@synthesize scrollView, pageControl, searchBar;
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -23,6 +23,7 @@ int static kScrollViewPage;
 - (void)addPosterView;
 - (void)addDetailViewController:(NSNotification *)notification;
 - (void)createAndConfigureDetailViewControllerForMovie:(DMMovie *)m;
+- (void)presentSearchView;
 @end
 
 #pragma mark - Private Methods
@@ -49,6 +50,8 @@ int static kScrollViewPage;
         topMoviesView = [[DMTopMoviePosterView alloc] initViewWithImagesInPortrait:moviePosters];
         [topMoviesView setDelegate:self];
         [scrollView addSubview:topMoviesView];
+        UIActivityIndicatorView *tmpimg = (UIActivityIndicatorView *)[self.view viewWithTag:200];
+        [tmpimg removeFromSuperview];
         
     }
     
@@ -58,10 +61,13 @@ int static kScrollViewPage;
         topMoviesView = [[DMTopMoviePosterView alloc] initViewWithImagesInLandscape:moviePosters];
         [topMoviesView setDelegate:self];
         [scrollView addSubview:topMoviesView];
+        UIActivityIndicatorView *tmpimg = (UIActivityIndicatorView *)[self.view viewWithTag:200];
+        [tmpimg removeFromSuperview];
         
         
     }
     
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
 }
 
@@ -155,6 +161,8 @@ int static kScrollViewPage;
         
         [self.view addSubview:scrollView];
         
+        
+        
     }
     return self;
 }
@@ -194,7 +202,6 @@ int static kScrollViewPage;
         
         scrollView.contentSize = CGSizeMake((1024 * 3), 768);
         [scrollView setContentOffset:CGPointMake(xOffset,0)];
-
         
         [topMoviesView rotateToLandscape];
     
@@ -216,7 +223,8 @@ int static kScrollViewPage;
         CGFloat xOffset = (kScrollViewPage * scrollView.frame.size.width);
         [scrollView setContentOffset:CGPointMake(xOffset,0)];
         
-        scrollView.contentSize = CGSizeMake((768 * 3), 1024);  
+        scrollView.contentSize = CGSizeMake((768 * 3), 1024);
+       
         
 
         [topMoviesView rotateToPortrait];
@@ -244,6 +252,7 @@ int static kScrollViewPage;
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromOrientation
 {
     scrollingLocked = NO;
+    
 }
 
 #pragma mark - View lifecycle
@@ -255,6 +264,12 @@ int static kScrollViewPage;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIActivityIndicatorView  *av = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    av.frame = CGRectMake(round((self.view.frame.size.width - 25) / 2), round((self.view.frame.size.height - 25) / 2), 25, 25);
+    av.tag  = 200;
+    [self.view addSubview:av];
+    [av startAnimating];
+
     
 }
 
@@ -263,13 +278,14 @@ int static kScrollViewPage;
  *------------------------------------------------------------*/
 -(void)viewWillAppear:(BOOL)animated {
     
-    
+        
     CGRect searchRect = CGRectMake(0, 0, self.navigationController.toolbar.frame.size.width/3, self.navigationController.toolbar.frame.size.height);
 
     
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:searchRect];
-    UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithCustomView:searchBar];
+    self.searchBar = [[UISearchBar alloc] initWithFrame:searchRect];
+    UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithCustomView:self.searchBar];
     [self.navigationItem setRightBarButtonItem:bbi]; 
+    self.searchBar.delegate = self;
     
     
     // if PORTRAIT
@@ -333,7 +349,19 @@ int static kScrollViewPage;
     // e.g. self.myOutlet = nil;
 }
 
-#pragma mark - Scroll View Delegate Methods
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+
+- (void)presentSearchView {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Search Completed" message:@"YES!" delegate:nil cancelButtonTitle:@"GREAT!" otherButtonTitles:nil, nil];
+    [alert show];
+    
+}
+
+#pragma mark - Delegate Methods
 
 /*-------------------------------------------------------------
  * Called when scroll view scrolls - changes pageControl
@@ -361,6 +389,28 @@ int static kScrollViewPage;
     
     
     [self addDetailViewControllerWithMovie:tag];
+}
+
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    NSLog(@"search bar ended editiing");
+    NSString *searchTerm = self.searchBar.text;
+    
+    [movieStore searchMovieDatabaseForMovieTitle:searchTerm];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentSearchView) name:@"searchFinished" object:movieStore];
+    
+}
+
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    
+    NSLog(@"Text being inserted");
 }
 
 @end

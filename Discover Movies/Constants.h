@@ -7,5 +7,6 @@
 //
 
 
-#define kAPIKey         @"spre238u2unvqxhdpj2a7xg9"
+#define kRTAPIKey         @"spre238u2unvqxhdpj2a7xg9"
+#define kTMDBAPIKey       @"94e72d0d2d1d66f1401f716b9694bb5e"
 

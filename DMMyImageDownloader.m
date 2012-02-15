@@ -42,8 +42,8 @@
     UIImage* im = [UIImage imageWithData:self.receivedData];
     if (im) {
         self.image = im;
+        NSLog(@"image downloaded");
         [[NSNotificationCenter defaultCenter] postNotificationName:@"imageDownloaded" object:self];
-        
     }
 }
 

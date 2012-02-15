@@ -8,14 +8,15 @@
 
 #import "DMMovieStore.h"
 #import "DMMovieParser.h"
-#import "SBJson.h"
+
+
 
 
 static DMMovieStore *defaultStore = nil;
 
 @implementation DMMovieStore
 
-@synthesize topMovies, favoriteMovies, allMovies, recommendedMovies, youtubeURL, topMoviesDownloader, recommendedMoviesDownloader;
+@synthesize topMovies, favoriteMovies, allMovies, recommendedMovies, youtubeURL, topMoviesDownloader, recommendedMoviesDownloader, searcher, searchResults;
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Private interface definitions
@@ -55,6 +56,7 @@ static DMMovieStore *defaultStore = nil;
     self.recommendedMoviesDownloader = [[DMRecommendedMoviesDownloader alloc] init];
     self.recommendedMoviesDownloader.delegate = self;
     [self.recommendedMoviesDownloader fetchRecommendedMoviesForMovie:movie];
+    isDownloadingRecommendedMovies = YES;
     
     
 }
@@ -75,14 +77,39 @@ static DMMovieStore *defaultStore = nil;
 /*-------------------------------------------------------------
  *
  *------------------------------------------------------------*/
-- (void)recommendedMoviesDownloaded:(NSArray *)movies {
+
+- (void)cancelDownload {
     
-    self.recommendedMovies = [movies copy];
+    if(isDownloadingRecommendedMovies == YES){
+        [self.recommendedMoviesDownloader cancelDownload];
+    }
+}
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+- (void)recommendedMoviesDownloaded:(NSMutableArray *)movies forMovieID:(NSString *)movieID {
+    if([self.recommendedMovies count] != 0){
+        [self.recommendedMovies removeAllObjects];
+    }
+    [self.recommendedMovies addObjectsFromArray:movies];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"recommendedMoviesDownloaded" object:self];
+
+    isDownloadingRecommendedMovies = NO;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
-
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+- (void)searchMovieDatabaseForMovieTitle:(NSString *)movieTitle {
+    
+    searcher = [[DMTMDBSearcher alloc] init];
+    searcher.delegate = self;
+    [searcher searchForMovie:movieTitle];
+    
+    
+}
 /*-------------------------------------------------------------
  *
  *------------------------------------------------------------*/
@@ -135,6 +162,17 @@ static DMMovieStore *defaultStore = nil;
     
 }
 
+- (void)searcherFinishedSearchingWithMovies:(NSMutableArray *)parsedMovies {
+    
+    searchResults = [[NSMutableArray alloc] initWithArray:parsedMovies];
+    NSLog(@"Search Results returned");
+    NSLog(@"search results = %@", searchResults);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"searchFinished" object:self];
+    
+    
+    
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
@@ -177,6 +215,7 @@ static DMMovieStore *defaultStore = nil;
         allMovies = [[NSMutableDictionary alloc] init];
         topMovies = [[NSMutableArray alloc] init];
         favoriteMovies = [[NSMutableArray alloc] init];
+        recommendedMovies = [[NSMutableArray alloc] init];
         // Set the 2 arrays to hold our movie objects into the dictionary
         // Top Movies will be accessed with key "topMovies"
         // Favorite Movies will be accessed with key "favMovies"
@@ -202,7 +241,7 @@ static DMMovieStore *defaultStore = nil;
     fixedSearchTerm = [fixedSearchTerm stringByReplacingOccurrencesOfString:@" " withString:@"-"];
     fixedSearchTerm = [fixedSearchTerm stringByReplacingOccurrencesOfString:@"(" withString:@""];
     fixedSearchTerm = [fixedSearchTerm stringByReplacingOccurrencesOfString:@")" withString:@""];
-    fixedSearchTerm = [fixedSearchTerm stringByAppendingFormat:@"-trailer?max-results=1"];
+    fixedSearchTerm = [fixedSearchTerm stringByAppendingFormat:@"-movie-trailer?max-results=1"];
     
     feedName = [feedName stringByAppendingFormat:fixedSearchTerm];
     

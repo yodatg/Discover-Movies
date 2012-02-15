@@ -74,5 +74,13 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"downloadFinished" object:self];
 }
 
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+- (void)cancel {
+    
+    [self.connection cancel];
+    
+}
 
 @end

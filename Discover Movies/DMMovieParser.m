@@ -30,9 +30,10 @@
     self = [super init];
     if (self) {
         
-        data = [[NSData alloc] initWithData:d];
-        connections = [[NSMutableArray alloc] init];
-        moviesToParse = [[NSMutableArray alloc] init];
+        self.data = [[NSData alloc] initWithData:d];
+        self.connections = [[NSMutableArray alloc] init];
+        self.moviesToParse = [[NSMutableArray alloc] init];
+         
     }
     
     return self;
@@ -54,7 +55,7 @@
     
     // Just to check we have the correct number of movies
     NSLog(@"Number of movies = %d", numberOfMovies);
-    
+   
     // Parse our movies
     for (int i = 0; i < [movies count]; i++) {
         
@@ -82,18 +83,21 @@
         DMMovie *movie = [[DMMovie alloc] initWithID:movieID title:movieTitle year:movieYear synopsis:movieSynopsis abridgedCast:abridgedCast suggestedMovieIDs:nil ratings:ratings poster:nil];
         
         // add movie to our array for further parsing (setting image etc)
-        [moviesToParse addObject:movie];
+        [self.moviesToParse addObject:movie];
         NSLog(@"Movie added for parsing");
         
         NSLog(@"Movie id = %@", [[NSNumber alloc] initWithInt:[[movie movieID] integerValue]]);
         // tag an image downloader with the movieID
         DMMyImageDownloader *d = [[DMMyImageDownloader alloc] initWithRequest:req andTag:[[NSNumber alloc] initWithInt:i]];
         
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageDownloaded:) name:@"imageDownloaded" object:d];
         
         [d.connection start];
         [self.connections addObject:d];
+        isDownloadingPosters = YES;
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageDownloaded:) name:@"imageDownloaded" object:d];
+        
+
         
 
     }
@@ -119,7 +123,7 @@
         UIImage *im = [d image];
         
         // extract the correct movie for the corresponding poster 
-        DMMovie *m = [moviesToParse objectAtIndex:[[d tag] intValue]];
+        DMMovie *m = [self.moviesToParse objectAtIndex:[[d tag] intValue]];
         [m setPoster:im];
         
         numberOfMovies--;
@@ -130,10 +134,22 @@
             [self.connections removeAllObjects];
             [self.delegate parserFinishedParsingWithMovies:moviesToParse];
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [[NSNotificationCenter defaultCenter] removeObserver:self]; 
+             isDownloadingPosters = NO;
             
         }
         
 }
+
+    
+    
+}
+
+- (void)cancelDownload {
+    
+        for(DMMyImageDownloader *d in self.connections){
+            [d cancel];
+        }
 
     
     

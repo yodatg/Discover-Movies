@@ -18,7 +18,7 @@
 @synthesize actorsLabel;
 @synthesize synopsisTextView;
 @synthesize recommendedMoviesScrollView;
-@synthesize audienceScore, audienceImage, criticsImage, criticsScore, movieTitle, actors, synopsis, poster, recommendedMovies;
+@synthesize audienceScore, audienceImage, criticsImage, criticsScore, movieTitle, actors, synopsis, poster, recommendedMovies, noRecommendedMoviesLabel;
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Private interface definitions
@@ -67,7 +67,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    // change the back button to cancel and add an event handler
+    // change the back button to cancel and add an event handler  
+    
+    
+    
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Top Movies" style:UIBarButtonItemStyleBordered target:self action:@selector(handleBack:)];
     
     self.navigationItem.leftBarButtonItem = backButton;
@@ -100,13 +103,15 @@
     {
     
     posterView = [[DMMoviePosterView alloc] initWithImage:poster borderWidth:7.0 andFrame:CGRectMake(35, 95, 260, 388)];
-        [recommendedMoviesScrollView setContentSize:CGSizeMake(recommendedMoviesScrollView.bounds.size.width * 5, 160)];
+        self.recommendedMoviesScrollView.frame = CGRectMake(32, 782, 704, 230);
+        
     }
     else if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeLeft || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight){
         
         posterView = [[DMMoviePosterView alloc] initWithImage:poster borderWidth:7.0 andFrame:CGRectMake(35, 70, 260, 388)];
-        [recommendedMoviesScrollView setContentSize:CGSizeMake(recommendedMoviesScrollView.bounds.size.width * 5, 160)];
-        
+        self.recommendedMoviesScrollView.frame = CGRectMake(72, 782, 624, 230);
+
+            
     }
     recommendedMoviesScrollView.showsHorizontalScrollIndicator = NO;
     recommendedMoviesScrollView.showsVerticalScrollIndicator = NO;
@@ -130,6 +135,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 /*-------------------------------------------------------------
  *
@@ -144,7 +150,7 @@
  *------------------------------------------------------------*/
 - (void) handleBack:(id)sender {   
    
-    
+    [movieStore cancelDownload];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.7];
     
@@ -157,6 +163,7 @@
      popViewControllerAnimated:NO];
     
     [UIView commitAnimations];
+
 
     
 }
@@ -172,9 +179,8 @@
         }
         
         posterView.frame = CGRectMake(35, 95, 260, 388);
-        [recommendedMoviesScrollView setContentSize:CGSizeMake(recommendedMoviesScrollView.bounds.size.width * 5, recommendedMoviesScrollView.bounds.size.height)];
-                
-                
+        self.recommendedMoviesScrollView.contentOffset = CGPointZero;     
+        self.recommendedMoviesScrollView.frame = CGRectMake(self.recommendedMoviesScrollView.frame.origin.x - 40, self.recommendedMoviesScrollView.frame.origin.y, self.recommendedMoviesScrollView.frame.size.width + 80, self.recommendedMoviesScrollView.frame.size.height);
         
     }
     else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
@@ -184,7 +190,8 @@
         }
         
         posterView.frame = CGRectMake(35, 70, 260, 388);
-        [recommendedMoviesScrollView setContentSize:CGSizeMake(recommendedMoviesScrollView.bounds.size.width * 5, 160)];
+        self.recommendedMoviesScrollView.frame = CGRectMake(self.recommendedMoviesScrollView.frame.origin.x + 40, self.recommendedMoviesScrollView.frame.origin.y, self.recommendedMoviesScrollView.frame.size.width - 80, self.recommendedMoviesScrollView.frame.size.height);
+        NSLog(@"frame = %f %f %f %f", self.recommendedMoviesScrollView.frame.origin.x, self.recommendedMoviesScrollView.frame.origin.y, self.recommendedMoviesScrollView.frame.size.width, self.recommendedMoviesScrollView.frame.size.height);
         
         
     }
@@ -275,16 +282,25 @@
 }
 
 - (void) addPostersToRecommendedMovieScrollView {
+    [noRecommendedMoviesLabel setHidden:YES];
     
-    recommendedMovies = [[movieStore recommendedMovies] copy];
+    [self.recommendedMovies removeAllObjects];
+    self.recommendedMovies = [[movieStore recommendedMovies] copy];
+
+    
     int xOrigin = 30;
     
     for(DMMovie *movie in recommendedMovies) {
         
-        DMMoviePosterView *pv = [[DMMoviePosterView alloc] initWithImage:[movie poster] andFrame:CGRectMake(recommendedMoviesScrollView.bounds.origin.x + xOrigin, recommendedMoviesScrollView.bounds.origin.y, 110, 160)];
-        [recommendedMoviesScrollView addSubview:pv];
+        DMMoviePosterView *pv = [[DMMoviePosterView alloc] initWithImage:[movie poster] andFrame:CGRectMake(self.recommendedMoviesScrollView.bounds.origin.x + xOrigin, self.recommendedMoviesScrollView.bounds.origin.y, 110, 160)];
+        [self.recommendedMoviesScrollView addSubview:pv];
         xOrigin += 170;
+
     }
+    
+    self.recommendedMoviesScrollView.contentSize = CGSizeMake(recommendedMoviesScrollView.bounds.size.width * [self.recommendedMovies count] / 4, 160);
+    
+   
 }
 
 #pragma mark - DMTrailerViewController Delegate Methods

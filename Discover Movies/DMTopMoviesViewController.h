@@ -13,7 +13,8 @@
 #import "DMTopMoviePosterViewLandscape.h"
 #import "DMDetailViewController.h"
 
-@interface DMTopMoviesViewController : UIViewController <UIScrollViewDelegate, DMTopMoviePosterViewDelegate> {
+
+@interface DMTopMoviesViewController : UIViewController <UIScrollViewDelegate, DMTopMoviePosterViewDelegate, UISearchBarDelegate> {
     
     // Access to the Model
     DMMovieStore *movieStore;
@@ -22,6 +23,7 @@
     
     UIScrollView *scrollView;
     UIPageControl *pageControl;
+    UISearchBar *searchBar;
     
     // detail VC
     DMDetailViewController *detailVC;
@@ -36,6 +38,7 @@
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (strong, nonatomic) UISearchBar *searchBar;
 
 
 

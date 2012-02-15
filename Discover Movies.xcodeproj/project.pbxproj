@@ -12,6 +12,7 @@
 		2B5E8E0A14C8715B0049E9F0 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E8E0714C8715B0049E9F0 /* star.png */; };
 		2B5E8E0B14C8715B0049E9F0 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E8E0814C8715B0049E9F0 /* play.png */; };
 		2B5E8E0C14C8715B0049E9F0 /* buy.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E8E0914C8715B0049E9F0 /* buy.png */; };
+		2B711D7614E97B250072904B /* DMTMDBSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B711D7514E97B240072904B /* DMTMDBSearcher.m */; };
 		2B73B6B314C473E700ED6494 /* DMDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B73B6B114C473E600ED6494 /* DMDetailViewController.m */; };
 		2B73B6B414C473E700ED6494 /* DMDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B73B6B214C473E700ED6494 /* DMDetailViewController.xib */; };
 		2B73B6BC14C478C500ED6494 /* fresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B73B6B614C478C500ED6494 /* fresh.png */; };
@@ -108,6 +109,8 @@
 		2B5E8E0714C8715B0049E9F0 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		2B5E8E0814C8715B0049E9F0 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		2B5E8E0914C8715B0049E9F0 /* buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy.png; sourceTree = "<group>"; };
+		2B711D7414E97B240072904B /* DMTMDBSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTMDBSearcher.h; sourceTree = "<group>"; };
+		2B711D7514E97B240072904B /* DMTMDBSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTMDBSearcher.m; sourceTree = "<group>"; };
 		2B73B6B014C473E600ED6494 /* DMDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMDetailViewController.h; sourceTree = "<group>"; };
 		2B73B6B114C473E600ED6494 /* DMDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMDetailViewController.m; sourceTree = "<group>"; };
 		2B73B6B214C473E700ED6494 /* DMDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMDetailViewController.xib; sourceTree = "<group>"; };
@@ -544,6 +547,8 @@
 				2BF282C414E2C40800407DA1 /* DMRecommendedMoviesDownloader.m */,
 				2BF282C014E2C3F300407DA1 /* DMTopMoviesDownloader.h */,
 				2BF282C114E2C3F300407DA1 /* DMTopMoviesDownloader.m */,
+				2B711D7414E97B240072904B /* DMTMDBSearcher.h */,
+				2B711D7514E97B240072904B /* DMTMDBSearcher.m */,
 				2BF282BD14E2C38500407DA1 /* DMMovieParser.h */,
 				2BF282BE14E2C38500407DA1 /* DMMovieParser.m */,
 			);
@@ -1173,6 +1178,7 @@
 				2BF282BF14E2C38500407DA1 /* DMMovieParser.m in Sources */,
 				2BF282C214E2C3F300407DA1 /* DMTopMoviesDownloader.m in Sources */,
 				2BF282C514E2C40800407DA1 /* DMRecommendedMoviesDownloader.m in Sources */,
+				2B711D7614E97B250072904B /* DMTMDBSearcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

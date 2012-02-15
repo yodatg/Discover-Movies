@@ -15,7 +15,7 @@
     NSString *year;
     NSString *synopsis;
     NSArray *abridgedCast;
-    NSArray *suggestedMovieIDs;
+    NSMutableArray *suggestedMovies;
     NSDictionary *ratings;
     UIImage *poster;
     
@@ -25,16 +25,17 @@
 @property (nonatomic, strong) NSString *year;
 @property (nonatomic, strong) NSString *synopsis;
 @property (nonatomic, strong) NSArray *abridgedCast;
-@property (nonatomic, strong) NSArray *suggestedMovieIDs;
+@property (nonatomic, strong) NSMutableArray *suggestedMovies;
 @property (nonatomic, strong) NSDictionary *ratings;
 @property (nonatomic, strong) UIImage *poster;
+@property (nonatomic, strong) NSString *youTubeURL;
 
 - (id) initWithID: (NSString *)_movieID 
             title: (NSString *)_title 
              year: (NSString *)_year 
          synopsis:(NSString *)_synopsis 
      abridgedCast: (NSArray *)_abridgedCast 
-suggestedMovieIDs: (NSArray *)_suggestedMovieIDs
+suggestedMovieIDs: (NSMutableArray *)_suggestedMovies
           ratings:(NSDictionary *)_ratings 
            poster: (UIImage *)_poster;
 

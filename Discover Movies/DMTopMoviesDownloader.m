@@ -51,7 +51,7 @@
     NSLog(@"Downloading top movies");
     
     // create our JSON feed URL
-    NSString *topMoviesJSONURL = [NSString stringWithFormat:@"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?limit=24&country=us&apikey=%@", kAPIKey];
+    NSString *topMoviesJSONURL = [NSString stringWithFormat:@"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?limit=25&country=uk&apikey=%@", kRTAPIKey];
     
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:topMoviesJSONURL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5];
     
@@ -93,6 +93,7 @@
         NSLog(@"Data downloaded");
         [self parseMovieFeedWithData:data];
         [self.connections removeObject:d];
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
         
     }
     

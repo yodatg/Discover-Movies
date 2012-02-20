@@ -86,7 +86,7 @@
         [self.moviesToParse addObject:movie];
         NSLog(@"Movie added for parsing");
         
-        NSLog(@"Movie id = %@", [[NSNumber alloc] initWithInt:[[movie movieID] integerValue]]);
+        //NSLog(@"Movie id = %@", [[NSNumber alloc] initWithInt:[[movie movieID] integerValue]]);
         // tag an image downloader with the movieID
         DMMyImageDownloader *d = [[DMMyImageDownloader alloc] initWithRequest:req andTag:[[NSNumber alloc] initWithInt:i]];
         

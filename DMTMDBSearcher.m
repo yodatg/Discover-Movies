@@ -98,10 +98,9 @@
         // extract the correct movie for the corresponding poster 
         DMMovie *m = [self.moviesToParse objectAtIndex:[[d tag] intValue]];
         [m setPoster:im];
-        
-        numberOfImages--;
-        NSLog(@"Number of movies = %d", numberOfMovies);
-        if(numberOfImages == 0){
+        numberOfMovies--;
+        //NSLog(@"Number of movies = %d", numberOfMovies);
+        if(numberOfMovies == 0){
             
             [self.connections removeAllObjects];
             [self.delegate searcherFinishedSearchingWithMovies:self.moviesToParse];
@@ -119,13 +118,13 @@
 
 - (void)parseMovieFeedWithData:(NSData *)d {
     
-    int counter = 0;
+    
     // Create our JSON string from the data
     NSString *responseString = [[NSString alloc] initWithData:d encoding:NSUTF8StringEncoding];
     
     // Parse the JSON string using SBJason
     NSMutableArray *results = [responseString JSONValue];
-    numberOfMovies = [results count];
+    
     
        
     if([[results objectAtIndex:0] respondsToSelector:@selector(isEqualToString:)]){
@@ -136,15 +135,17 @@
     
     
     else{
+        int counter = 0;
+        
     for(NSDictionary *dict in results){
         
                 
-        NSArray *images = [dict objectForKey:@"posters"];
+        NSArray *allImages = [dict objectForKey:@"posters"];
         
-        if ([images count]!= 0){
-            numberOfImages = [images count];
-            
-            NSDictionary *thumbDict = [images objectAtIndex:0];
+        if([allImages count] != 0){
+            numberOfMovies++;
+            NSLog(@"all images = %@", allImages);
+            NSDictionary *thumbDict = [allImages objectAtIndex:0];
             NSDictionary *imageDict = [thumbDict objectForKey:@"image"];
             
             NSString *urlString = [NSString stringWithFormat:[imageDict objectForKey:@"url"]];
@@ -157,29 +158,30 @@
             
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(parseReturnedMovies:) name:@"imageDownloaded" object:imageDownloader];
             
-           [imageDownloader.connection start];
+            [imageDownloader.connection start];
             
             [self.connections addObject:imageDownloader];
             
-             
+            
             
             DMMovie *movie = [[DMMovie alloc] initWithID:[dict objectForKey:@"id"] title:[dict objectForKey:@"original_name"] year:[dict objectForKey:@"released"] synopsis:[dict objectForKey:@"overview"] abridgedCast:nil suggestedMovieIDs:nil ratings:nil poster:nil];
             [self.moviesToParse addObject:movie];
-            
-            
-            
             counter++;
-            NSLog(@"Counter = %d", counter);
+            
+            
+           
+
             
         }
-               
+        
+                
         
         
     }
         
     }
     
-    
+
 }
 
 

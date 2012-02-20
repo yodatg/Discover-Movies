@@ -8,11 +8,12 @@
 
 #import "DMTopMoviesViewController.h"
 #import "DMMovie.h"
+#import "DMSearchResultsTableViewController.h"
 
 int static kScrollViewPage;
 
 @implementation DMTopMoviesViewController
-@synthesize scrollView, pageControl, searchBar;
+@synthesize scrollView, pageControl, searchBar, searchView, searchNavController;
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -356,8 +357,21 @@ int static kScrollViewPage;
 - (void)presentSearchView {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Search Completed" message:@"YES!" delegate:nil cancelButtonTitle:@"GREAT!" otherButtonTitles:nil, nil];
-    [alert show];
+    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Search Completed" message:@"YES!" delegate:nil cancelButtonTitle:@"GREAT!" otherButtonTitles:nil, nil];
+    //[alert show];
+    
+    searchView = [[DMSearchResultsTableViewController alloc] init];
+    searchView.delegate = self;
+    [searchView setModalPresentationStyle:UIModalPresentationFormSheet];
+    searchNavController = [[UINavigationController alloc] initWithRootViewController:searchView];
+    [[searchNavController navigationBar] setBarStyle:UIBarStyleBlackTranslucent];
+    [searchNavController setModalPresentationStyle:UIModalPresentationFormSheet];
+   
+    
+    [self presentModalViewController:searchNavController animated:YES];
+    
+
+
     
 }
 
@@ -411,6 +425,18 @@ int static kScrollViewPage;
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     
     NSLog(@"Text being inserted");
+}
+
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+
+- (void)doneButtonTouched {
+    
+    
+    [self.searchNavController dismissModalViewControllerAnimated:YES];
+    //self.searchView = nil;
+
 }
 
 @end

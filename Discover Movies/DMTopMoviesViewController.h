@@ -12,9 +12,10 @@
 #import "DMTopMoviePosterView.h"
 #import "DMTopMoviePosterViewLandscape.h"
 #import "DMDetailViewController.h"
+#import "DMSearchResultsTableViewController.h"
 
 
-@interface DMTopMoviesViewController : UIViewController <UIScrollViewDelegate, DMTopMoviePosterViewDelegate, UISearchBarDelegate> {
+@interface DMTopMoviesViewController : UIViewController <UIScrollViewDelegate, DMTopMoviePosterViewDelegate, UISearchBarDelegate, DMSearchResultsTableViewControllerDelegate> {
     
     // Access to the Model
     DMMovieStore *movieStore;
@@ -29,6 +30,8 @@
     DMDetailViewController *detailVC;
     // Alternate Views - Landscape & Portrait
     DMTopMoviePosterView *topMoviesView;
+    DMSearchResultsTableViewController *searchView;
+    UINavigationController *searchNavController;
     
     // Locks scrollView during rotation
     BOOL scrollingLocked;
@@ -39,6 +42,8 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) UISearchBar *searchBar;
+@property (strong, nonatomic) DMSearchResultsTableViewController *searchView;
+@property (strong, nonatomic) UINavigationController *searchNavController;
 
 
 

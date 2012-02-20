@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Discover Movies/DMTopMoviesViewController.m"
-         timestampString = "351041663.480814"
+         timestampString = "351446948.142285"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "37"
-         endingLineNumber = "37">
+         startingLineNumber = "38"
+         endingLineNumber = "38">
       </FileBreakpoint>
    </FileBreakpoints>
    <ExceptionBreakpoints>

@@ -11,6 +11,7 @@
 #import "DMMovieStore.h"
 #import "DMModalTrailerView.h"
 
+
 @interface DMDetailViewController : UIViewController <UINavigationControllerDelegate, UINavigationBarDelegate, DMModelTrailerViewDelegate> {
     
     // Poster view to be added to detailVC

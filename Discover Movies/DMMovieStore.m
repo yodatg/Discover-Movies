@@ -166,7 +166,7 @@ static DMMovieStore *defaultStore = nil;
     
     searchResults = [[NSMutableArray alloc] initWithArray:parsedMovies];
     NSLog(@"Search Results returned");
-    NSLog(@"search results = %@", searchResults);
+    NSLog(@"search results count = %d", [searchResults count]);
     [[NSNotificationCenter defaultCenter] postNotificationName:@"searchFinished" object:self];
     
     

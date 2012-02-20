@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B37DAAE14ABDFBA00467C9E /* DMTopMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewController.m */; };
+		2B425A7D14F2A48100F25644 /* DMSearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B425A7C14F2A48100F25644 /* DMSearchResultsTableViewController.m */; };
 		2B5627FD14CF720A00DD05E1 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5627FC14CF720A00DD05E1 /* background.png */; };
 		2B5E8E0A14C8715B0049E9F0 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E8E0714C8715B0049E9F0 /* star.png */; };
 		2B5E8E0B14C8715B0049E9F0 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E8E0814C8715B0049E9F0 /* play.png */; };
@@ -105,6 +106,8 @@
 /* Begin PBXFileReference section */
 		2B37DAAB14ABDFBA00467C9E /* DMTopMoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTopMoviesViewController.h; sourceTree = "<group>"; };
 		2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTopMoviesViewController.m; sourceTree = "<group>"; };
+		2B425A7B14F2A48100F25644 /* DMSearchResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSearchResultsTableViewController.h; sourceTree = "<group>"; };
+		2B425A7C14F2A48100F25644 /* DMSearchResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSearchResultsTableViewController.m; sourceTree = "<group>"; };
 		2B5627FC14CF720A00DD05E1 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		2B5E8E0714C8715B0049E9F0 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		2B5E8E0814C8715B0049E9F0 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
@@ -1018,6 +1021,8 @@
 				2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewController.m */,
 				2B73B6B014C473E600ED6494 /* DMDetailViewController.h */,
 				2B73B6B114C473E600ED6494 /* DMDetailViewController.m */,
+				2B425A7B14F2A48100F25644 /* DMSearchResultsTableViewController.h */,
+				2B425A7C14F2A48100F25644 /* DMSearchResultsTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1058,7 +1063,7 @@
 		7299294B148690E100DC38FC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Reading University";
 			};
 			buildConfigurationList = 7299294E148690E100DC38FC /* Build configuration list for PBXProject "Discover Movies" */;
@@ -1179,6 +1184,7 @@
 				2BF282C214E2C3F300407DA1 /* DMTopMoviesDownloader.m in Sources */,
 				2BF282C514E2C40800407DA1 /* DMRecommendedMoviesDownloader.m in Sources */,
 				2B711D7614E97B250072904B /* DMTMDBSearcher.m in Sources */,
+				2B425A7D14F2A48100F25644 /* DMSearchResultsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

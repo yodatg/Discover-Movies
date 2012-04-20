@@ -5,6 +5,10 @@
 //  Created by Thomas Grant on 08/02/2012.
 //  Copyright (c) 2012 Reading University. All rights reserved.
 //
+//  Downloads and parses the current top movies presented by Rotten Tomatoes
+//  
+//
+//
 
 #import <Foundation/Foundation.h>
 #import "DMMovieParser.h"

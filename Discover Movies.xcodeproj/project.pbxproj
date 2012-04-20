@@ -7,12 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B1AD15114FA726900F7229A /* DMRTSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1AD15014FA726900F7229A /* DMRTSearcher.m */; };
+		2B1E44A115235C980060DD7B /* DMHeatMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E44A015235C970060DD7B /* DMHeatMapView.m */; };
+		2B1E44A515236AEC0060DD7B /* shareIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B1E44A415236AEC0060DD7B /* shareIcon.png */; };
+		2B1E44A815246E810060DD7B /* DMHeatMapSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E44A715246E810060DD7B /* DMHeatMapSubView.m */; };
+		2B1E44B4152483E10060DD7B /* DMHeatMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E44B2152483E10060DD7B /* DMHeatMapViewController.m */; };
+		2B1E44B5152483E10060DD7B /* DMHeatMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B1E44B3152483E10060DD7B /* DMHeatMapViewController.xib */; };
 		2B37DAAE14ABDFBA00467C9E /* DMTopMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewController.m */; };
+		2B3D680C150F47E1007B7DAD /* SpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D680B150F47E1007B7DAD /* SpinnerView.m */; };
+		2B3D6810150F47F9007B7DAD /* DMMovieFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D680F150F47F9007B7DAD /* DMMovieFavoritesViewController.m */; };
+		2B3D6812150F480A007B7DAD /* DMTableViewDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B3D6811150F480A007B7DAD /* DMTableViewDetailViewController.xib */; };
+		2B3D6817150F4826007B7DAD /* DMTableViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D6816150F4826007B7DAD /* DMTableViewDetailViewController.m */; };
+		2B3D6865150F6208007B7DAD /* Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D683B150F6208007B7DAD /* Facebook.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2B3D6866150F6208007B7DAD /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B3D683E150F6208007B7DAD /* FBDialog.bundle */; };
+		2B3D6867150F6208007B7DAD /* FBDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D6840150F6208007B7DAD /* FBDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2B3D6868150F6208007B7DAD /* FBFrictionlessRequestSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D6842150F6208007B7DAD /* FBFrictionlessRequestSettings.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2B3D6869150F6208007B7DAD /* FBLoginDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D6844150F6208007B7DAD /* FBLoginDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2B3D686A150F6208007B7DAD /* FBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D6846150F6208007B7DAD /* FBRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2B425A7D14F2A48100F25644 /* DMSearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B425A7C14F2A48100F25644 /* DMSearchResultsTableViewController.m */; };
 		2B5627FD14CF720A00DD05E1 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5627FC14CF720A00DD05E1 /* background.png */; };
 		2B5E8E0A14C8715B0049E9F0 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E8E0714C8715B0049E9F0 /* star.png */; };
 		2B5E8E0B14C8715B0049E9F0 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E8E0814C8715B0049E9F0 /* play.png */; };
 		2B5E8E0C14C8715B0049E9F0 /* buy.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E8E0914C8715B0049E9F0 /* buy.png */; };
+		2B6AA8E6150F46950006D816 /* libGDataTouchStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6AA8E5150F46950006D816 /* libGDataTouchStaticLib.a */; };
+		2B6AA8E8150F46C40006D816 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6AA8E7150F46C40006D816 /* libxml2.dylib */; };
+		2B6F381115064484004A1558 /* star_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6F381015064484004A1558 /* star_yellow.png */; };
+		2B6F38141506635E004A1558 /* ITunesDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F38131506635E004A1558 /* ITunesDownloader.m */; };
 		2B711D7614E97B250072904B /* DMTMDBSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B711D7514E97B240072904B /* DMTMDBSearcher.m */; };
 		2B73B6B314C473E700ED6494 /* DMDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B73B6B114C473E600ED6494 /* DMDetailViewController.m */; };
 		2B73B6B414C473E700ED6494 /* DMDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B73B6B214C473E700ED6494 /* DMDetailViewController.xib */; };
@@ -24,7 +44,12 @@
 		2B73B6C114C478C500ED6494 /* tomato.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B73B6BB14C478C500ED6494 /* tomato.png */; };
 		2BAC8F4714C0880C00E22800 /* DMTopMoviePosterViewLandscape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC8F4614C0880C00E22800 /* DMTopMoviePosterViewLandscape.m */; };
 		2BAC8F4914C09A9B00E22800 /* DMTopMoviesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BAC8F4814C09A9B00E22800 /* DMTopMoviesViewController.xib */; };
-		2BBA58AD14DABBA4005DEAD5 /* libGDataTouchStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BBA58A014DABB1A005DEAD5 /* libGDataTouchStaticLib.a */; };
+		2BBE99FD14F556F40030DF8B /* film.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE99FC14F556F40030DF8B /* film.png */; };
+		2BBF85701521E17B0053AC69 /* DMDetailedInfoParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF856F1521E17B0053AC69 /* DMDetailedInfoParser.m */; };
+		2BC519791524B9F900942779 /* cosineIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BC519781524B9F900942779 /* cosineIcon.png */; };
+		2BC519871524C03400942779 /* green.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2BC519841524C03400942779 /* green.jpg */; };
+		2BC519881524C03400942779 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BC519851524C03400942779 /* red.png */; };
+		2BC519891524C03400942779 /* yellow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2BC519861524C03400942779 /* yellow.jpg */; };
 		2BC717BC14AD7476006CE632 /* DMMyDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC717BB14AD7476006CE632 /* DMMyDownloader.m */; };
 		2BC717BF14AD795D006CE632 /* DMMyImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC717BE14AD795D006CE632 /* DMMyImageDownloader.m */; };
 		2BCAC30F14D1AF4200D9D012 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCAC30E14D1AF4200D9D012 /* Security.framework */; };
@@ -59,59 +84,62 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2BBA589D14DABB1A005DEAD5 /* PBXContainerItemProxy */ = {
+		2B3D6878150F6208007B7DAD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */;
+			containerPortal = 2B3D6837150F6208007B7DAD /* facebook-ios-sdk.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 4F38F6A60B66E91D00B24B81;
-			remoteInfo = GDataFramework;
-		};
-		2BBA589F14DABB1A005DEAD5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4F1C6E0F1027B3CE00B46459;
-			remoteInfo = GDataTouchStaticLib;
-		};
-		2BBA58A114DABB1A005DEAD5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4F14A9DD0B1276B70072EBB8;
-			remoteInfo = GDataUnitTests;
-		};
-		2BBA58A314DABB1A005DEAD5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4F85E018103B83B700B4C418;
-			remoteInfo = GDataIPhoneUnitTests;
-		};
-		2BBA58A514DABB1A005DEAD5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4F1AD9020B71603F00DC0485;
-			remoteInfo = DevelopmentTestTool;
-		};
-		2BBA58AB14DABB67005DEAD5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 4F1C6E0E1027B3CE00B46459;
-			remoteInfo = GDataTouchStaticLib;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = "facebook-ios-sdk";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B1AD14F14FA726900F7229A /* DMRTSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMRTSearcher.h; sourceTree = "<group>"; };
+		2B1AD15014FA726900F7229A /* DMRTSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMRTSearcher.m; sourceTree = "<group>"; };
+		2B1E449F15235C970060DD7B /* DMHeatMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMHeatMapView.h; sourceTree = "<group>"; };
+		2B1E44A015235C970060DD7B /* DMHeatMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMHeatMapView.m; sourceTree = "<group>"; };
+		2B1E44A415236AEC0060DD7B /* shareIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareIcon.png; sourceTree = "<group>"; };
+		2B1E44A615246E810060DD7B /* DMHeatMapSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMHeatMapSubView.h; sourceTree = "<group>"; };
+		2B1E44A715246E810060DD7B /* DMHeatMapSubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMHeatMapSubView.m; sourceTree = "<group>"; };
+		2B1E44B1152483E10060DD7B /* DMHeatMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMHeatMapViewController.h; path = ../DMHeatMapViewController.h; sourceTree = "<group>"; };
+		2B1E44B2152483E10060DD7B /* DMHeatMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMHeatMapViewController.m; path = ../DMHeatMapViewController.m; sourceTree = "<group>"; };
+		2B1E44B3152483E10060DD7B /* DMHeatMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DMHeatMapViewController.xib; path = ../DMHeatMapViewController.xib; sourceTree = "<group>"; };
 		2B37DAAB14ABDFBA00467C9E /* DMTopMoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTopMoviesViewController.h; sourceTree = "<group>"; };
 		2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTopMoviesViewController.m; sourceTree = "<group>"; };
+		2B3D680A150F47E1007B7DAD /* SpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinnerView.h; sourceTree = "<group>"; };
+		2B3D680B150F47E1007B7DAD /* SpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinnerView.m; sourceTree = "<group>"; };
+		2B3D680E150F47F9007B7DAD /* DMMovieFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMovieFavoritesViewController.h; sourceTree = "<group>"; };
+		2B3D680F150F47F9007B7DAD /* DMMovieFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMovieFavoritesViewController.m; sourceTree = "<group>"; };
+		2B3D6811150F480A007B7DAD /* DMTableViewDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMTableViewDetailViewController.xib; sourceTree = "<group>"; };
+		2B3D6815150F4826007B7DAD /* DMTableViewDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTableViewDetailViewController.h; sourceTree = "<group>"; };
+		2B3D6816150F4826007B7DAD /* DMTableViewDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTableViewDetailViewController.m; sourceTree = "<group>"; };
+		2B3D682F150F54E1007B7DAD /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		2B3D6830150F560B007B7DAD /* GTMOAuth2SignIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2SignIn.h; sourceTree = "<group>"; };
+		2B3D6837150F6208007B7DAD /* facebook-ios-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "facebook-ios-sdk.xcodeproj"; sourceTree = "<group>"; };
+		2B3D683A150F6208007B7DAD /* Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facebook.h; sourceTree = "<group>"; };
+		2B3D683B150F6208007B7DAD /* Facebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Facebook.m; sourceTree = "<group>"; };
+		2B3D683C150F6208007B7DAD /* facebook_ios_sdk_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebook_ios_sdk_Prefix.pch; sourceTree = "<group>"; };
+		2B3D683D150F6208007B7DAD /* FBConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBConnect.h; sourceTree = "<group>"; };
+		2B3D683E150F6208007B7DAD /* FBDialog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBDialog.bundle; sourceTree = "<group>"; };
+		2B3D683F150F6208007B7DAD /* FBDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBDialog.h; sourceTree = "<group>"; };
+		2B3D6840150F6208007B7DAD /* FBDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBDialog.m; sourceTree = "<group>"; };
+		2B3D6841150F6208007B7DAD /* FBFrictionlessRequestSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBFrictionlessRequestSettings.h; sourceTree = "<group>"; };
+		2B3D6842150F6208007B7DAD /* FBFrictionlessRequestSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBFrictionlessRequestSettings.m; sourceTree = "<group>"; };
+		2B3D6843150F6208007B7DAD /* FBLoginDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginDialog.h; sourceTree = "<group>"; };
+		2B3D6844150F6208007B7DAD /* FBLoginDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginDialog.m; sourceTree = "<group>"; };
+		2B3D6845150F6208007B7DAD /* FBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBRequest.h; sourceTree = "<group>"; };
+		2B3D6846150F6208007B7DAD /* FBRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBRequest.m; sourceTree = "<group>"; };
 		2B425A7B14F2A48100F25644 /* DMSearchResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSearchResultsTableViewController.h; sourceTree = "<group>"; };
 		2B425A7C14F2A48100F25644 /* DMSearchResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSearchResultsTableViewController.m; sourceTree = "<group>"; };
 		2B5627FC14CF720A00DD05E1 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		2B5E8E0714C8715B0049E9F0 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		2B5E8E0814C8715B0049E9F0 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		2B5E8E0914C8715B0049E9F0 /* buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy.png; sourceTree = "<group>"; };
+		2B6AA8E5150F46950006D816 /* libGDataTouchStaticLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGDataTouchStaticLib.a; sourceTree = "<group>"; };
+		2B6AA8E7150F46C40006D816 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		2B6F381015064484004A1558 /* star_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_yellow.png; sourceTree = "<group>"; };
+		2B6F38121506635E004A1558 /* ITunesDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ITunesDownloader.h; path = "Discover Movies/ITunesDownloader.h"; sourceTree = "<group>"; };
+		2B6F38131506635E004A1558 /* ITunesDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ITunesDownloader.m; path = "Discover Movies/ITunesDownloader.m"; sourceTree = "<group>"; };
 		2B711D7414E97B240072904B /* DMTMDBSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTMDBSearcher.h; sourceTree = "<group>"; };
 		2B711D7514E97B240072904B /* DMTMDBSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTMDBSearcher.m; sourceTree = "<group>"; };
 		2B73B6B014C473E600ED6494 /* DMDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMDetailViewController.h; sourceTree = "<group>"; };
@@ -126,7 +154,13 @@
 		2BAC8F4514C0880C00E22800 /* DMTopMoviePosterViewLandscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMTopMoviePosterViewLandscape.h; path = "Discover Movies/DMTopMoviePosterViewLandscape.h"; sourceTree = "<group>"; };
 		2BAC8F4614C0880C00E22800 /* DMTopMoviePosterViewLandscape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMTopMoviePosterViewLandscape.m; path = "Discover Movies/DMTopMoviePosterViewLandscape.m"; sourceTree = "<group>"; };
 		2BAC8F4814C09A9B00E22800 /* DMTopMoviesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMTopMoviesViewController.xib; sourceTree = "<group>"; };
-		2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GData.xcodeproj; path = "../../../gdata-objectivec-client-read-only/Source/GData.xcodeproj"; sourceTree = "<group>"; };
+		2BBE99FC14F556F40030DF8B /* film.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = film.png; sourceTree = "<group>"; };
+		2BBF856E1521E17B0053AC69 /* DMDetailedInfoParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMDetailedInfoParser.h; path = "Discover Movies/DMDetailedInfoParser.h"; sourceTree = "<group>"; };
+		2BBF856F1521E17B0053AC69 /* DMDetailedInfoParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMDetailedInfoParser.m; path = "Discover Movies/DMDetailedInfoParser.m"; sourceTree = "<group>"; };
+		2BC519781524B9F900942779 /* cosineIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cosineIcon.png; sourceTree = "<group>"; };
+		2BC519841524C03400942779 /* green.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green.jpg; sourceTree = "<group>"; };
+		2BC519851524C03400942779 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		2BC519861524C03400942779 /* yellow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yellow.jpg; sourceTree = "<group>"; };
 		2BC717BA14AD7476006CE632 /* DMMyDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMyDownloader.h; sourceTree = "<group>"; };
 		2BC717BB14AD7476006CE632 /* DMMyDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMyDownloader.m; sourceTree = "<group>"; };
 		2BC717BD14AD795D006CE632 /* DMMyImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMyImageDownloader.h; sourceTree = "<group>"; };
@@ -442,10 +476,8 @@
 		2BCAC8A114D1BE6C00D9D012 /* GTMHTTPUploadFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMHTTPUploadFetcher.h; sourceTree = "<group>"; };
 		2BCAC8A214D1BE6C00D9D012 /* GTMMIMEDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMMIMEDocument.h; sourceTree = "<group>"; };
 		2BCAC8A314D1BE6C00D9D012 /* GTMOAuth2Authentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2Authentication.h; sourceTree = "<group>"; };
-		2BCAC8A414D1BE6C00D9D012 /* GTMOAuth2SignIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2SignIn.h; sourceTree = "<group>"; };
 		2BCAC8A514D1BE6C00D9D012 /* GTMOAuth2ViewControllerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2ViewControllerTouch.h; sourceTree = "<group>"; };
 		2BCAC8A614D1BE6C00D9D012 /* GTMReadMonitorInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMReadMonitorInputStream.h; sourceTree = "<group>"; };
-		2BCAC8A714D1BE6C00D9D012 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
 		2BCFABD214AFD71700252F0A /* DMTopMoviePosterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTopMoviePosterView.h; sourceTree = "<group>"; };
 		2BCFABD314AFD71700252F0A /* DMTopMoviePosterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTopMoviePosterView.m; sourceTree = "<group>"; };
 		2BF282BD14E2C38500407DA1 /* DMMovieParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMMovieParser.h; path = "Discover Movies/DMMovieParser.h"; sourceTree = "<group>"; };
@@ -506,28 +538,54 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BBA58AD14DABBA4005DEAD5 /* libGDataTouchStaticLib.a in Frameworks */,
+				2B6AA8E8150F46C40006D816 /* libxml2.dylib in Frameworks */,
 				2BCAC31114D1AF4900D9D012 /* SystemConfiguration.framework in Frameworks */,
 				2BCAC30F14D1AF4200D9D012 /* Security.framework in Frameworks */,
 				72992959148690E100DC38FC /* UIKit.framework in Frameworks */,
 				7299295B148690E100DC38FC /* Foundation.framework in Frameworks */,
 				7299295D148690E100DC38FC /* CoreGraphics.framework in Frameworks */,
+				2B6AA8E6150F46950006D816 /* libGDataTouchStaticLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2BBA589214DABB1A005DEAD5 /* Products */ = {
+		2B3D6836150F6208007B7DAD /* src */ = {
 			isa = PBXGroup;
 			children = (
-				2BBA589E14DABB1A005DEAD5 /* GData.framework */,
-				2BBA58A014DABB1A005DEAD5 /* libGDataTouchStaticLib.a */,
-				2BBA58A214DABB1A005DEAD5 /* GDataUnitTests.octest */,
-				2BBA58A414DABB1A005DEAD5 /* GDataIPhoneUnitTests.octest */,
-				2BBA58A614DABB1A005DEAD5 /* DevelopmentTestTool */,
+				2B3D6837150F6208007B7DAD /* facebook-ios-sdk.xcodeproj */,
+				2B3D683A150F6208007B7DAD /* Facebook.h */,
+				2B3D683B150F6208007B7DAD /* Facebook.m */,
+				2B3D683C150F6208007B7DAD /* facebook_ios_sdk_Prefix.pch */,
+				2B3D683D150F6208007B7DAD /* FBConnect.h */,
+				2B3D683E150F6208007B7DAD /* FBDialog.bundle */,
+				2B3D683F150F6208007B7DAD /* FBDialog.h */,
+				2B3D6840150F6208007B7DAD /* FBDialog.m */,
+				2B3D6841150F6208007B7DAD /* FBFrictionlessRequestSettings.h */,
+				2B3D6842150F6208007B7DAD /* FBFrictionlessRequestSettings.m */,
+				2B3D6843150F6208007B7DAD /* FBLoginDialog.h */,
+				2B3D6844150F6208007B7DAD /* FBLoginDialog.m */,
+				2B3D6845150F6208007B7DAD /* FBRequest.h */,
+				2B3D6846150F6208007B7DAD /* FBRequest.m */,
+				2B3D6847150F6208007B7DAD /* JSON */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		2B3D6838150F6208007B7DAD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B3D6879150F6208007B7DAD /* libfacebook_ios_sdk.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2B3D6847150F6208007B7DAD /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		2BC717B714AD73F6006CE632 /* OLD */ = {
@@ -550,10 +608,16 @@
 				2BF282C414E2C40800407DA1 /* DMRecommendedMoviesDownloader.m */,
 				2BF282C014E2C3F300407DA1 /* DMTopMoviesDownloader.h */,
 				2BF282C114E2C3F300407DA1 /* DMTopMoviesDownloader.m */,
+				2B1AD14F14FA726900F7229A /* DMRTSearcher.h */,
+				2B1AD15014FA726900F7229A /* DMRTSearcher.m */,
 				2B711D7414E97B240072904B /* DMTMDBSearcher.h */,
 				2B711D7514E97B240072904B /* DMTMDBSearcher.m */,
 				2BF282BD14E2C38500407DA1 /* DMMovieParser.h */,
 				2BF282BE14E2C38500407DA1 /* DMMovieParser.m */,
+				2BBF856E1521E17B0053AC69 /* DMDetailedInfoParser.h */,
+				2BBF856F1521E17B0053AC69 /* DMDetailedInfoParser.m */,
+				2B6F38121506635E004A1558 /* ITunesDownloader.h */,
+				2B6F38131506635E004A1558 /* ITunesDownloader.m */,
 			);
 			name = Networking;
 			path = ..;
@@ -871,10 +935,10 @@
 				2BCAC8A114D1BE6C00D9D012 /* GTMHTTPUploadFetcher.h */,
 				2BCAC8A214D1BE6C00D9D012 /* GTMMIMEDocument.h */,
 				2BCAC8A314D1BE6C00D9D012 /* GTMOAuth2Authentication.h */,
-				2BCAC8A414D1BE6C00D9D012 /* GTMOAuth2SignIn.h */,
+				2B3D6830150F560B007B7DAD /* GTMOAuth2SignIn.h */,
 				2BCAC8A514D1BE6C00D9D012 /* GTMOAuth2ViewControllerTouch.h */,
 				2BCAC8A614D1BE6C00D9D012 /* GTMReadMonitorInputStream.h */,
-				2BCAC8A714D1BE6C00D9D012 /* SBJSON.h */,
+				2B3D682F150F54E1007B7DAD /* SBJSON.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -882,10 +946,17 @@
 		727DE37D148CC8DC004C9093 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2B1E44A415236AEC0060DD7B /* shareIcon.png */,
+				2B6F381015064484004A1558 /* star_yellow.png */,
 				2B5627FC14CF720A00DD05E1 /* background.png */,
 				2B5E8E0714C8715B0049E9F0 /* star.png */,
 				2B5E8E0814C8715B0049E9F0 /* play.png */,
+				2BBE99FC14F556F40030DF8B /* film.png */,
 				2B5E8E0914C8715B0049E9F0 /* buy.png */,
+				2BC519781524B9F900942779 /* cosineIcon.png */,
+				2BC519841524C03400942779 /* green.jpg */,
+				2BC519851524C03400942779 /* red.png */,
+				2BC519861524C03400942779 /* yellow.jpg */,
 				2B73B6B614C478C500ED6494 /* fresh.png */,
 				2B73B6B714C478C500ED6494 /* plus.png */,
 				2B73B6B814C478C500ED6494 /* popcorn_over.png */,
@@ -899,7 +970,7 @@
 		72992949148690E100DC38FC = {
 			isa = PBXGroup;
 			children = (
-				2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */,
+				2B6AA8E7150F46C40006D816 /* libxml2.dylib */,
 				2BC717B714AD73F6006CE632 /* OLD */,
 				7299296F1486927E00DC38FC /* README.txt */,
 				7299295E148690E100DC38FC /* Discover Movies */,
@@ -943,6 +1014,8 @@
 		7299295F148690E100DC38FC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2B3D6836150F6208007B7DAD /* src */,
+				2B6AA8E5150F46950006D816 /* libGDataTouchStaticLib.a */,
 				2BCAC76E14D1BE6C00D9D012 /* Headers */,
 				727DE37D148CC8DC004C9093 /* images */,
 				72992960148690E100DC38FC /* Discover Movies-Info.plist */,
@@ -1004,12 +1077,20 @@
 			children = (
 				2BAC8F4814C09A9B00E22800 /* DMTopMoviesViewController.xib */,
 				2B73B6B214C473E700ED6494 /* DMDetailViewController.xib */,
+				2B3D6811150F480A007B7DAD /* DMTableViewDetailViewController.xib */,
+				2B1E44B3152483E10060DD7B /* DMHeatMapViewController.xib */,
 				2BFEEA7414D95558009611C3 /* DMModalTrailerView.h */,
 				2BFEEA7514D95558009611C3 /* DMModalTrailerView.m */,
 				727DE382148CE2F3004C9093 /* DMMoviePosterView.h */,
 				727DE383148CE2F3004C9093 /* DMMoviePosterView.m */,
 				2BCFABD214AFD71700252F0A /* DMTopMoviePosterView.h */,
 				2BCFABD314AFD71700252F0A /* DMTopMoviePosterView.m */,
+				2B3D680A150F47E1007B7DAD /* SpinnerView.h */,
+				2B3D680B150F47E1007B7DAD /* SpinnerView.m */,
+				2B1E449F15235C970060DD7B /* DMHeatMapView.h */,
+				2B1E44A015235C970060DD7B /* DMHeatMapView.m */,
+				2B1E44A615246E810060DD7B /* DMHeatMapSubView.h */,
+				2B1E44A715246E810060DD7B /* DMHeatMapSubView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1021,8 +1102,14 @@
 				2B37DAAC14ABDFBA00467C9E /* DMTopMoviesViewController.m */,
 				2B73B6B014C473E600ED6494 /* DMDetailViewController.h */,
 				2B73B6B114C473E600ED6494 /* DMDetailViewController.m */,
+				2B3D680E150F47F9007B7DAD /* DMMovieFavoritesViewController.h */,
+				2B3D680F150F47F9007B7DAD /* DMMovieFavoritesViewController.m */,
+				2B3D6815150F4826007B7DAD /* DMTableViewDetailViewController.h */,
+				2B3D6816150F4826007B7DAD /* DMTableViewDetailViewController.m */,
 				2B425A7B14F2A48100F25644 /* DMSearchResultsTableViewController.h */,
 				2B425A7C14F2A48100F25644 /* DMSearchResultsTableViewController.m */,
+				2B1E44B1152483E10060DD7B /* DMHeatMapViewController.h */,
+				2B1E44B2152483E10060DD7B /* DMHeatMapViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1050,7 +1137,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2BBA58AC14DABB67005DEAD5 /* PBXTargetDependency */,
 			);
 			name = "Discover Movies";
 			productName = "Discover Movies";
@@ -1078,8 +1164,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 2BBA589214DABB1A005DEAD5 /* Products */;
-					ProjectRef = 2BBA589114DABB1A005DEAD5 /* GData.xcodeproj */;
+					ProductGroup = 2B3D6838150F6208007B7DAD /* Products */;
+					ProjectRef = 2B3D6837150F6208007B7DAD /* facebook-ios-sdk.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1090,39 +1176,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2BBA589E14DABB1A005DEAD5 /* GData.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = GData.framework;
-			remoteRef = 2BBA589D14DABB1A005DEAD5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2BBA58A014DABB1A005DEAD5 /* libGDataTouchStaticLib.a */ = {
+		2B3D6879150F6208007B7DAD /* libfacebook_ios_sdk.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libGDataTouchStaticLib.a;
-			remoteRef = 2BBA589F14DABB1A005DEAD5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2BBA58A214DABB1A005DEAD5 /* GDataUnitTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GDataUnitTests.octest;
-			remoteRef = 2BBA58A114DABB1A005DEAD5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2BBA58A414DABB1A005DEAD5 /* GDataIPhoneUnitTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GDataIPhoneUnitTests.octest;
-			remoteRef = 2BBA58A314DABB1A005DEAD5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2BBA58A614DABB1A005DEAD5 /* DevelopmentTestTool */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = DevelopmentTestTool;
-			remoteRef = 2BBA58A514DABB1A005DEAD5 /* PBXContainerItemProxy */;
+			path = libfacebook_ios_sdk.a;
+			remoteRef = 2B3D6878150F6208007B7DAD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1146,6 +1204,16 @@
 				2B5E8E0B14C8715B0049E9F0 /* play.png in Resources */,
 				2B5E8E0C14C8715B0049E9F0 /* buy.png in Resources */,
 				2B5627FD14CF720A00DD05E1 /* background.png in Resources */,
+				2BBE99FD14F556F40030DF8B /* film.png in Resources */,
+				2B6F381115064484004A1558 /* star_yellow.png in Resources */,
+				2B3D6812150F480A007B7DAD /* DMTableViewDetailViewController.xib in Resources */,
+				2B3D6866150F6208007B7DAD /* FBDialog.bundle in Resources */,
+				2B1E44A515236AEC0060DD7B /* shareIcon.png in Resources */,
+				2B1E44B5152483E10060DD7B /* DMHeatMapViewController.xib in Resources */,
+				2BC519791524B9F900942779 /* cosineIcon.png in Resources */,
+				2BC519871524C03400942779 /* green.jpg in Resources */,
+				2BC519881524C03400942779 /* red.png in Resources */,
+				2BC519891524C03400942779 /* yellow.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1185,18 +1253,24 @@
 				2BF282C514E2C40800407DA1 /* DMRecommendedMoviesDownloader.m in Sources */,
 				2B711D7614E97B250072904B /* DMTMDBSearcher.m in Sources */,
 				2B425A7D14F2A48100F25644 /* DMSearchResultsTableViewController.m in Sources */,
+				2B1AD15114FA726900F7229A /* DMRTSearcher.m in Sources */,
+				2B6F38141506635E004A1558 /* ITunesDownloader.m in Sources */,
+				2B3D680C150F47E1007B7DAD /* SpinnerView.m in Sources */,
+				2B3D6810150F47F9007B7DAD /* DMMovieFavoritesViewController.m in Sources */,
+				2B3D6817150F4826007B7DAD /* DMTableViewDetailViewController.m in Sources */,
+				2B3D6865150F6208007B7DAD /* Facebook.m in Sources */,
+				2B3D6867150F6208007B7DAD /* FBDialog.m in Sources */,
+				2B3D6868150F6208007B7DAD /* FBFrictionlessRequestSettings.m in Sources */,
+				2B3D6869150F6208007B7DAD /* FBLoginDialog.m in Sources */,
+				2B3D686A150F6208007B7DAD /* FBRequest.m in Sources */,
+				2BBF85701521E17B0053AC69 /* DMDetailedInfoParser.m in Sources */,
+				2B1E44A115235C980060DD7B /* DMHeatMapView.m in Sources */,
+				2B1E44A815246E810060DD7B /* DMHeatMapSubView.m in Sources */,
+				2B1E44B4152483E10060DD7B /* DMHeatMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2BBA58AC14DABB67005DEAD5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GDataTouchStaticLib;
-			targetProxy = 2BBA58AB14DABB67005DEAD5 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		72992961148690E100DC38FC /* InfoPlist.strings */ = {
@@ -1236,11 +1310,7 @@
 					"-DGDATA_REQUIRE_SERVICE_INCLUDES=1",
 					"DGDATA_INCLUDE_YOUTUBE_SERVICE=1",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lxml2",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1266,11 +1336,7 @@
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-DGDATA_INCLUDE_YOUTUBE_SERVICE=1",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lxml2",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -1284,16 +1350,18 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Discover Movies/Discover Movies-Prefix.pch";
 				INFOPLIST_FILE = "Discover Movies/Discover Movies-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Discover Movies\"",
+					"\"$(SRCROOT)/Discover Movies/facebook-ios-sdk\"",
+				);
 				OTHER_CFLAGS = (
 					"-DGDATA_INCLUDE_YOUTUBE_SERVICE=1",
 					"-DGDATA_REQUIRE_SERVICE_INCLUDES=1",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lxml2",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(BUILT_PRODUCTS_DIR)/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1305,17 +1373,20 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Discover Movies/Discover Movies-Prefix.pch";
 				INFOPLIST_FILE = "Discover Movies/Discover Movies-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Discover Movies\"",
+					"\"$(SRCROOT)/Discover Movies/facebook-ios-sdk\"",
+				);
 				OTHER_CFLAGS = (
 					"-DGDATA_REQUIRE_SERVICE_INCLUDES=1",
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-DGDATA_INCLUDE_YOUTUBE_SERVICE=1",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lxml2",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(BUILT_PRODUCTS_DIR)/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

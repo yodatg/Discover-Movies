@@ -5,6 +5,10 @@
 //  Created by Thomas Grant on 31/12/2011.
 //  Copyright (c) 2011 Reading University. All rights reserved.
 //
+//  Loads DMPosterViews and handles layout. Loaded by DMTopMoviesViewController
+//  
+//
+//
 
 #import <UIKit/UIKit.h>
 @protocol DMTopMoviePosterViewDelegate

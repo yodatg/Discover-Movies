@@ -9,7 +9,7 @@
 #import "DMMovie.h"
 
 @implementation DMMovie 
-@synthesize title, year, synopsis, abridgedCast, suggestedMovies, ratings, poster, movieID, youTubeURL;
+@synthesize title, year, synopsis, abridgedCast, suggestedMovies, ratings, poster, movieID, youTubeURL, allPosterURLs, movieMidsizeImageURL, profileImageURL, alternativeURL, genre, cosineVector, movieStudio, leadActorA, leadActorB;
 
 /*-------------------------------------------------------------
  * 
@@ -36,6 +36,12 @@
         self.suggestedMovies = [[NSMutableArray alloc] initWithArray:_suggestedMovies];
         [self setRatings: _ratings];
         [self setPoster: _poster];
+        allPosterURLs = [[NSArray alloc] init];
+        movieMidsizeImageURL = [[NSString alloc] init];
+        
+        NSNumber *zero = [NSNumber numberWithInt:0];
+        
+        cosineVector = [[NSMutableArray alloc] initWithObjects:zero, zero, zero, zero, zero, zero, zero, zero, zero, nil];
     }
     
     return self;
@@ -49,7 +55,7 @@
 
 - (NSString *)description {
     
-    return [NSString stringWithFormat:@"Title = %@ , Year = %@ , Synopsis = %@, Cast = %@, Rating = %@", title, year, synopsis, abridgedCast, ratings];
+    return [NSString stringWithFormat:@"Title = %@ , Year = %@ , Synopsis = %@, Cast = %@, Rating = %@, Genres = %@", title, year, synopsis, abridgedCast, ratings, genre];
 }
 
 - (NSString *)topActors {
@@ -81,4 +87,34 @@
     return actorString;
 }
 
+- (void)encodeWithCoder:(NSCoder *)coder;
+{
+    [coder encodeObject:movieID forKey:@"movieID"];
+    [coder encodeObject:title forKey:@"title"];
+    [coder encodeObject:year forKey:@"year"];
+    [coder encodeObject:synopsis forKey:@"synopsis"];
+    [coder encodeObject:abridgedCast forKey:@"abridgedCast"];
+    [coder encodeObject:suggestedMovies forKey:@"suggestedMovies"];
+    [coder encodeObject:ratings forKey:@"ratings"];
+    [coder encodeObject:poster forKey:@"poster"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder;
+{
+    self = [[DMMovie alloc] init];
+    if (self != nil)
+    {
+        movieID = [coder decodeObjectForKey:@"movieID"];
+         title = [coder decodeObjectForKey:@"title"];
+         year = [coder decodeObjectForKey:@"year"];
+         synopsis = [coder decodeObjectForKey:@"synopsis"];
+         abridgedCast = [coder decodeObjectForKey:@"abridgedCast"];
+         suggestedMovies = [coder decodeObjectForKey:@"suggestedMovies"];
+         ratings = [coder decodeObjectForKey:@"ratings"];
+         poster = [coder decodeObjectForKey:@"poster"];
+        
+        
+    }   
+    return self;
+}
 @end

@@ -9,11 +9,24 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Discover Movies/DMTopMoviesViewController.m"
-         timestampString = "351446948.142285"
+         timestampString = "351621163.674166"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "38"
-         endingLineNumber = "38">
+         startingLineNumber = "40"
+         endingLineNumber = "40">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../Documents/DM_WithYoutube_LATEST/Discover Movies/Discover Movies/DMDetailViewController.h"
+         timestampString = "354537624.378368"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "62"
+         endingLineNumber = "62"
+         landmarkName = "calculateCosineSimilarityButton"
+         landmarkType = "19">
       </FileBreakpoint>
    </FileBreakpoints>
    <ExceptionBreakpoints>

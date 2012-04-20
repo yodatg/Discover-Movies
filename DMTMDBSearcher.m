@@ -12,10 +12,11 @@
 #import "SBJSON.h"
 #import "DMMovie.h"
 #import "DMMyImageDownloader.h"
+#import "DMMovieStore.h"
 
 
 @implementation DMTMDBSearcher
-@synthesize returnedMovies, connections, moviesToParse, delegate;
+@synthesize returnedMovies, connections, moviesToParse, delegate, rtSearcher, cast, trailer;
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Private interface definitions
@@ -24,6 +25,9 @@
 - (void)recommendedMoviesDownloadFinished: (NSNotification *)n;
 - (void)parseMovieFeedWithData:(NSData *)data;
 - (void)parseReturnedMovies:(NSNotification *)notification;
+- (void)extractDetailedInfo:(NSNotification *)n;
+- (NSArray *)extractActors:(NSDictionary *)dict;
+
 @end
 
 
@@ -41,6 +45,9 @@
     return self;
 }
 
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 
 - (void)searchForMovie:(NSString *)movieTitle {
     
@@ -67,6 +74,9 @@
     
     
 }
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 
 - (void)parseReturnedMovies: (NSNotification *)notification {
     
@@ -78,6 +88,7 @@
         
         NSLog(@"Error");
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
     }
     // else if notification name @"downloadFinished"
     else if ([n name] == @"downloadFinished") {
@@ -87,34 +98,17 @@
         NSLog(@"Data downloaded");
         [self parseMovieFeedWithData:data];
         [self.connections removeObject:d];
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
         
     }
-    // else if notification name @"imageDownloaded"
-    else if ([n name] == @"imageDownloaded") {
-        
-        DMMyImageDownloader *d = [n object];
-        UIImage *im = [d image];
-        
-        // extract the correct movie for the corresponding poster 
-        DMMovie *m = [self.moviesToParse objectAtIndex:[[d tag] intValue]];
-        [m setPoster:im];
-        numberOfMovies--;
-        //NSLog(@"Number of movies = %d", numberOfMovies);
-        if(numberOfMovies == 0){
-            
-            [self.connections removeAllObjects];
-            [self.delegate searcherFinishedSearchingWithMovies:self.moviesToParse];
-            [self.moviesToParse removeAllObjects];
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-            [[NSNotificationCenter defaultCenter] removeObserver:self]; 
-            
-        }
-
-        
-    }
+   
+    
 
     
 }
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 
 - (void)parseMovieFeedWithData:(NSData *)d {
     
@@ -135,36 +129,42 @@
     
     
     else{
+        
         int counter = 0;
         
     for(NSDictionary *dict in results){
-        
-                
+               
         NSArray *allImages = [dict objectForKey:@"posters"];
+        NSString *movieID = [dict objectForKey:@"id"];
+        NSString *movieTitle = [dict objectForKey:@"original_name"];
+        
+        NSString *year = [NSString stringWithFormat:@"%@",[dict objectForKey:@"released"]];
+        NSString *parsedYear = [year substringToIndex:4];
+        NSString *url;
         
         if([allImages count] != 0){
-            numberOfMovies++;
-            NSLog(@"all images = %@", allImages);
-            NSDictionary *thumbDict = [allImages objectAtIndex:0];
-            NSDictionary *imageDict = [thumbDict objectForKey:@"image"];
+            
+            NSDictionary *posterDict = [allImages objectAtIndex:2];
+            NSDictionary *imageDict = [posterDict objectForKey:@"image"];
             
             NSString *urlString = [NSString stringWithFormat:[imageDict objectForKey:@"url"]];
-            NSURL *url = [NSURL URLWithString:urlString];
+    
+            url = urlString;
             
-            NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5];
-            
-            
-            DMMyImageDownloader *imageDownloader = [[DMMyImageDownloader alloc] initWithRequest:request andTag:[[NSNumber alloc] initWithInt:counter]];
-            
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(parseReturnedMovies:) name:@"imageDownloaded" object:imageDownloader];
-            
-            [imageDownloader.connection start];
-            
-            [self.connections addObject:imageDownloader];
+        }
+
+       
+        
+        NSString *synopsis = [dict objectForKey:@"overview"];
+        
+              
             
             
-            
-            DMMovie *movie = [[DMMovie alloc] initWithID:[dict objectForKey:@"id"] title:[dict objectForKey:@"original_name"] year:[dict objectForKey:@"released"] synopsis:[dict objectForKey:@"overview"] abridgedCast:nil suggestedMovieIDs:nil ratings:nil poster:nil];
+        DMMovie *movie = [[DMMovie alloc] initWithID:movieID title:movieTitle year:parsedYear synopsis:synopsis abridgedCast:nil suggestedMovieIDs:nil ratings:nil poster:nil];
+        [movie setAllPosterURLs:allImages];
+        [movie setMovieMidsizeImageURL:url];
+        
+        
             [self.moviesToParse addObject:movie];
             counter++;
             
@@ -174,15 +174,119 @@
             
         }
         
-                
-        
         
     }
-        
-    }
-    
+
+[self.delegate searcherFinishedSearchingWithMovies:self.moviesToParse];
+//[[NSNotificationCenter defaultCenter] removeObserver:self];
 
 }
 
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+-(void)getDetailedMovieInfoForMovie:(DMMovie *)movie {
 
+NSLog(@"other movie = %@", movie);
+
+NSString *url = [NSString stringWithFormat:@"http://api.themoviedb.org/2.1/Movie.getInfo/en/json/%@/%@", kTMDBAPIKey, [movie movieID]];
+
+
+NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5];
+
+DMMyDownloader *d = [[DMMyDownloader alloc] initWithRequest:request];
+
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(extractDetailedInfo:) name:@"downloadFinished" object:d];
+
+[self.connections addObject: d];
+
+// Registering with the notification center - will parse movies using DMMovieParser when 
+// "downloadFinished" notification is posted to the center from the downloader object
+
+rtSearcher = [[DMRTSearcher alloc] init];
+rtSearcher.delegate = self;
+//[rtSearcher getRatingsForMovie:movie];
+// start the download
+NSLog(@"starting download");
+[d.connection start];
+
+
+}
+
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+- (void)extractDetailedInfo:(NSNotification *)n {
+
+NSData *data = nil;
+
+DMMyDownloader *d = [n object];
+data = [d receivedData];
+NSLog(@"Data downloaded");
+[self.connections removeObject:d];
+
+// Create our JSON string from the data
+NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
+
+
+// Parse the JSON string using SBJason
+NSMutableArray *results = [responseString JSONValue];
+
+for(NSDictionary *dict in results){
+    
+    trailer = [dict objectForKey:@"trailer"];
+    
+    NSLog(@"trailer URL = %@", trailer);
+    NSLog(@"notifying delegate");
+    cast = [self extractActors:dict];
+    
+}
+
+//[[NSNotificationCenter defaultCenter] removeObserver:self];
+
+}
+
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+
+- (NSArray *)extractActors:(NSDictionary *)dict {
+
+    NSArray *actors = [dict objectForKey:@"cast"];
+    NSMutableArray *castParsed = [[NSMutableArray alloc] init];
+    int counter = 0;
+
+for(NSDictionary *obj in actors){
+    if(counter < 5){
+        if([[obj valueForKey:@"job"] isEqualToString:@"Actor"]){
+            
+            [castParsed addObject:obj];
+            
+            
+        }
+        
+    }
+    
+}
+
+return castParsed;
+}
+
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+
+-(void)DMRTSearcherFinishedSearchingAndReturnedMovies:(NSArray *)movie {
+
+if([movie count] != 0){
+    DMMovie *m = [movie objectAtIndex:0];
+    NSLog(@"m ratings = %@", [m ratings]);
+    [[[DMMovieStore defaultStore]movie] setRatings:[m ratings]];
+    
+
+}
+[self.delegate searcherFinishedFindingYoutubeURL:self.trailer andActors:self.cast];
+
+}
 @end

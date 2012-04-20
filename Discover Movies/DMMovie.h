@@ -5,6 +5,10 @@
 //  Created by Thomas Grant on 08/12/2011.
 //  Copyright (c) 2011 Reading University. All rights reserved.
 //
+//  Custom object used to store movie data
+//  
+//
+//
 
 #import <Foundation/Foundation.h>
 
@@ -18,6 +22,11 @@
     NSMutableArray *suggestedMovies;
     NSDictionary *ratings;
     UIImage *poster;
+    NSArray *genre;
+    NSMutableArray *cosineVector;
+    NSString *movieStudio;
+    NSString *leadActorA;
+    NSString *leadActorB;
     
 }
 @property (nonatomic, strong) NSString *movieID;
@@ -28,7 +37,16 @@
 @property (nonatomic, strong) NSMutableArray *suggestedMovies;
 @property (nonatomic, strong) NSDictionary *ratings;
 @property (nonatomic, strong) UIImage *poster;
+@property (nonatomic, strong) NSArray *allPosterURLs;
+@property (nonatomic, strong) NSString *movieMidsizeImageURL;
 @property (nonatomic, strong) NSString *youTubeURL;
+@property (nonatomic, strong) NSString *alternativeURL;
+@property (nonatomic, strong) NSString *profileImageURL;
+@property (nonatomic, strong) NSArray *genre;
+@property (nonatomic, strong) NSMutableArray *cosineVector;
+@property (nonatomic, strong) NSString *movieStudio;
+@property (nonatomic, strong) NSString *leadActorA;
+@property (nonatomic, strong) NSString *leadActorB;
 
 - (id) initWithID: (NSString *)_movieID 
             title: (NSString *)_title 

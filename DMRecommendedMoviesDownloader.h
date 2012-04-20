@@ -5,13 +5,17 @@
 //  Created by Thomas Grant on 08/02/2012.
 //  Copyright (c) 2012 Reading University. All rights reserved.
 //
+//  Downloads and parses recommended movies for movie passed into constructor
+//  
+//
+//
 
 #import <Foundation/Foundation.h>
 #import "DMMovieParser.h"
 #import "DMMovie.h"
 
 @protocol DMRecommendedMoviesDownloaderDelegate
-- (void)recommendedMoviesDownloaded:(NSArray *)movies forMovieID:(NSString *)movieID;
+- (void)recommendedMoviesDownloaded:(NSMutableArray *)movies forMovieID:(NSString *)movieID;
 @end
 @interface DMRecommendedMoviesDownloader : NSObject <DMMovieParserDelegate> {
     

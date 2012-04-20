@@ -8,10 +8,23 @@
 
 #import "DMSearchResultsTableViewController.h"
 #import "DMMovieStore.h"
+//#import "UIImageView+WebCache.h"
+#import "DMTableViewDetailViewController.h"
+#import "DMTMDBSearcher.h"
+#import "DMMovie.h"
 
+const CGFloat LABEL_HEIGHT = 20;
 
 @implementation DMSearchResultsTableViewController
 @synthesize delegate;
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * Private interface definitions
+ *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+@interface DMSearchResultsTableViewController(Private)
+- (void)createAndConfigureDetailViewControllerForMovie:(DMMovie *)m;
+@end
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -20,6 +33,8 @@
         NSLog(@"Table view initialised");
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
+        movieStore = [DMMovieStore defaultStore];
+        
                 
     }
     return self;
@@ -82,17 +97,16 @@
     
     // Configure the cell...
     //int index = [indexPath indexAtPosition:1];
-    NSString *movieTitle = [NSString stringWithFormat:[[[[DMMovieStore defaultStore] searchResults]objectAtIndex:indexPath.row] title]];
+    DMMovie *movie = [[[DMMovieStore defaultStore] searchResults]objectAtIndex:indexPath.row];
+                [cell.imageView setImage:[movie poster]];
+
+            
     
+    
+    
+    [[cell textLabel] setText:[movie title]];
 
-    UIImage *movieImage = [[[[DMMovieStore defaultStore] searchResults] objectAtIndex:indexPath.row]poster];
-    if ([[[[DMMovieStore defaultStore] searchResults] objectAtIndex:indexPath.row]poster] == nil) {
-        NSLog(@"NO IMAGE");
-    }
-    [[cell imageView] setImage:movieImage];
-    [[cell textLabel] setText:movieTitle];
-
-        
+    
     return cell;
 }
 
@@ -139,18 +153,60 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
+    NSInteger movieIndex = indexPath.row;
+    DMMovie *movie = [[movieStore searchResults] objectAtIndex:movieIndex];
+    [self createAndConfigureDetailViewControllerForMovie:movie];
      // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+     
+     
 }
+
+- (void)createAndConfigureDetailViewControllerForMovie:(DMMovie *)movie {
+    
+    DMMovie *m = movie;
+    
+        
+    // gather out movie info
+    NSString *mTitle = [m title];
+    NSString *mYear = [m year];
+    //NSString *mTitleWithYear = [NSString stringWithFormat:@"%@ (%@)", mTitle, mYear];
+    UIImage *mPoster = [m poster];
+    NSString *mCriticsRating = [NSString stringWithFormat:@"%@",[[m ratings] valueForKey:@"critics_score"]];
+    NSString *mAudienceRating = [NSString stringWithFormat:@"%@", [[m ratings] valueForKey:@"audience_score"]];
+
+    NSString *mSynopsis = [NSString stringWithFormat:@"%@", [m synopsis]];
+    if([mSynopsis isEqualToString:@"(null)"]){
+    mSynopsis = @"";
+    }
+    
+    NSString *mActors = [m topActors];
+    
+    [movieStore downloadRecommendedMoviesForMovie:m];
+    
+    
+    
+    DMTableViewDetailViewController *detailVC = [[DMTableViewDetailViewController alloc] init];
+    [detailVC setTitle:mTitle];
+    [detailVC setMovieTitle:mTitle];
+    [detailVC setCriticsScore:[[NSString alloc] initWithFormat:@"%@%%", mCriticsRating]];
+    [detailVC setAudienceScore:[[NSString alloc] initWithFormat:@"%@%%", mAudienceRating]];
+    [detailVC setActors:[[NSString alloc] initWithFormat:@"Starring: %@", mActors]];
+    [detailVC setSynopsis:mSynopsis];
+    [detailVC setPoster:mPoster];
+    [detailVC setMovieBeingDisplayed:m];
+    [detailVC setMovieYear:mYear];
+    
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+}
+
 
 - (void)doneButtonTouched {
     
     [self.delegate doneButtonTouched];
+[movieStore.searchResults removeAllObjects];
 
 }
 

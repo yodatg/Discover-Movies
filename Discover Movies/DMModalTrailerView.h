@@ -5,6 +5,10 @@
 //  Created by Thomas Grant on 01/02/2012.
 //  Copyright (c) 2012 Reading University. All rights reserved.
 //
+//  Custom View that presents a UIWebView that loads a YouTube trailer
+//  
+//
+//
 
 #import <UIKit/UIKit.h>
 @protocol DMModelTrailerViewDelegate

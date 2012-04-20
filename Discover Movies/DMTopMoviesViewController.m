@@ -13,7 +13,7 @@
 int static kScrollViewPage;
 
 @implementation DMTopMoviesViewController
-@synthesize scrollView, pageControl, searchBar, searchView, searchNavController;
+@synthesize scrollView, pageControl, searchBar, searchView, searchNavController, loadingLabel, favViewController, favPopoverController, favBarButton;
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -25,6 +25,10 @@ int static kScrollViewPage;
 - (void)addDetailViewController:(NSNotification *)notification;
 - (void)createAndConfigureDetailViewControllerForMovie:(DMMovie *)m;
 - (void)presentSearchView;
+- (void)keyboardWillShow:(NSNotification *)notification;
+- (void)keyboardWillBeHidden:(NSNotification *)notification;
+- (void)openFavorites:(id)sender;
+- (void)noMoviesFound;
 @end
 
 #pragma mark - Private Methods
@@ -47,12 +51,18 @@ int static kScrollViewPage;
     
     // if PORTRAIT
     if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown) {
-        
         topMoviesView = [[DMTopMoviePosterView alloc] initViewWithImagesInPortrait:moviePosters];
+        [topMoviesView setAlpha:0.0];
         [topMoviesView setDelegate:self];
         [scrollView addSubview:topMoviesView];
-        UIActivityIndicatorView *tmpimg = (UIActivityIndicatorView *)[self.view viewWithTag:200];
-        [tmpimg removeFromSuperview];
+        [av removeFromSuperview];
+         [loadingLabel removeFromSuperview];
+        loadingLabel.hidden = YES;
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:1.0];
+        [topMoviesView setAlpha:1.0];
+        [UIView commitAnimations];
         
     }
     
@@ -60,17 +70,23 @@ int static kScrollViewPage;
     else if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeLeft ||[UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight) {
         
         topMoviesView = [[DMTopMoviePosterView alloc] initViewWithImagesInLandscape:moviePosters];
+        [topMoviesView setAlpha:0.0];
         [topMoviesView setDelegate:self];
         [scrollView addSubview:topMoviesView];
-        UIActivityIndicatorView *tmpimg = (UIActivityIndicatorView *)[self.view viewWithTag:200];
-        [tmpimg removeFromSuperview];
+        [av removeFromSuperview];
+        [loadingLabel removeFromSuperview];
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:1.0];
+        [topMoviesView setAlpha:1.0];
+        [UIView commitAnimations];
+
         
         
     }
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-}
+    //[[NSNotificationCenter defaultCenter] removeObserver:self];
+    }
 
 /*-------------------------------------------------------------
  *
@@ -91,8 +107,8 @@ int static kScrollViewPage;
 - (void)createAndConfigureDetailViewControllerForMovie:(DMMovie *)m {
     // gather out movie info
     NSString *mTitle = [m title];
-    NSString *mYear = [m year];
-    NSString *mTitleWithYear = [NSString stringWithFormat:@"%@ (%@)", mTitle, mYear];
+    //NSString *mYear = [m year];
+    //NSString *mTitleWithYear = [NSString stringWithFormat:@"%@ (%@)", mTitle, mYear];
     UIImage *mPoster = [m poster];
     NSString *mCriticsRating = [NSString stringWithFormat:@"%@",[[m ratings] valueForKey:@"critics_score"]];
     NSString *mAudienceRating = [NSString stringWithFormat:@"%@", [[m ratings] valueForKey:@"audience_score"]];
@@ -106,12 +122,13 @@ int static kScrollViewPage;
     
     detailVC = [[DMDetailViewController alloc] init];
     [detailVC setTitle:mTitle];
-    [detailVC setMovieTitle:mTitleWithYear];
+    [detailVC setMovieTitle:mTitle];
     [detailVC setCriticsScore:[[NSString alloc] initWithFormat:@"%@%%", mCriticsRating]];
     [detailVC setAudienceScore:[[NSString alloc] initWithFormat:@"%@%%", mAudienceRating]];
     [detailVC setActors:[[NSString alloc] initWithFormat:@"Starring: %@", mActors]];
     [detailVC setSynopsis:mSynopsis];
     [detailVC setPoster:mPoster];
+    [detailVC setMovieBeingDisplayed:m];
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
@@ -159,6 +176,15 @@ int static kScrollViewPage;
         // addPosterView will be called when the posters finish downloading
         // and the "topMoviesDownloaded" notification is posted to the center
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addPosterView) name:@"topMoviesDownloaded" object:movieStore];
+        
+        
+        // subscribe to keyboard notifications
+        
+        
+                
+        
+
+              
         
         [self.view addSubview:scrollView];
         
@@ -265,13 +291,27 @@ int static kScrollViewPage;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIActivityIndicatorView  *av = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    av.frame = CGRectMake(round((self.view.frame.size.width - 25) / 2), round((self.view.frame.size.height - 25) / 2), 25, 25);
-    av.tag  = 200;
-    [self.view addSubview:av];
-    [av startAnimating];
 
-    
+av = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+av.frame = CGRectMake(round((self.view.bounds.size.width - 25) / 2), round((self.view.bounds.size.height - 25) / 2), 25, 25);
+av.tag  = 200;
+
+
+av.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
+
+loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake((self.view.frame.size.width - 60)/2  , 515, 400, 40)];
+[loadingLabel setFont:[UIFont fontWithName:@"Arial" size:20.0f]];
+[loadingLabel setText:@"Loading..."];
+[loadingLabel setBackgroundColor:[UIColor clearColor]];
+[loadingLabel setTextColor:[UIColor whiteColor]];
+loadingLabel.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
+[self.view addSubview:av];
+[self.view addSubview:loadingLabel];
+[av startAnimating];
+
+
+
+   
 }
 
 /*-------------------------------------------------------------
@@ -281,12 +321,17 @@ int static kScrollViewPage;
     
         
     CGRect searchRect = CGRectMake(0, 0, self.navigationController.toolbar.frame.size.width/3, self.navigationController.toolbar.frame.size.height);
-
+    favBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"star.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(openFavorites:)];
     
     self.searchBar = [[UISearchBar alloc] initWithFrame:searchRect];
     UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithCustomView:self.searchBar];
     [self.navigationItem setRightBarButtonItem:bbi]; 
+    [self.navigationItem setLeftBarButtonItem:favBarButton];
     self.searchBar.delegate = self;
+
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+
     
     
     // if PORTRAIT
@@ -306,7 +351,7 @@ int static kScrollViewPage;
         scrollView.contentSize = CGSizeMake((768 * 3), 1024);
         [scrollView setContentOffset:CGPointMake(xOffset,0)];
         
-        
+                
         [topMoviesView rotateToPortrait];
         
         
@@ -327,7 +372,8 @@ int static kScrollViewPage;
         CGFloat xOffset = (kScrollViewPage * scrollView.frame.size.width);
         [scrollView setContentOffset:CGPointMake(xOffset,0)];
         
-        scrollView.contentSize = CGSizeMake((1024 * 3), 768);  
+        scrollView.contentSize = CGSizeMake((1024 * 3), 768); 
+        
         
         
         [topMoviesView rotateToLandscape];
@@ -341,11 +387,22 @@ int static kScrollViewPage;
 /*-------------------------------------------------------------
  *
  *------------------------------------------------------------*/
+- (void)viewDidDisappear:(BOOL)animated {
+
+[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+ [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
 
 - (void)viewDidUnload
 {
     [self setPageControl:nil];
     [super viewDidUnload];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -355,23 +412,19 @@ int static kScrollViewPage;
  *------------------------------------------------------------*/
 
 - (void)presentSearchView {
+
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Search Completed" message:@"YES!" delegate:nil cancelButtonTitle:@"GREAT!" otherButtonTitles:nil, nil];
-    //[alert show];
     
     searchView = [[DMSearchResultsTableViewController alloc] init];
     searchView.delegate = self;
-    [searchView setModalPresentationStyle:UIModalPresentationFormSheet];
     searchNavController = [[UINavigationController alloc] initWithRootViewController:searchView];
     [[searchNavController navigationBar] setBarStyle:UIBarStyleBlackTranslucent];
-    [searchNavController setModalPresentationStyle:UIModalPresentationFormSheet];
+    [searchNavController setModalPresentationStyle:UIModalPresentationFullScreen];
    
     
     [self presentModalViewController:searchNavController animated:YES];
+    [spinner removeSpinner];
     
-
-
     
 }
 
@@ -410,11 +463,19 @@ int static kScrollViewPage;
  *------------------------------------------------------------*/
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+
+    [self.searchBar resignFirstResponder];
     NSLog(@"search bar ended editiing");
     NSString *searchTerm = self.searchBar.text;
+    searchTerm = [searchTerm stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    spinner = [SpinnerView loadSpinnerIntoView:self.view];
+
     
     [movieStore searchMovieDatabaseForMovieTitle:searchTerm];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noMoviesFound) name:@"noMoviesFound" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentSearchView) name:@"searchFinished" object:movieStore];
+    
+
     
 }
 
@@ -423,7 +484,6 @@ int static kScrollViewPage;
  *------------------------------------------------------------*/
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    
     NSLog(@"Text being inserted");
 }
 
@@ -435,8 +495,98 @@ int static kScrollViewPage;
     
     
     [self.searchNavController dismissModalViewControllerAnimated:YES];
+    [overlay removeFromSuperview];
     //self.searchView = nil;
 
 }
 
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+- (void)keyboardWillBeHidden:(NSNotification *)notification {
+
+overlay.alpha = 0.5f;
+
+[UIView setAnimationDuration:0.5f];
+[UIView beginAnimations:nil context:nil];
+overlay.alpha = 0;
+[UIView commitAnimations];
+[overlay performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:0.5];
+overlayPresent = NO;
+
+NSLog(@"Keyboard hidden");
+}
+
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+- (void)keyboardWillShow:(NSNotification *)notification {
+
+overlay = [[UIView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height)];
+overlay.backgroundColor = [UIColor blackColor];
+overlay.alpha = 0.0f;
+
+[UIView setAnimationDuration:0.5f];
+[UIView beginAnimations:nil context:nil];
+overlay.alpha = 0.5f;
+[self.view addSubview:overlay];
+[UIView commitAnimations];
+overlayPresent = YES;
+
+NSLog(@"Keyboard shown");
+}
+
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+
+- (void)openFavorites:(id)sender {
+
+NSLog(@"opening favorites");
+
+if(self.favViewController == nil){
+    self.favViewController = [[DMMovieFavoritesViewController alloc] initWithStyle:UITableViewStylePlain];
+    favViewController.delegate = self;
+    
+    self.favPopoverController = [[UIPopoverController alloc] initWithContentViewController:favViewController];
+}
+    
+[(UITableView *)favViewController.view reloadData];
+[self.favPopoverController presentPopoverFromBarButtonItem:sender 
+                                permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+
+
+}
+
+
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+
+- (void)movieSelectedAtIndex:(NSInteger)index {
+
+    DMMovie *m = [[movieStore favoriteMovies] objectAtIndex:index];
+    [favPopoverController dismissPopoverAnimated:YES];
+
+    [self createAndConfigureDetailViewControllerForMovie:m];
+
+
+}
+
+/*-------------------------------------------------------------
+ *
+ *------------------------------------------------------------*/
+-(void)noMoviesFound {
+
+[UIView setAnimationDuration:0.5f];
+[UIView beginAnimations:nil context:nil];
+[spinner removeSpinner];
+[UIView commitAnimations];
+
+UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"No movies could be found - please try another search term" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+[alert show];
+[[NSNotificationCenter defaultCenter] removeObserver:self name:@"noMoviesFound" object:nil];
+
+}
 @end

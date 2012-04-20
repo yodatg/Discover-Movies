@@ -83,6 +83,7 @@
         
         NSLog(@"Error");
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
     }
     // else if notification name @"downloadFinished"
     else if ([notif name] == @"downloadFinished") {
@@ -93,6 +94,7 @@
         [self.connections removeObject:d];
         [self parseMovieFeedWithData:data];
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
         
     }
 

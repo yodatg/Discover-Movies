@@ -5,6 +5,10 @@
 //  Created by Thomas Grant on 08/02/2012.
 //  Copyright (c) 2012 Reading University. All rights reserved.
 //
+//  Parses the blob of JSON data passed into the constructor
+//  
+//
+//
 
 #import <Foundation/Foundation.h>
 

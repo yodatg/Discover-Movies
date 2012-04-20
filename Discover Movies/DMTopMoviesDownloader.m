@@ -84,6 +84,7 @@
         
         NSLog(@"Error");
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
     }
      // else if notification name @"downloadFinished"
     else if ([n name] == @"downloadFinished") {

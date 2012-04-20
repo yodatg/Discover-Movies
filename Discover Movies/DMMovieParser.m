@@ -11,6 +11,7 @@
 #import "DMMovie.h"
 #import "DMMyImageDownloader.h"
 
+
 @implementation DMMovieParser 
 
 @synthesize data, connections, moviesToParse, delegate;
@@ -33,7 +34,7 @@
         self.data = [[NSData alloc] initWithData:d];
         self.connections = [[NSMutableArray alloc] init];
         self.moviesToParse = [[NSMutableArray alloc] init];
-         
+                 
     }
     
     return self;
@@ -52,9 +53,15 @@
     // Create an array of movies using key "movies"
     NSArray *movies = [results objectForKey:@"movies"];
     numberOfMovies = [movies count];
-    
+NSLog(@"IN PARSER");
     // Just to check we have the correct number of movies
     NSLog(@"Number of movies = %d", numberOfMovies);
+    if(numberOfMovies == 0){
+    
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"noRecommendedMoviesFound" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"noMoviesFound" object:nil];
+    
+    }
    
     // Parse our movies
     for (int i = 0; i < [movies count]; i++) {
@@ -68,7 +75,21 @@
         NSString *movieID = (NSString *) [aMovie valueForKey:@"id"];
         NSString *movieTitle = (NSString *) [aMovie valueForKey:@"title"];
         NSString *movieYear = (NSString *) [aMovie valueForKey:@"year"];
+        
+        
+       // extract actors
+        //NSArray *actors = (NSArray *) [aMovie valueForKey:@"abridged_cast"];
+       
+        
+    
         NSString *movieSynopsis = (NSString *) [aMovie valueForKey:@"synopsis"];
+               
+        // check to see if synopsis is null
+        if(movieSynopsis.length == 0){
+            movieSynopsis = (NSString *) [aMovie valueForKey:@"critics_consensus"];
+        }
+        
+        
         NSArray *abridgedCast = (NSArray *)[aMovie valueForKey:@"abridged_cast"];
         NSDictionary *ratings = (NSDictionary *) [aMovie valueForKey:@"ratings"];
         
@@ -76,11 +97,16 @@
         NSDictionary *posters = (NSDictionary *)[aMovie valueForKey:@"posters"];
         NSString *moviePosterURL = [posters objectForKey:@"detailed"];
         
+        NSDictionary *links = (NSDictionary *) [aMovie valueForKey:@"links"];
+        NSString *alternatePage = [links objectForKey:@"alternate"];
+        
         NSURL *url = [NSURL URLWithString:moviePosterURL];
         NSURLRequest *req = [[NSURLRequest alloc] initWithURL:url];
         
         // Create movie object with info from data object
         DMMovie *movie = [[DMMovie alloc] initWithID:movieID title:movieTitle year:movieYear synopsis:movieSynopsis abridgedCast:abridgedCast suggestedMovieIDs:nil ratings:ratings poster:nil];
+        [movie setAlternativeURL:alternatePage];
+        [movie setProfileImageURL:moviePosterURL];
         
         // add movie to our array for further parsing (setting image etc)
         [self.moviesToParse addObject:movie];

@@ -5,6 +5,10 @@
 //  Created by Thomas Grant on 05/12/2011.
 //  Copyright (c) 2011 Reading University. All rights reserved.
 //
+//  View that loads an image to present a poster with a white border
+//  
+//
+//
 
 #import <UIKit/UIKit.h>
 

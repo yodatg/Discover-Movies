@@ -46,7 +46,7 @@
     
     if (self) {
         NSString *urlString = [_url absoluteString];
-        
+        NSLog(@"urlString = %@", _url);
         htmlString = [NSString stringWithFormat: @"<html><head><meta name = \"viewport\" content = \"initial-scale = 1.0, user-scalable = no, width = %d\"/></head><body style=\"background:#000;margin-top:44px;margin-left:0px\"><div><object width=\"%d\" height=\"%d\"><param name=\"movie\" value=\"%@\"></param><param name=\"wmode\" value=\"transparent\"></param><embed src=\"%@\"type=\"application/x-shockwave-flash\" wmode=\"transparent\" width=\"%d\" height=\"%d\"></embed></object></div></body></html>", 540, 540, 565, urlString, urlString, 540, 565];
         
         [webView loadHTMLString:htmlString baseURL:nil];
